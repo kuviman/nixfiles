@@ -115,4 +115,36 @@
   # TODO maybe enable? idk what it does really
   # Nicely reload system units when changing configs
   # systemd.user.startServices = "sd-switch";
+
+  programs.zsh = {
+    enable = true;
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    enableVteIntegration = true;
+    shellAliases = {
+      dots = "home-manager --flake $HOME/nixfiles";
+      nixos = "sudo nixos-rebuild --flake $HOME/nixfiles";
+      l = "lsd -la";
+      ls = "lsd";
+      lt = "lsd --tree";
+    };
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" ];
+      # theme = "bullet-train"; # Not needed since loaded manually
+    };
+    plugins = [
+      {
+        name = "oh-my-zsh-bullet-train";
+        file = "bullet-train.zsh-theme";
+        src = pkgs.fetchFromGitHub {
+          owner = "caiogondim";
+          repo = "bullet-train.zsh";
+          rev = "master";
+          sha256 = "sha256-EsoCrKXmAfhSNFvUka+BglBDXM1npef4ddg7SVScxSs=";
+        };
+      }
+    ];
+  };
 }

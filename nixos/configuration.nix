@@ -48,6 +48,7 @@
       ./hyperv.nix
       ./obs.nix
       ./android.nix
+      ./zsh.nix
     ];
 
   # Bootloader.
@@ -136,8 +137,9 @@
     rustup
     just
     nushell
-    pkg-config
-    alsa-lib
+  ];
+  environment.pathsToLink = [
+    "/share/zsh" # For zsh completions of system packages
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
