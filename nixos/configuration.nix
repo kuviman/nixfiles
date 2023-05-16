@@ -138,6 +138,7 @@
     just
     nushell
     vscode
+    ffmpeg-full # has ffplay
   ];
   environment.pathsToLink = [
     "/share/zsh" # For zsh completions of system packages
