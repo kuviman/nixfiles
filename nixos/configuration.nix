@@ -133,6 +133,11 @@
     bat
     glances
     alacritty
+    rustup
+    just
+    nushell
+    pkg-config
+    alsa-lib
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
