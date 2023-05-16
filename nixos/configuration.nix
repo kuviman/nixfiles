@@ -137,6 +137,7 @@
     rustup
     just
     nushell
+    vscode
   ];
   environment.pathsToLink = [
     "/share/zsh" # For zsh completions of system packages
