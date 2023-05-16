@@ -63,6 +63,8 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  time.hardwareClockInLocalTime = true; # For dual booting Windows
+
   # Enable networking
   networking.networkmanager.enable = true;
 
