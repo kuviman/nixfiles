@@ -141,7 +141,10 @@
     nushell
     vscode
     ffmpeg-full # has ffplay
+    piper # for Logitech G Pro
+    pavucontrol # Gui for controlling audio
   ];
+  services.ratbagd.enable = true; # for piper
   environment.pathsToLink = [
     "/share/zsh" # For zsh completions of system packages
   ];
@@ -149,6 +152,8 @@
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
+
+  services.xserver.libinput.mouse.accelProfile = "flat";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
