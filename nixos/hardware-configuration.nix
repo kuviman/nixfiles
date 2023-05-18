@@ -16,13 +16,13 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/2949b260-4b3c-46ad-a26b-39e57b9af8fa";
+      device = "/dev/disk/by-partuuid/be5a7a65-d27b-9c4b-a425-3c6b3d1cfda1";
       fsType = "ext4";
     };
 
-  fileSystems."/boot/efi" =
+  fileSystems."/boot" =
     {
-      device = "/dev/disk/by-uuid/510C-BE27";
+      device = "/dev/disk/by-partuuid/3cbc857d-6fc4-3e4b-84fb-9d7a94342cbe";
       fsType = "vfat";
     };
 
