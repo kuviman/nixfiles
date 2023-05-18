@@ -169,4 +169,9 @@
       window.opacity = 0.95;
     };
   };
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 }

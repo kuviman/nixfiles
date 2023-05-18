@@ -20,6 +20,12 @@
       # Deduplicate and optimize nix store
       auto-optimise-store = true;
     };
+
+    # For nix-direnv
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+    '';
   };
   nixpkgs = {
     # You can add overlays here
@@ -136,7 +142,6 @@
     bat
     glances
     alacritty
-    rustup
     just
     nushell
     vscode
