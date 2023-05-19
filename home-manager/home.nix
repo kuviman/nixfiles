@@ -73,7 +73,10 @@
   # plain files is through 'home.file'.
   home.file = {
     ".config/hypr/hyprland.conf".source = ./hyprland.conf;
-    ".config/nvim".source = ./nvim;
+    ".config/nixpkgs/config.nix".text = ''
+      { allowUnfree = true; }
+    '';
+    # TODO ".config/nvim".source = ./nvim;
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.

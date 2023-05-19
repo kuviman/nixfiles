@@ -55,6 +55,7 @@
       ./obs.nix
       ./android.nix
       ./zsh.nix
+      ./nvim.nix
     ];
 
   # Bootloader.
@@ -130,8 +131,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
-    neovide
     helix
     wget
     firefox
