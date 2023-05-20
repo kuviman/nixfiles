@@ -131,6 +131,7 @@
       l = "lsd -la";
       ls = "lsd";
       lt = "lsd --tree";
+      lim = "/home/kuviman/.local/bin/lvim";
     };
     oh-my-zsh = {
       enable = true;
