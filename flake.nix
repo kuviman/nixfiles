@@ -46,7 +46,7 @@
       };
 
       devShell.${system} = pkgs.mkShell {
-        buildInputs = with pkgs; [ rnix-lsp ];
+        buildInputs = with pkgs; [ nil ];
       };
 
       formatter.${system} = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;

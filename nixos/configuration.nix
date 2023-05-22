@@ -158,6 +158,8 @@
     pavucontrol # Gui for controlling audio
     waybar # Wayland bar
     swaylock # Wayland lock
+    hyprpaper # Background image
+    hyprpicker # Pick color from screen
 
     # Command line
     git # gud
@@ -198,6 +200,7 @@
     felix-fm # Tui file manager
     topgrade # Update everything
     kondo # Cleaner after you upgrade everything
+    any-nix-shell # Keep shell when in nix-shell (nix-shell is outdated tho so I should use smth else?)
 
     # Drawing
     inkscape

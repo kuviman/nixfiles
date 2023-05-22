@@ -10,6 +10,9 @@
   # release notes.
   home.stateVersion = "22.11"; # Please read the comment before changing.
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home = {
@@ -50,6 +53,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  # BUT I'M NOT USING THAT
   home.packages = [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
@@ -72,21 +76,14 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/hypr/hyprland.conf".source = ./hyprland.conf;
     ".config/nixpkgs/config.nix".text = ''
       { allowUnfree = true; }
     '';
-    # TODO ".config/nvim".source = ./nvim;
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    ".config/hypr/hyprland.conf".source = ./hyprland.conf;
+    # TODO ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
+    ".config/waybar".source = ./waybar;
+    ".config/wofi".source = ./wofi;
   };
 
   # You can also manage environment variables but you will have to manually
@@ -100,7 +97,8 @@
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
-    # EDITOR = "nvim";
+    SHELL = "zsh";
+    EDITOR = "nvim";
   };
 
   programs.git = {
@@ -112,12 +110,9 @@
     };
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # TODO maybe enable? idk what it does really
+  # TODO idk what it does really
   # Nicely reload system units when changing configs
-  # systemd.user.startServices = "sd-switch";
+  systemd.user.startServices = "sd-switch";
 
   programs.zsh = {
     enable = true;
@@ -131,7 +126,6 @@
       l = "lsd -la";
       ls = "lsd";
       lt = "lsd --tree";
-      lim = "/home/kuviman/.local/bin/lvim";
     };
     oh-my-zsh = {
       enable = true;

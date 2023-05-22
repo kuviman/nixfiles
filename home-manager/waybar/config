@@ -1,0 +1,121 @@
+{
+    "mode": "dock",
+    "height": 32,
+    "layer": "top",
+    "position": "top",
+    "spacing": 4,
+    "modules-left": [
+        "wlr/workspaces",
+        "hyprland/submap",
+        "keyboard-state",
+        "hyprland/language",
+        "clock",
+        "network",
+    ],
+    "modules-center": [
+        "hyprland/window",
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "cava",
+        "cpu",
+        "memory",
+        "disk",
+        "battery",
+        "tray",
+    ],
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 40,
+        "separate-outputs": true,
+    },
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{icon}{name}",
+        "format-icons": {
+            "locked": " ",
+            "unlocked": " ",
+        },
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "EN",
+        "format-ru": "RU",
+        "keyboard-name": "at-translated-set-2-keyboard",
+    },
+    "hyprland/submap": {
+        "format": "Mode: {}",
+        "tooltip": true,
+    },
+    "wlr/workspaces": {
+        "format": "{name}",
+        "disable-scroll": false,
+        "on-click": "activate",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": "",
+        },
+    },
+    "clock": {
+        "format-alt": "{:%Y-%m-%d %H:%M}",
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}% {format_source}",
+        "format-muted": "mute",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "mute",
+        "scroll-step": 1.0,
+        "on-click": "pavucontrol",
+        "format-source": " {volume}%",
+        "format-source-muted": " ",
+        "format-icons": {
+            "default": ["", "", ""],
+        },
+    },
+    "cava": {
+        "cava_config": "$HOME/.config/cava/config",
+        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+    },
+    "cpu": {
+         "format": " {usage}% {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
+         "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    },
+    "memory": {
+        "interval": 30,
+        "format": " {percentage}%",
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{used}",
+        "path": "/",
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": " {essid}({signalStrength}%)",
+        "format-ethernet": "Ethernet",
+        // "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
+        "format-alt": "{ifname}",
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "critical": 15,
+            "warning": 30
+        },
+        "format": "{icon}{capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [" ", " ", " ", " ", " "],
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10,
+    },
+}

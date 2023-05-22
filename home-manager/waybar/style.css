@@ -1,0 +1,74 @@
+* {
+  font-family: JetBrainsMono Nerd Font, bold;
+  font-weight: 900;
+  font-size: 32px;
+  color: #c0caf5;
+}
+
+/* Set background colour of main waybar window */
+window#waybar{
+  background: rgba(21, 22, 30, 0.5); /* #15161e; */
+}
+
+/* Set background colour of tooltips */
+tooltip {
+  background: #1e1e2e;
+}
+
+/* Set workspace text colour and padding */
+#workspaces button {
+  padding: 0px;
+  color: #c0caf5;
+  border-bottom: 2px solid #c0caf5;
+  margin-bottom: 2px;
+}
+
+/* Sets active workspace to have a solid line on the bottom */
+#workspaces button.active {
+  border-bottom: 2px solid #519fdf;
+  border-radius: 0px;
+  margin-bottom: 2px;
+}
+
+/* More workspace stuff for highlighting on hover */
+#workspaces button.focused {
+  color: #a6adc8;
+}
+
+#workspaces button.urgent {
+  color: #f7768e;
+}
+
+#workspaces button:hover {
+  background: #11111b;
+  color: #cdd6f4;
+}
+
+/* sets background, padding, margins, and borders for (all) modules */
+#workspaces,
+#window {
+  background: rgba(8, 16, 18, 0.8); /* #081012; */
+  padding: 0px 10px;
+  margin: 3px 0px;
+  border: 0px;
+}
+
+/* set up rounding to make these modules look like seperate pills */
+#tray {
+  border-radius: 8px 8px 8px 8px;
+  margin-right: 4px;
+}
+#workspaces {
+  border-radius: 8px 8px 8px 8px;
+  margin-left: 4px;
+}
+#language,
+#clock,
+#memory,
+#disk,
+#battery,
+#pulseaudio,
+#cpu,
+#window {
+  border-radius: 8px 8px 8px 8px;
+}

@@ -1,0 +1,15 @@
+width=33%
+/* height=300 */
+lines=6
+mode=drun
+filter_rate=100
+matching=contains
+insensitive=true
+term=alacritty
+allow_images=true
+allow_markup=true
+dmenu-parse_action=true
+drun-display_generic=true
+key_down=Tab
+key_expand=Right
+key_forward=Down
