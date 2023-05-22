@@ -160,6 +160,7 @@
     swaylock # Wayland lock
     hyprpaper # Background image
     hyprpicker # Pick color from screen
+    steam # GAMES
 
     # Command line
     git # gud

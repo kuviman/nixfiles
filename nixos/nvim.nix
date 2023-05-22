@@ -7,5 +7,8 @@
     neovide
     fd
     ripgrep # yep
+
+    rust-analyzer
+    nil # nix language server
   ];
 }

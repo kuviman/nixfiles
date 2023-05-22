@@ -2,6 +2,8 @@
 -- List of all default plugins & their definitions
 local default_plugins = {
 
+  "tpope/vim-fugitive", -- TODO wtf doesnt work
+
   "nvim-lua/plenary.nvim",
 
   -- nvchad plugins
