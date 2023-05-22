@@ -5,6 +5,17 @@
 { inputs, lib, config, pkgs, ... }:
 
 {
+  imports =
+    [
+      # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+      ./hyperv.nix
+      ./obs.nix
+      ./android.nix
+      ./zsh.nix
+      ./nvim.nix
+    ];
+
   nix = {
     # This will add each flake input as a registry
     # To make nix3 commands consistent with your flake
@@ -39,6 +50,13 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
+
+      # Waybar experimental features
+      (self: super: {
+        waybar = super.waybar.overrideAttrs (oldAttrs: {
+          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        });
+      })
     ];
     # Configure your nixpkgs instance
     config = {
@@ -46,17 +64,6 @@
       allowUnfree = true;
     };
   };
-
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./hyperv.nix
-      ./obs.nix
-      ./android.nix
-      ./zsh.nix
-      ./nvim.nix
-    ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -85,16 +92,26 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.gnome.enable = true; # I'm not using gnome tho, delete?
   services.xserver.displayManager.gdm.enable = true;
 
   programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
+    layout = "us,ru";
     xkbVariant = "";
   };
+
+  # Swaylock pam
+  security.pam.services.swaylock = {
+    text = ''
+      auth include login
+    '';
+  };
+
+  # Disable mouse acceleration
+  services.xserver.libinput.mouse.accelProfile = "flat";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -124,41 +141,79 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      #  firefox
+      # Why put packages here and not for every user?
     ];
   };
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # $ nix search wget # LOL ok but how can I make it work?
   environment.systemPackages = with pkgs; [
-    helix
-    wget
-    firefox
-    kitty # default on hyprland
-    wofi
-    wl-clipboard # required for clipboard to work in neovim
-    git
-    lsd
-    bat
-    glances
-    alacritty
-    just
-    nushell
-    vscode
+    firefox # Browsing the web 
+    tdesktop # Telegram
+    discord # Discord
+    wofi # like rofi - app runner for wayland
+    wl-clipboard # wl-copy, wl-paste, required for clipboard to work in neovim
     ffmpeg-full # has ffplay
     piper # for Logitech G Pro
     pavucontrol # Gui for controlling audio
+    waybar # Wayland bar
+    swaylock # Wayland lock
+
+    # Command line
+    git # gud
+    lazygit # Better git?
+    gitui # Better lazygit?
+    lsd # ls++
+    bat # cat++
+    alacritty # terminal
+    just # just command runner
+    curl # pretty sure its installed by default but anyway
+    wget # Downloading things from command line
+    neofetch # BTW
+    tokei # Scan project languages and lines of code
+    ripgrep # Grep the rip
+    fd # User-friendly find
+
+    # Coding
+    bacon # Background rust code checker
+
+    # Monitoring
+    # top already installed
+    bottom
+    htop
+    glances # This is what I actually use
+
+    # Probably unused should try some out maybe
+    helix # For when I'm done with neovim
+    kitty # Default on hyprland, can remove?
+    nushell # For when I'm done with zsh
+    vscode # If I can't figure out neovim
+    brightnessctl # TODO try on laptop
+    linux-wifi-hotspot # Nertsal uses that
+    cava # Audio visualizer
+    cmatrix # Matrix visualizer
+    xh # better curl?
+    xxh # Bring your shell through ssh
+    erdtree # File-tree visualizer and disk usage analyzer
+    felix-fm # Tui file manager
+    topgrade # Update everything
+    kondo # Cleaner after you upgrade everything
+
+    # Drawing
+    inkscape
+    gimp
+
+    # screenshots
+    grim # backend
+    flameshot
+    slurp
+    gscreenshot
   ];
   services.ratbagd.enable = true; # for piper
-  environment.pathsToLink = [
-    "/share/zsh" # For zsh completions of system packages
-  ];
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];
-
-  services.xserver.libinput.mouse.accelProfile = "flat";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -186,5 +241,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-
 }
