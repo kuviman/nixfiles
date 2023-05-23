@@ -161,6 +161,8 @@
     hyprpaper # Background image
     hyprpicker # Pick color from screen
     steam # GAMES
+    ntfs3g # to break windows for linux YEP
+    glxinfo # To test which opengl version I have
 
     # Command line
     git # gud
