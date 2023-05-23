@@ -14,6 +14,7 @@
       ./android.nix
       ./zsh.nix
       ./nvim.nix
+      ./amdgpu.nix
     ];
 
   nix = {
