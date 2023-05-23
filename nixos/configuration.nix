@@ -132,6 +132,11 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+  environment.etc."pipewire/pipewire.conf.d/stutter-fix.conf".text = ''
+    context.properties = {
+      default.clock.min-quantum = 256
+    }
+  '';
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
