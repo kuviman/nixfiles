@@ -1,74 +1,265 @@
+/* Keyframes */
+
+@keyframes blink-critical {
+	to {
+		/*color: @white;*/
+		background-color: @critical;
+	}
+}
+
+
+/* Styles */
+
+/* Colors (gruvbox) */
+@define-color black	#282828;
+@define-color red	#cc241d;
+@define-color green	#98971a;
+@define-color yellow	#d79921;
+@define-color blue	#458588;
+@define-color purple	#b16286;
+@define-color aqua	#689d6a;
+@define-color gray	#a89984;
+@define-color brgray	#928374;
+@define-color brred	#fb4934;
+@define-color brgreen	#b8bb26;
+@define-color bryellow	#fabd2f;
+@define-color brblue	#83a598;
+@define-color brpurple	#d3869b;
+@define-color braqua	#8ec07c;
+@define-color white	#ebdbb2;
+@define-color bg2	#504945;
+
+
+@define-color warning 	@bryellow;
+@define-color critical	@red;
+@define-color mode	@black;
+@define-color unfocused	@bg2;
+@define-color focused	@braqua;
+@define-color inactive	@purple;
+@define-color sound	@brpurple;
+@define-color network	@purple;
+@define-color memory	@braqua;
+@define-color cpu	@green;
+@define-color temp	@brgreen;
+@define-color layout	@bryellow;
+@define-color battery	@aqua;
+@define-color date	@black;
+@define-color time	@white;
+
+/* Reset all styles */
 * {
-  font-family: JetBrainsMono Nerd Font, bold;
-  font-weight: 900;
-  font-size: 32px;
-  color: #c0caf5;
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	icon-shadow: none;
 }
 
-/* Set background colour of main waybar window */
-window#waybar{
-  background: rgba(21, 22, 30, 0.5); /* #15161e; */
+/* The whole bar */
+#waybar {
+	background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
+	color: @white;
+	font-family: JetBrainsMono Nerd Font;
+	font-size: 20pt;
+	/*font-weight: bold;*/
 }
 
-/* Set background colour of tooltips */
-tooltip {
-  background: #1e1e2e;
-}
-
-/* Set workspace text colour and padding */
-#workspaces button {
-  padding: 0px;
-  color: #c0caf5;
-  border-bottom: 2px solid #c0caf5;
-  margin-bottom: 2px;
-}
-
-/* Sets active workspace to have a solid line on the bottom */
-#workspaces button.active {
-  border-bottom: 2px solid #519fdf;
-  border-radius: 0px;
-  margin-bottom: 2px;
-}
-
-/* More workspace stuff for highlighting on hover */
-#workspaces button.focused {
-  color: #a6adc8;
-}
-
-#workspaces button.urgent {
-  color: #f7768e;
-}
-
-#workspaces button:hover {
-  background: #11111b;
-  color: #cdd6f4;
-}
-
-/* sets background, padding, margins, and borders for (all) modules */
-#workspaces,
-#window {
-  background: rgba(8, 16, 18, 0.8); /* #081012; */
-  padding: 0px 10px;
-  margin: 3px 0px;
-  border: 0px;
-}
-
-/* set up rounding to make these modules look like seperate pills */
-#tray {
-  border-radius: 8px 8px 8px 8px;
-  margin-right: 4px;
-}
-#workspaces {
-  border-radius: 8px 8px 8px 8px;
-  margin-left: 4px;
-}
-#language,
-#clock,
-#memory,
-#disk,
+/* Each module */
 #battery,
-#pulseaudio,
+#clock,
 #cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#user,
+#mpris {
+	padding-left: 0.8em;
+	padding-right: 0.8em;
+}
+
+/* Each critical module */
+#mode,
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-name: blink-critical;
+	animation-duration: 1s;
+}
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning.discharging {
+	color: @warning;
+}
+
+/* And now modules themselves in their respective order */
+
+/* Current sway mode (resize etc) */
+#mode {
+	color: @white;
+	background: @mode;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+	/*font-weight: bold;*/
+	padding-left: 0.2em;
+	padding-right: 0.2em;
+	color: @white;
+	background: @unfocused;
+}
+
+/* Inactive (on unfocused output) */
+#workspaces button.visible {
+	color: @white;
+	background: @inactive;
+}
+
+/* Active (on focused output) */
+#workspaces button.focused {
+	color: @black;
+	background: @focused;
+}
+
+/* Contains an urgent window */
+#workspaces button.urgent {
+	color: @black;
+	background: @warning;
+}
+
+/* Style when cursor is on the button */
+#workspaces button:hover {
+	background: @black;
+	color: @white;
+}
+
 #window {
-  border-radius: 8px 8px 8px 8px;
+	margin-right: 3.5em;
+	margin-left: 3.5em;
+}
+
+#pulseaudio {
+	background: @sound;
+	color: @black;
+}
+
+#network {
+	background: @network;
+	color: @white;
+}
+
+#memory {
+	background: @memory;
+	color: @black;
+}
+
+#cpu {
+	background: @cpu;
+	color: @white;
+}
+
+#temperature {
+	background: @temp;
+	color: @black;
+}
+
+#language {
+	background: @layout;
+	color: @black;
+}
+
+#battery {
+	background: @battery;
+	color: @white;
+}
+
+#tray {
+	background: @date;
+}
+
+#clock.date {
+	background: @date;
+	color: @white;
+}
+
+#clock.time {
+	background: @time;
+	color: @black;
+}
+
+#custom-arrow1 {
+	font-size: 1.1em;
+	color: @time;
+	background: @date;
+}
+
+#custom-arrow2 {
+	font-size: 1.1em;
+	color: @date;
+	background: @layout;
+}
+
+#custom-arrow3 {
+	font-size: 1.1em;
+	color: @layout;
+	background: @battery;
+}
+
+#custom-arrow4 {
+	font-size: 1.1em;
+	color: @battery;
+	background: @temp;
+}
+
+#custom-arrow5 {
+	font-size: 1.1em;
+	color: @temp;
+	background: @cpu;
+}
+
+#custom-arrow6 {
+	font-size: 1.1em;
+	color: @cpu;
+	background: @memory;
+}
+
+#custom-arrow7 {
+	font-size: 1.1em;
+	color: @memory;
+	background: @network;
+}
+
+#custom-arrow8 {
+	font-size: 1.1em;
+	color: @network;
+	background: @sound;
+}
+
+#custom-arrow9 {
+	font-size: 1.1em;
+	color: @sound;
+	background: transparent;
+}
+
+#custom-arrow10 {
+	font-size: 1.1em;
+	color: @unfocused;
+	background: transparent;
 }

@@ -1,121 +1,214 @@
 {
-    "mode": "dock",
-    "height": 32,
-    "layer": "top",
-    "position": "top",
-    "spacing": 4,
-    "modules-left": [
-        "wlr/workspaces",
-        "hyprland/submap",
-        "keyboard-state",
-        "hyprland/language",
-        "clock",
-        "network",
-    ],
-    "modules-center": [
-        "hyprland/window",
-    ],
-    "modules-right": [
-        "pulseaudio",
-        "cava",
-        "cpu",
-        "memory",
-        "disk",
-        "battery",
-        "tray",
-    ],
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 40,
-        "separate-outputs": true,
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{icon}{name}",
-        "format-icons": {
-            "locked": " ",
-            "unlocked": " ",
-        },
-    },
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "EN",
-        "format-ru": "RU",
-        "keyboard-name": "at-translated-set-2-keyboard",
-    },
-    "hyprland/submap": {
-        "format": "Mode: {}",
-        "tooltip": true,
-    },
-    "wlr/workspaces": {
-        "format": "{name}",
-        "disable-scroll": false,
-        "on-click": "activate",
-        "format-icons": {
-            "urgent": "",
-            "active": "",
-            "default": "",
-        },
-    },
-    "clock": {
-        "format-alt": "{:%Y-%m-%d %H:%M}",
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-muted": "mute",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "mute",
-        "scroll-step": 1.0,
-        "on-click": "pavucontrol",
-        "format-source": " {volume}%",
-        "format-source-muted": " ",
-        "format-icons": {
-            "default": ["", "", ""],
-        },
-    },
-    "cava": {
-        "cava_config": "$HOME/.config/cava/config",
-        "format-icons" : ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
-    },
-    "cpu": {
-         "format": " {usage}% {icon0} {icon1} {icon2} {icon3} {icon4} {icon5} {icon6} {icon7}",
-         "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
-    },
-    "memory": {
-        "interval": 30,
-        "format": " {percentage}%",
-    },
-    "disk": {
-        "interval": 30,
-        "format": "{used}",
-        "path": "/",
-    },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": " {essid}({signalStrength}%)",
-        "format-ethernet": "Ethernet",
-        // "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
-        "format-alt": "{ifname}",
-    },
-    "battery": {
-        "interval": 60,
-        "states": {
-            "critical": 15,
-            "warning": 30
-        },
-        "format": "{icon}{capacity}%",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": [" ", " ", " ", " ", " "],
-    },
-    "tray": {
-        "icon-size": 21,
-        "spacing": 10,
-    },
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"hyprland/mode",
+		"wlr/workspaces",
+		"custom/arrow10",
+		"hyprland/window"
+	],
+
+	"modules-right": [
+		"custom/arrow9",
+		"pulseaudio",
+		"custom/arrow8",
+		"network",
+		"custom/arrow7",
+		"memory",
+		"custom/arrow6",
+		"cpu",
+		"custom/arrow5",
+		"temperature",
+		"custom/arrow4",
+		"battery",
+		"custom/arrow3",
+		"hyprland/language",
+		"custom/arhis Silvervale wallpaper is really nice, now real talk, drop the sauce 🔫row2",
+		"tray",
+		"clock#date",
+		"custom/arrow1",
+		"clock#time"
+	],
+
+	// Modules
+
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "{icon} {capacity}% ({time})",
+		"format-charging": " {capacity}% ({time})",
+		"format-charging-full": " {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
+	"clock#time": {
+		"interval": 10,
+		"format": "{:%H:%M}",
+		"tooltip": false
+	},
+
+	"clock#date": {
+		"interval": 20,
+		"format": "{:%e %b %Y}",
+		"tooltip": false
+		//"tooltip-format": "{:%e %B %Y}"
+	},
+
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": " {usage}%",
+		"format-alt": " {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+
+	"hyprland/language": {
+		"format": " {}",
+		"min-length": 5,
+		"on-click": "hyprlandmsg 'input * xkb_switch_layout next'",
+		"tooltip": false
+	},
+
+	"memory": {
+		"interval": 5,
+		"format": " {used:0.1f}G/{total:0.1f}G",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		},
+		"tooltip": false
+	},
+
+	"network": {
+		"interval": 5,
+		"format-wifi": " {essid} ({signalStrength}%)",
+		"format-ethernet": " {ifname}",
+		"format-disconnected": "No connection",
+		"format-alt": " {ipaddr}/{cidr}",
+		"tooltip": false
+	},
+
+	"hyprland/mode": {
+		"format": "{}",
+		"tooltip": false
+	},
+
+	"hyprland/window": {
+		"format": "{}",
+		"max-length": 30,
+		"tooltip": false
+	},
+
+	"wlr/workspaces": {
+		"disable-scroll-wraparound": true,
+		"smooth-scrolling-threshold": 4,
+		"enable-bar-scroll": true,
+		"format": "{name}"
+	},
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-bluetooth": "{icon} {volume}%",
+		"format-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"hands-free": "",
+			"headset": "",
+			"phone": "",
+			"portable": "",
+			"car": "",
+			"default": ["", ""]
+		},
+		"scroll-step": 1,
+		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"tooltip": false
+	},
+
+	"temperature": {
+		"critical-threshold": 90,
+		"interval": 5,
+		"format": "{icon} {temperatureC}°",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+
+	"tray": {
+		"icon-size": 18
+		//"spacing": 10
+	},
+
+	"custom/arrow1": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow2": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow3": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow4": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow5": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow6": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow7": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow8": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow9": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"custom/arrow10": {
+		"format": "",
+		"tooltip": false
+	}
 }
+
+// vi:ft=jsonc
