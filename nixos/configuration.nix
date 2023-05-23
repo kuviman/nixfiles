@@ -92,11 +92,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.desktopManager.gnome.enable = true; # I'm not using gnome tho, delete?
   services.xserver.displayManager.gdm.enable = true;
-
-  programs.hyprland.enable = true;
+  programs.hyprland.enable = true; # Don't enable gnome or kde, their desktop portal ruins everything KEKW
 
   # Configure keymap in X11
   services.xserver = {
