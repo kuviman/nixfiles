@@ -212,6 +212,9 @@
     # Drawing
     inkscape
     gimp
+    krita
+    blender
+    glaxnimate
 
     # screenshots
     grim # backend
