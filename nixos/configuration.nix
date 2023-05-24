@@ -12,6 +12,7 @@
       ./hyperv.nix
       ./obs.nix
       ./android.nix
+      ./ios.nix
       ./zsh.nix
       ./nvim.nix
       ./amdgpu.nix
