@@ -133,7 +133,7 @@
   };
   environment.etc."pipewire/pipewire.conf.d/stutter-fix.conf".text = ''
     context.properties = {
-      default.clock.min-quantum = 256
+      default.clock.min-quantum = 512
     }
   '';
 
@@ -215,6 +215,7 @@
     krita
     blender
     glaxnimate
+    synfigstudio
 
     # screenshots
     grim # backend
