@@ -214,8 +214,10 @@
     gimp
     krita
     blender
-    glaxnimate
+    # glaxnimate
     synfigstudio
+
+    kdenlive # video editing
 
     # screenshots
     grim # backend
