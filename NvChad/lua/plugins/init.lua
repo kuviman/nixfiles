@@ -31,6 +31,9 @@ local default_plugins = {
     init = function()
       require("core.utils").load_mappings "nvterm"
     end,
+    opts = function()
+      return require "plugins.configs.others".nvterm
+    end,
     config = function(_, opts)
       require "base46.term"
       require("nvterm").setup(opts)
