@@ -204,6 +204,7 @@
     xh # better curl?
     xxh # Bring your shell through ssh
     erdtree # File-tree visualizer and disk usage analyzer
+    dua # disk usage analyzer
     felix-fm # Tui file manager
     topgrade # Update everything
     kondo # Cleaner after you upgrade everything
@@ -240,6 +241,8 @@
   # };
 
   # List services that you want to enable:
+
+  services.upower.enable = true; # checking wireless mouse power for example
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
