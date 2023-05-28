@@ -182,9 +182,15 @@
     tokei # Scan project languages and lines of code
     ripgrep # Grep the rip
     fd # User-friendly find
+    unzip
+    zip
 
     # Coding
     bacon # Background rust code checker
+    rust-analyzer
+    lua-language-server
+    nil # nix language server
+    butler # for itch.io
 
     # Monitoring
     # top already installed
