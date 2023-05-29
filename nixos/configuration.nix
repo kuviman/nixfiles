@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, lib, config, ... }:
 
 {
   imports =
@@ -16,6 +16,8 @@
       ./zsh.nix
       ./nvim.nix
       ./amdgpu.nix
+      ./audio.nix
+      ./packages.nix
     ];
 
   nix = {
@@ -73,11 +75,6 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
 
   networking.hostName = "mainix"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   time.hardwareClockInLocalTime = true; # For dual booting Windows
 
@@ -112,153 +109,11 @@
   # Disable mouse acceleration
   services.xserver.libinput.mouse.accelProfile = "flat";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-  environment.etc."pipewire/pipewire.conf.d/stutter-fix.conf".text = ''
-    context.properties = {
-      default.clock.min-quantum = 512
-    }
-  '';
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kuviman = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      # Why put packages here and not for every user?
-    ];
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget # LOL ok but how can I make it work?
-  environment.systemPackages = with pkgs; [
-    firefox # Browsing the web 
-    tdesktop # Telegram
-    discord # Discord
-    wofi # like rofi - app runner for wayland
-    wl-clipboard # wl-copy, wl-paste, required for clipboard to work in neovim
-    ffmpeg-full # has ffplay
-    piper # for Logitech G Pro
-    pavucontrol # Gui for controlling audio
-    waybar # Wayland bar
-    swaylock # Wayland lock
-    hyprpaper # Background image
-    hyprpicker # Pick color from screen
-    steam # GAMES
-    ntfs3g # to break windows for linux YEP
-    glxinfo # To test which opengl version I have
-
-    # Command line
-    git # gud
-    lazygit # Better git?
-    gitui # Better lazygit?
-    lsd # ls++
-    bat # cat++
-    alacritty # terminal
-    just # just command runner
-    curl # pretty sure its installed by default but anyway
-    wget # Downloading things from command line
-    neofetch # BTW
-    tokei # Scan project languages and lines of code
-    ripgrep # Grep the rip
-    fd # User-friendly find
-    unzip
-    zip
-
-    # Coding
-    bacon # Background rust code checker
-    rust-analyzer
-    lua-language-server
-    nil # nix language server
-    butler # for itch.io
-
-    # Monitoring
-    # top already installed
-    bottom
-    htop
-    glances # This is what I actually use
-
-    # Probably unused should try some out maybe
-    helix # For when I'm done with neovim
-    kitty # Default on hyprland, can remove?
-    nushell # For when I'm done with zsh
-    vscode # If I can't figure out neovim
-    brightnessctl # TODO try on laptop
-    linux-wifi-hotspot # Nertsal uses that
-    cava # Audio visualizer
-    cmatrix # Matrix visualizer
-    xh # better curl?
-    xxh # Bring your shell through ssh
-    erdtree # File-tree visualizer and disk usage analyzer
-    dua # disk usage analyzer
-    felix-fm # Tui file manager
-    topgrade # Update everything
-    kondo # Cleaner after you upgrade everything
-    any-nix-shell # Keep shell when in nix-shell (nix-shell is outdated tho so I should use smth else?)
-
-    # Drawing
-    inkscape
-    gimp
-    krita
-    blender
-    # glaxnimate
-    synfigstudio
-
-    kdenlive # video editing
-    audacity # for fish sound effects
-
-    # screenshots
-    grim # backend
-    flameshot
-    slurp
-    gscreenshot
-  ];
-  services.ratbagd.enable = true; # for piper
-
-  fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  services.upower.enable = true; # checking wireless mouse power for example
-
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
