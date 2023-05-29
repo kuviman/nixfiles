@@ -225,6 +225,7 @@
     synfigstudio
 
     kdenlive # video editing
+    audacity # for fish sound effects
 
     # screenshots
     grim # backend
