@@ -24,7 +24,7 @@
 		"battery",
 		"custom/arrow3",
 		"hyprland/language",
-		"custom/arhis Silvervale wallpaper is really nice, now real talk, drop the sauce 🔫row2",
+		// "custom/arhis Silvervale wallpaper is really nice, now real talk, drop the sauce 🔫row2",
 		"tray",
 		"clock#date",
 		"custom/arrow1",
@@ -72,18 +72,18 @@
 		"interval": 5,
 		"tooltip": false,
 		"format": " {usage}%",
-		"format-alt": " {load}",
 		"states": {
 			"warning": 70,
 			"critical": 90
 		}
+		// "format-alt": " {load}",
 	},
 
 	"hyprland/language": {
 		"format": " {}",
 		"min-length": 5,
-		"on-click": "hyprlandmsg 'input * xkb_switch_layout next'",
 		"tooltip": false
+		// "on-click": "hyprlandmsg 'input * xkb_switch_layout next'",
 	},
 
 	"memory": {
@@ -137,7 +137,7 @@
 			"default": ["", ""]
 		},
 		"scroll-step": 1,
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
 		"tooltip": false
 	},
 
@@ -156,7 +156,7 @@
 	},
 
 	"tray": {
-		"icon-size": 18
+		"icon-size": 20
 		//"spacing": 10
 	},
 
