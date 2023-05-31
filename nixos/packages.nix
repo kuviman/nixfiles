@@ -78,6 +78,7 @@
 
     kdenlive # video editing
     audacity # for fish sound effects
+    ldtk # for linksider
 
     # screenshots
     grim # backend
