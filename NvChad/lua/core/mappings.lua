@@ -454,4 +454,17 @@ M.gitsigns = {
   },
 }
 
+M.trouble = {
+  -- plugin = true,
+
+  n = {
+    ["<leader>tt"] = {
+      function()
+        require("trouble").toggle()
+      end,
+      "Toggle Trouble",
+    },
+  },
+}
+
 return M

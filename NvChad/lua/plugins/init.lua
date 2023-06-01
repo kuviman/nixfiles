@@ -8,6 +8,19 @@ local default_plugins = {
   },
 
   {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = function()
+      return require "plugins.configs.others".trouble
+    end,
+  },
+
+  {
+    "eandrju/cellular-automaton.nvim",
+    lazy = false,
+  },
+
+  {
     "direnv/direnv.vim",
     lazy = false,
   },

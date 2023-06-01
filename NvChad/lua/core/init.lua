@@ -9,6 +9,8 @@ g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 
 -------------------------------------- options ------------------------------------------
+vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h16" }
+
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
 
@@ -102,5 +104,5 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 local new_cmd = vim.api.nvim_create_user_command
 
 new_cmd("NvChadUpdate", function()
-  require "nvchad.update"()
+  require "nvchad.update" ()
 end, {})
