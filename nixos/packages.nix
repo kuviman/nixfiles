@@ -24,7 +24,7 @@
     git # gud
     lazygit # Better git?
     gitui # Better lazygit?
-    lsd # ls++
+    exa # ls++
     bat # cat++
     alacritty # terminal
     just # just command runner

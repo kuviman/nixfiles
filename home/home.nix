@@ -123,9 +123,9 @@
     shellAliases = {
       dots = "home-manager --flake $HOME/nixfiles";
       nixos = "sudo nixos-rebuild --flake $HOME/nixfiles";
-      l = "lsd -la";
-      ls = "lsd";
-      lt = "lsd --tree";
+      l = "exa --long --icons";
+      ls = "exa --icons";
+      lt = "exa --tree --icons";
     };
     oh-my-zsh = {
       enable = true;
