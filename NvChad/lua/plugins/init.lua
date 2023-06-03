@@ -118,6 +118,11 @@ local default_plugins = {
     end,
   },
 
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    lazy = false,
+  },
+
   -- git stuff
   {
     "lewis6991/gitsigns.nvim",
