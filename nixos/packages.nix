@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
   # List packages installed in system profile. To search, run:
@@ -85,6 +85,28 @@
     flameshot
     slurp
     gscreenshot
+
+    (
+      let
+        crane =
+          inputs.geng.lib.x86_64-linux.crane;
+      in
+      crane.buildPackage {
+        src = builtins.fetchGit {
+          url = "https://github.com/KunalBagaria/rustyvibes.git";
+          ref = "main";
+          rev = "f19fdf961ae602122ed7a2b95f570be0def79c34";
+        };
+        buildInputs = [
+          pkg-config
+          alsa-lib
+          xorg.libX11
+          xorg.libXi
+          xorg.libXtst
+        ];
+        cargoVendorDir = crane.vendorCargoDeps { cargoLock = ../rustyvibes.Cargo.lock; };
+      }
+    )
   ];
   services.ratbagd.enable = true; # for piper
 
