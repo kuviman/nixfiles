@@ -70,6 +70,7 @@
 
     # Drawing
     inkscape
+    aseprite
     gimp
     krita
     blender
