@@ -193,14 +193,14 @@ M.lspconfig = {
 
     ["[d"] = {
       function()
-        vim.diagnostic.goto_prev({ float = { border = "rounded" }})
+        vim.diagnostic.goto_prev({ float = { border = "rounded" } })
       end,
       "Goto prev",
     },
 
     ["]d"] = {
       function()
-        vim.diagnostic.goto_next({ float = { border = "rounded" }})
+        vim.diagnostic.goto_next({ float = { border = "rounded" } })
       end,
       "Goto next",
     },
@@ -332,19 +332,19 @@ M.nvterm = {
     },
 
     -- new
-    ["<leader>h"] = {
-      function()
-        require("nvterm.terminal").new "horizontal"
-      end,
-      "New horizontal term",
-    },
-
-    ["<leader>v"] = {
-      function()
-        require("nvterm.terminal").new "vertical"
-      end,
-      "New vertical term",
-    },
+    -- ["<leader>h"] = {
+    --   function()
+    --     require("nvterm.terminal").new "horizontal"
+    --   end,
+    --   "New horizontal term",
+    -- },
+    --
+    -- ["<leader>v"] = {
+    --   function()
+    --     require("nvterm.terminal").new "vertical"
+    --   end,
+    --   "New vertical term",
+    -- },
   },
 }
 
@@ -463,6 +463,43 @@ M.trouble = {
         require("trouble").toggle()
       end,
       "Toggle Trouble",
+    },
+  },
+}
+
+M.hop = {
+  -- plugin = true,
+
+  n = {
+    ["<leader>ha"] = {
+      function()
+        require("hop").hint_anywhere()
+      end,
+      "Hop anywhere",
+    },
+    ["<leader>hf"] = {
+      function()
+        require("hop").hint_char1()
+      end,
+      "Hop char 1",
+    },
+    ["<leader>hb"] = {
+      function()
+        require("hop").hint_char2()
+      end,
+      "Hop char 2",
+    },
+    ["<leader>hw"] = {
+      function()
+        require("hop").hint_words()
+      end,
+      "Hop word",
+    },
+    ["<leader>hl"] = {
+      function()
+        require("hop").hint_lines()
+      end,
+      "Hop line",
     },
   },
 }

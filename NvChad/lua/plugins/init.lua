@@ -8,6 +8,27 @@ local default_plugins = {
   },
 
   {
+    "kdheepak/lazygit.nvim",
+    lazy = false,
+  },
+
+  {
+    "rmagatti/auto-session",
+    opts = function()
+      return {}
+    end,
+    lazy = false,
+  },
+
+  {
+    "phaazon/hop.nvim",
+    opts = function()
+      return {}
+    end,
+    lazy = false,
+  },
+
+  {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = function()
