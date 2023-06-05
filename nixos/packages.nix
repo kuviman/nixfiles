@@ -17,6 +17,7 @@
     hyprpaper # Background image
     hyprpicker # Pick color from screen
     steam # GAMES
+    wineWowPackages.waylandFull # run windows apps
     ntfs3g # to break windows for linux YEP
     glxinfo # To test which opengl version I have
 
