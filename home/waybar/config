@@ -118,6 +118,7 @@
 
 	"wlr/workspaces": {
 		"disable-scroll-wraparound": true,
+    "on-click": "activate",
 		"smooth-scrolling-threshold": 4,
 		"enable-bar-scroll": true,
 		"format": "{name}"
