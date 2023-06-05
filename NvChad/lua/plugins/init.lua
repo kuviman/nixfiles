@@ -7,6 +7,11 @@ local default_plugins = {
     lazy = false,
   },
 
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   lazy = false,
+  -- },
+
   {
     "kdheepak/lazygit.nvim",
     lazy = false,
