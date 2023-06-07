@@ -16,6 +16,7 @@
           onedark-nvim
           vim-fugitive
           lazygit-nvim
+          toggleterm-nvim
           auto-session
           hop-nvim
           trouble-nvim

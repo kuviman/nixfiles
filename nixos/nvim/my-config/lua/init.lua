@@ -375,3 +375,11 @@ vim.keymap.set("v", "<leader>/",
   { desc = "Toggle comment" })
 
 require("nvim-surround").setup()
+
+require("toggleterm").setup {
+  open_mapping = [[<c-\>]],
+  start_in_insert = true,
+  insert_mappings = true,
+  terminal_mappings = true,
+  direction = "float",
+}
