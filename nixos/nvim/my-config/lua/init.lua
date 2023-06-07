@@ -111,6 +111,7 @@ vim.keymap.set("n", "<leader>tt",
   end,
   { desc = "Toggle trouble" })
 
+require("which-key").setup()
 vim.keymap.set("n", "<leader>wk",
   "<cmd> WhichKey <cr>",
   { desc = "Which key" })
@@ -368,3 +369,5 @@ vim.keymap.set("n", "<leader>/",
 vim.keymap.set("v", "<leader>/",
   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
   { desc = "Toggle comment" })
+
+require("nvim-surround").setup()
