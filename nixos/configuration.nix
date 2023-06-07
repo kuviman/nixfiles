@@ -66,6 +66,9 @@
     config = {
       # Disable if you don't want unfree packages
       allowUnfree = true;
+      permittedInsecurePackages = [
+        "python-2.7.18.6" # for aseprite
+      ];
     };
   };
 

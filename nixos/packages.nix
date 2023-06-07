@@ -5,6 +5,7 @@
   # $ nix search wget # LOL ok but how can I make it work?
   environment.systemPackages = with pkgs; [
     firefox # Browsing the web 
+    google-chrome # Another way of browsing the web
     tdesktop # Telegram
     discord # Discord
     wofi # like rofi - app runner for wayland
@@ -71,7 +72,7 @@
 
     # Drawing
     inkscape
-    aseprite
+    aseprite-unfree
     gimp
     krita
     blender
