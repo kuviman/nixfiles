@@ -115,12 +115,18 @@ vim.keymap.set("n", "<leader>wk",
   "<cmd> WhichKey <cr>",
   { desc = "Which key" })
 
+local telescope = require "telescope"
+telescope.setup {
+  defaults = {
+    prompt_prefix = "   ",
+  },
+}
 vim.keymap.set("n", "<leader>ff",
   "<cmd> Telescope find_files <cr>",
   { desc = "Find files" })
 vim.keymap.set("n", "<leader>fa",
-  "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <cr>",
-  { desc = "Find all" })
+  "<cmd> Telescope <cr>",
+  { desc = "Find anything" })
 vim.keymap.set("n", "<leader>fw",
   "<cmd> Telescope live_grep <cr>",
   { desc = "Live grep" })
@@ -292,12 +298,6 @@ lspconfig.lua_ls.setup {
     },
   },
 }
-lspconfig.rust_analyzer.setup {
-  capabilities = capabilities,
-  settings = {
-    ['rust-analyzer'] = {},
-  },
-}
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
@@ -326,12 +326,45 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>wl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>D',
+      function()
+        vim.lsp.buf.type_definition({
+          on_list = function()
+            vim.cmd("Telescope lsp_type_definitions")
+          end
+        })
+      end,
+      opts)
     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', 'gr', "<cmd> Telescope lsp_references <cr>", opts)
     vim.keymap.set('n', '<space>fm', function()
       vim.lsp.buf.format { async = true }
     end, opts)
   end,
 })
+
+local rust_tools = require("rust-tools")
+rust_tools.setup({
+  server = {
+    on_attach = function(_, bufnr)
+      vim.keymap.set("n", "<C-space>",
+        rust_tools.hover_actions.hover_actions,
+        { desc = "Hover actions", buffer = bufnr })
+      vim.keymap.set("n", "<Leader>a",
+        rust_tools.code_action_group.code_action_group,
+        { desc = "Code action groups", buffer = bufnr })
+    end,
+  },
+})
+
+require("Comment").setup()
+vim.keymap.set("n", "<leader>/",
+  function()
+    require("Comment.api").toggle.linewise.current()
+  end,
+  { desc = "Toggle comment" })
+
+vim.keymap.set("v", "<leader>/",
+  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  { desc = "Toggle comment" })

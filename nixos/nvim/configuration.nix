@@ -39,6 +39,8 @@
           nvim-tree-lua
           telescope-nvim
           which-key-nvim
+          rust-tools-nvim
+          nvim-surround
         ];
         opt = [
           vim-visual-multi
