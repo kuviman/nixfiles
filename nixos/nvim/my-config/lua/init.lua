@@ -322,7 +322,7 @@ vim.keymap.set("n", "K",
 vim.keymap.set("n", "gi",
   vim.lsp.buf.implementation,
   { desc = "Go to implementation" })
-vim.keymap.set("n", "<c-k>",
+vim.keymap.set({ "n", "i" }, "<c-k>",
   vim.lsp.buf.signature_help,
   { desc = "Signature help" })
 vim.keymap.set("n", "<space>D",
