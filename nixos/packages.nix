@@ -45,6 +45,7 @@
     lua-language-server
     nil # nix language server
     butler # for itch.io
+    zola # static site generator
 
     # Monitoring
     # top already installed
