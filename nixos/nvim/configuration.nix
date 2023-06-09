@@ -21,8 +21,6 @@
           hop-nvim
           trouble-nvim
           direnv-vim
-          nvim-treesitter
-          nvim-treesitter-context
           gitsigns-nvim
           nvim-web-devicons
           indent-blankline-nvim
@@ -36,13 +34,18 @@
           cmp-nvim-lsp
           cmp-buffer
           cmp-path
+          cmp-cmdline
           comment-nvim
           nvim-tree-lua
           telescope-nvim
           which-key-nvim
           rust-tools-nvim
           nvim-surround
-        ];
+          nvim-treesitter
+          nvim-treesitter-context
+        ]
+          # ++ (builtins.attrValues nvim-treesitter-parsers)
+        ;
         opt = [
           vim-visual-multi
         ];

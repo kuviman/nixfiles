@@ -7,7 +7,7 @@ vim.keymap.set("n", "<esc>",
 vim.keymap.set("n", "<c-s>",
   "<cmd> update <cr>",
   { desc = "Save file" });
-vim.keymap.set("t", "<c-x>",
+vim.keymap.set("t", "<c-n>",
   vim.api.nvim_replace_termcodes("<c-\\><c-n>", true, true, true),
   { desc = "Escape terminal mode" })
 
@@ -34,8 +34,8 @@ vim.opt.ignorecase = true    -- Ignore case in search patterns
 vim.opt.smartcase = true     -- Don't ignore case if there is uppercase chars
 vim.opt.shortmess:append "s" -- disable "search hit BOTTOM" & similar
 
--- Enable using mouse
-vim.opt.mouse = "a"
+-- Disable mouse
+vim.opt.mouse = ""
 
 -- Numbers
 vim.opt.number = true
