@@ -29,29 +29,39 @@
     {
       # NixOS configuration entrypoint
       # Available through 'nixos-rebuild --flake .#your-hostname'
-      nixosConfigurations = {
-        mainix = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; hostname = "mainix"; }; # Pass flake inputs to our config
-          # > Our main nixos configuration file <
-          modules = [ ./nixos/configuration.nix ];
+      nixosConfigurations =
+        let
+          mkOs = hostname:
+            nixpkgs.lib.nixosSystem {
+              # Pass flake inputs to our config
+              specialArgs = { inherit inputs hostname; };
+              # > Our main nixos configuration file <
+              modules = [ ./nixos/configuration.nix ];
+            };
+        in
+        {
+          mainix = mkOs "mainix";
+          swiftix = mkOs "swiftix";
         };
-        swiftix = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; hostname = "swiftix"; }; # Pass flake inputs to our config
-          # > Our main nixos configuration file <
-          modules = [ ./nixos/configuration.nix ];
-        };
-      };
 
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
-      homeConfigurations = {
-        "kuviman" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          # > Our main home-manager configuration file <
-          modules = [ ./home/home.nix ];
+      homeConfigurations =
+        let
+          mkHome = username: hostname:
+            home-manager.lib.homeManagerConfiguration
+              {
+                pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
+                # Pass flake inputs to our config
+                extraSpecialArgs = { inherit inputs username hostname; };
+                # > Our main home-manager configuration file <
+                modules = [ ./home/home.nix ];
+              };
+        in
+        {
+          "kuviman@mainix" = mkHome "kuviman" "mainix";
+          "kuviman@swiftix" = mkHome "kuviman" "swiftix";
         };
-      };
 
       devShell.${system} = pkgs.mkShell {
         buildInputs = with pkgs; [ nil ];

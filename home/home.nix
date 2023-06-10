@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, username, hostname, ... }:
 
 {
   # This value determines the Home Manager release that your configuration is
@@ -16,8 +16,8 @@
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home = {
-    username = "kuviman";
-    homeDirectory = "/home/kuviman";
+    inherit username;
+    homeDirectory = "/home/${username}";
   };
 
   nixpkgs = {
@@ -80,7 +80,29 @@
       { allowUnfree = true; }
     '';
 
-    ".config/hypr/hyprland.conf".source = ./hyprland.conf;
+    ".config/hypr/hyprland.conf".text =
+      let
+        monitors =
+          if (hostname == "mainix") then ''
+            monitor=DP-2,2560x1440@144,0x0,1
+            monitor=HDMI-A-1,1920x1080@60,2560x180,1
+            workspace=1, monitor:DP-2
+            workspace=2, monitor:DP-2
+            workspace=3, monitor:DP-2
+            workspace=4, monitor:DP-2
+            workspace=5, monitor:DP-2
+            workspace=6, monitor:DP-2
+            workspace=7, monitor:DP-2
+            workspace=8, monitor:HDMI-A-1
+            workspace=9, monitor:HDMI-A-1
+            workspace=10, monitor:HDMI-A-1
+            ''
+          else if (hostname == "swiftix") then ''
+            monitor=eDP-1,preferred,auto,1
+            ''
+          else "";
+      in
+      monitors + builtins.readFile ./hyprland.conf;
     # TODO ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     ".config/waybar".source = ./waybar;
     ".config/wofi".source = ./wofi;
@@ -93,7 +115,7 @@
   #
   # or
   #
-  #  /etc/profiles/per-user/kuviman/etc/profile.d/hm-session-vars.sh
+  #  /etc/profiles/per-user/${username}/etc/profile.d/hm-session-vars.sh
   #
   # if you don't want to manage your shell through Home Manager.
   home.sessionVariables = {
@@ -103,8 +125,8 @@
 
   programs.git = {
     enable = true;
-    userName = "kuviman";
-    userEmail = "kuviman@gmail.com";
+    userName = "${username}";
+    userEmail = "${username}@gmail.com"; # More configurable?
     extraConfig = {
       init.defaultBranch = "main";
     };
