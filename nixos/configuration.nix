@@ -2,13 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, lib, config, ... }:
+{ inputs, lib, config, hostname, ... }:
 
 {
   imports =
     [
       # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware/${hostname}.nix
       ./hyperv.nix
       ./obs.nix
       ./android.nix
@@ -72,12 +72,12 @@
     };
   };
 
+  networking.hostName = hostname;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-
-  networking.hostName = "mainix"; # Define your hostname.
 
   time.hardwareClockInLocalTime = true; # For dual booting Windows
 

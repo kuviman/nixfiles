@@ -31,7 +31,12 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         mainix = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          specialArgs = { inherit inputs; hostname = "mainix"; }; # Pass flake inputs to our config
+          # > Our main nixos configuration file <
+          modules = [ ./nixos/configuration.nix ];
+        };
+        swiftix = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; hostname = "swiftix"; }; # Pass flake inputs to our config
           # > Our main nixos configuration file <
           modules = [ ./nixos/configuration.nix ];
         };
@@ -40,7 +45,7 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "kuviman@mainix" = home-manager.lib.homeManagerConfiguration {
+        "kuviman" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
           # > Our main home-manager configuration file <
