@@ -389,3 +389,18 @@ require("toggleterm").setup {
   terminal_mappings = true,
   direction = "float",
 }
+
+require "nvim-treesitter.configs".setup {
+  highlight = {
+    enable = true,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = '<c-space>',
+      node_incremental = '<c-space>',
+      scope_incremental = '<c-s-s>',
+      node_decremental = '<m-space>',
+    },
+  },
+}

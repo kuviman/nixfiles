@@ -41,11 +41,9 @@
           which-key-nvim
           rust-tools-nvim
           nvim-surround
-          nvim-treesitter
+          nvim-treesitter.withAllGrammars
           nvim-treesitter-context
-        ]
-          # ++ (builtins.attrValues nvim-treesitter-parsers)
-        ;
+        ];
         opt = [
           vim-visual-multi
         ];
