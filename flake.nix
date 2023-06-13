@@ -63,10 +63,6 @@
           "kuviman@swiftix" = mkHome "kuviman" "swiftix";
         };
 
-      devShell.${system} = pkgs.mkShell {
-        buildInputs = with pkgs; [ nil ];
-      };
-
       formatter.${system} = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
 
       # https://www.reddit.com/r/NixOS/comments/scf0ui/how_would_i_update_desktop_file/
