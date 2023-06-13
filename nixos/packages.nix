@@ -21,6 +21,7 @@
     wineWowPackages.waylandFull # run windows apps
     ntfs3g # to break windows from linux YEP
     glxinfo # To test which opengl version I have
+    zoom-us
 
     # Command line
     git # gud
