@@ -17,6 +17,7 @@
     swaylock # Wayland lock
     hyprpaper # Background image
     hyprpicker # Pick color from screen
+    wofi-emoji # emoji picker
     steam # GAMES
     wineWowPackages.waylandFull # run windows apps
     ntfs3g # to break windows from linux YEP
