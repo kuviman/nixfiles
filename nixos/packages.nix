@@ -22,7 +22,13 @@
     wineWowPackages.waylandFull # run windows apps
     ntfs3g # to break windows from linux YEP
     glxinfo # To test which opengl version I have
+    psutils
+    psmisc # fuser
+    python3 # calculator
     zoom-us
+
+    prismlauncher
+    minecraft
 
     # Command line
     git # gud
