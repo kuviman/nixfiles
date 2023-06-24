@@ -16,7 +16,7 @@
   environment.systemPackages = with pkgs; [
     (wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [
-        wlrobs
+        # wlrobs
         droidcam-obs
         input-overlay
         obs-backgroundremoval
