@@ -52,6 +52,7 @@
     rust-analyzer
     lua-language-server
     nil # nix language server
+    nixpkgs-fmt # nix formatter
     butler # for itch.io
     zola # static site generator
 
