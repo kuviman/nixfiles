@@ -50,6 +50,7 @@
     # Coding
     bacon # Background rust code checker
     rust-analyzer
+    lldb # debug
     lua-language-server
     nil # nix language server
     nixpkgs-fmt # nix formatter
@@ -66,7 +67,9 @@
     helix # For when I'm done with neovim
     kitty # Default on hyprland, can remove?
     nushell # For when I'm done with zsh
-    vscode # If I can't figure out neovim
+    # vscode # If I can't figure out neovim
+    # vscode.fhs
+    vscode-fhs
     brightnessctl # TODO try on laptop
     linux-wifi-hotspot # Nertsal uses that
     cava # Audio visualizer

@@ -4,7 +4,24 @@
   # programs.hyprland.enable = true; # Don't enable gnome or kde, their desktop portal ruins everything KEKW
 
   services.xserver.desktopManager.gnome.enable = true;
-  environment.systemPackages = with pkgs; [ gnomeExtensions.appindicator ];
+  environment.systemPackages =
+    with pkgs;
+    let
+      extensions = with gnomeExtensions; [
+        tray-icons-reloaded
+        unite
+        wireless-hid
+        wifi-qrcode
+        weeks-start-on-monday-again
+        vitals
+        paperwm
+        eye-extended
+        burn-my-windows
+        activate_gnome
+        tweaks-in-system-menu
+      ];
+    in
+    extensions ++ [ gnome.gnome-tweaks ];
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
