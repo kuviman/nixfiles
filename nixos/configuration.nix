@@ -18,6 +18,7 @@
       ./amdgpu.nix
       ./audio.nix
       ./packages.nix
+      ./gnome.nix
     ];
 
   nix = {
@@ -94,7 +95,6 @@
   services.xserver.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
-  programs.hyprland.enable = true; # Don't enable gnome or kde, their desktop portal ruins everything KEKW
 
   # Configure keymap in X11
   services.xserver = {
