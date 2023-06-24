@@ -21,7 +21,6 @@
         input-overlay
         obs-backgroundremoval
         obs-vkcapture
-        obs-glcapture
       ];
     })
   ];
