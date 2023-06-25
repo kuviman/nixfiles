@@ -148,6 +148,7 @@
       l = "exa --long --icons";
       ls = "exa --icons";
       lt = "exa --tree --icons";
+      cargo-patched = "cargo --config $HOME/.cargo/patched.toml";
     };
     oh-my-zsh = {
       enable = true;
