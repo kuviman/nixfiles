@@ -26,7 +26,7 @@
     psmisc # fuser
     python3 # calculator
     zoom-us
-    xeyes
+    xorg.xeyes
 
     prismlauncher
     minecraft
