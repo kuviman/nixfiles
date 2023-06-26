@@ -27,6 +27,7 @@
     python3 # calculator
     zoom-us
     xorg.xeyes
+    vlc
 
     prismlauncher
     minecraft
