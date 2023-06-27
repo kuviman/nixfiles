@@ -19,6 +19,7 @@
       ./audio.nix
       ./packages.nix
       ./gnome.nix
+      ./docker.nix
     ];
 
   nix = {
