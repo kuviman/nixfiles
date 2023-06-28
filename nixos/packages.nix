@@ -7,6 +7,7 @@
     firefox # Browsing the web 
     google-chrome # Another way of browsing the web
     tdesktop # Telegram
+    hexchat # Irc
     discord # Discord
     wofi # like rofi - app runner for wayland
     wl-clipboard # wl-copy, wl-paste, required for clipboard to work in neovim
