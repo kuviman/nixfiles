@@ -195,4 +195,12 @@
     enable = true;
     nix-direnv.enable = true;
   };
+
+  home.pointerCursor = {
+    x11.enable = true;
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 22;
+  };
 }
