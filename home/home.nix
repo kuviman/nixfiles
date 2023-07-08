@@ -150,23 +150,9 @@
       lt = "exa --tree --icons";
       cargo-patched = "cargo --config $HOME/.cargo/patched.toml";
     };
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      # theme = "bullet-train"; # Not needed since loaded manually
-    };
-    plugins = [
-      {
-        name = "oh-my-zsh-bullet-train";
-        file = "bullet-train.zsh-theme";
-        src = pkgs.fetchFromGitHub {
-          owner = "caiogondim";
-          repo = "bullet-train.zsh";
-          rev = "master";
-          sha256 = "sha256-EsoCrKXmAfhSNFvUka+BglBDXM1npef4ddg7SVScxSs=";
-        };
-      }
-    ];
+    initExtra = ''
+      PS1='%(?.%F{green}.%F{red})$%b%f '
+    '';
   };
 
   programs.alacritty = {
