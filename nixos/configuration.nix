@@ -95,6 +95,8 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
+  services.flatpak.enable = true;
+
   services.xserver.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
