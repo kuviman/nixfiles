@@ -130,6 +130,7 @@
     extraConfig = {
       init.defaultBranch = "main";
     };
+    lfs.enable = true;
   };
 
   # TODO idk what it does really
