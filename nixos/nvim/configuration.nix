@@ -26,6 +26,7 @@
           indent-blankline-nvim
           nvim-colorizer-lua
           nvim-lspconfig
+          fidget-nvim
           nvim-cmp
           nvim-autopairs
           luasnip

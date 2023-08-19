@@ -35,6 +35,7 @@
 
     # Command line
     git # gud
+    git-lfs
     lazygit # Better git?
     gitui # Better lazygit?
     exa # ls++
