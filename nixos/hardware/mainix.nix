@@ -14,6 +14,17 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  specialisation.new-partitions.configuration.fileSystems = {
+    "/boot" = lib.mkForce {
+      device = "/dev/disk/by-partuuid/1a0d4287-f823-4321-81d5-23cd8c6137cb";
+      fsType = "vfat";
+    };
+    "/" = lib.mkForce {
+      device = "/dev/disk/by-partuuid/d65875ac-441d-41a2-81ac-bac57474acd7";
+      fsType = "ext4";
+    };
+  };
+
   fileSystems."/" =
     {
       device = "/dev/disk/by-partuuid/be5a7a65-d27b-9c4b-a425-3c6b3d1cfda1";
