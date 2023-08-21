@@ -19,6 +19,7 @@
         burn-my-windows
         activate_gnome
         tweaks-in-system-menu
+        material-shell
       ];
     in
     extensions ++ [ gnome.gnome-tweaks ];
