@@ -14,12 +14,13 @@
         wifi-qrcode
         weeks-start-on-monday-again
         vitals
-        paperwm
         eye-extended
         burn-my-windows
         activate_gnome
         tweaks-in-system-menu
-        material-shell
+        paperwm # works bad?
+        material-shell # works bad?
+        pop-shell
       ];
     in
     extensions ++ [ gnome.gnome-tweaks ];
