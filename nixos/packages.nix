@@ -55,6 +55,8 @@
     # Coding
     bacon # Background rust code checker
     rust-analyzer
+    taplo # toml language server
+    marksman # markdown language server
     lldb # debug
     lua-language-server
     nil # nix language server
