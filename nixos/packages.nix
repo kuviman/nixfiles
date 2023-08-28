@@ -34,6 +34,7 @@
     minecraft
 
     # Command line
+    gh # github
     git # gud
     git-lfs
     lazygit # Better git?
