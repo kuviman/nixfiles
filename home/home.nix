@@ -106,6 +106,7 @@
     # TODO ".config/hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     ".config/waybar".source = ./waybar;
     ".config/wofi".source = ./wofi;
+    ".config/helix".source = ./helix;
   };
 
   # You can also manage environment variables but you will have to manually

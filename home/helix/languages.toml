@@ -1,0 +1,10 @@
+[[language]]
+name = "rust"
+
+[language.config]
+check = { command = "clippy" }
+
+# TODO make this work
+[[language]]
+name = "toml"
+auto-format = true
