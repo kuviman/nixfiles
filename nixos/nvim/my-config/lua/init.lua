@@ -360,11 +360,15 @@ rust_tools.setup({
         rust_tools.code_action_group.code_action_group,
         { desc = "Code action groups", buffer = bufnr })
     end,
+    cargo = {
+      features = "all",
+    },
     check = {
       targets = {
         "x86_64-unknown-linux-gnu",
         "wasm32-unknown-unknown",
       },
+      command = "clippy",
     },
   },
 })
