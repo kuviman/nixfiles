@@ -2,6 +2,7 @@
 name = "rust"
 
 [language.config]
+cargo.features = "all"
 check = { command = "clippy" }
 
 # TODO make this work
