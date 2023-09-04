@@ -6,7 +6,7 @@
 
   options = {
     email = lib.mkOption {
-      type = with lib.types; uniq string;
+      type = with lib.types; str;
       description = "User email";
     };
   };
@@ -141,7 +141,7 @@
       enable = true;
       enableAutosuggestions = true;
       enableCompletion = true;
-      enableSyntaxHighlighting = true;
+      syntaxHighlighting.enable = true;
       enableVteIntegration = true;
       shellAliases = {
         nixos = "sudo nixos-rebuild --flake $HOME/nixfiles";
