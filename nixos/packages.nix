@@ -51,6 +51,7 @@
     fd # User-friendly find
     unzip
     zip
+    moreutils # sponge
 
     # Coding
     bacon # Background rust code checker
