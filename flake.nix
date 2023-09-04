@@ -12,6 +12,8 @@
     geng.url = "github:geng-engine/geng";
     geng.inputs.nixpkgs.follows = "nixpkgs";
 
+    ttv.url = "github:kuviman/ttv";
+
     # TODO: take a look at this:
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
@@ -31,7 +33,7 @@
           mkOs = hostname:
             nixpkgs.lib.nixosSystem {
               # Pass flake inputs to our config
-              specialArgs = { inherit inputs hostname; };
+              specialArgs = { inherit inputs hostname system; };
               # > Our main nixos configuration file <
               modules = [ ./nixos/configuration.nix ];
             };
