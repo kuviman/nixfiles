@@ -52,6 +52,7 @@
     unzip
     zip
     moreutils # sponge
+    libguestfs-with-appliance
 
     # Coding
     bacon # Background rust code checker
