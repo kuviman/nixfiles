@@ -144,7 +144,6 @@
       enableSyntaxHighlighting = true;
       enableVteIntegration = true;
       shellAliases = {
-        dots = "home-manager --flake $HOME/nixfiles";
         nixos = "sudo nixos-rebuild --flake $HOME/nixfiles";
         l = "exa --long --icons";
         ls = "exa --icons";

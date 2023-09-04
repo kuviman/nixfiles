@@ -7,4 +7,8 @@
     username = username;
     homeDirectory = "/home/${username}";
   };
+
+  programs.zsh.shellAliases = {
+    dots = "home-manager --flake $HOME/nixfiles";
+  };
 }
