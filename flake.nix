@@ -12,9 +12,6 @@
     geng.url = "github:geng-engine/geng";
     geng.inputs.nixpkgs.follows = "nixpkgs";
 
-    # TODO: Add any other flake you might need
-    # hardware.url = "github:nixos/nixos-hardware";
-
     # TODO: take a look at this:
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
@@ -55,7 +52,11 @@
                 # Pass flake inputs to our config
                 extraSpecialArgs = { inherit inputs username hostname; };
                 # > Our main home-manager configuration file <
-                modules = [ ./home/home.nix ];
+                modules = [
+                  (./home + ("/" + username + ".nix"))
+                  ./home/standalone.nix
+                  ./home/home.nix
+                ];
               };
         in
         {

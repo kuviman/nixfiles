@@ -7,7 +7,7 @@
 {
   imports =
     [
-      # Include the results of the hardware scan.
+      inputs.home-manager.nixosModules.home-manager
       ./hardware/${hostname}.nix
       ./hyperv.nix
       ./obs.nix
@@ -120,9 +120,14 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
   };
+  home-manager.users.kuviman.imports = [ ../home/kuviman.nix ../home/home.nix ];
 
   users.users.mikky_ti = {
     isNormalUser = true;
+  };
+
+  home-manager.extraSpecialArgs = {
+    inherit hostname;
   };
 
   # This value determines the NixOS release from which the default
