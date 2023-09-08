@@ -7,6 +7,7 @@
 {
   imports =
     [
+      inputs.sops.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager
       ./hardware/${hostname}.nix
       ./hyperv.nix
@@ -20,6 +21,7 @@
       ./packages.nix
       ./gnome.nix
       ./docker.nix
+      ./gitlab/configuration.nix
     ];
 
   nix = {

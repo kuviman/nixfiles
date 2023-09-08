@@ -1,0 +1,8 @@
+
+keys:
+  - &kuviman age1u9cua4y8qfw30mp9muxccpp227cs06es0x7q9wfw2jur0h4d7evshd5dru
+creation_rules:
+  - path_regex: .*/secrets\.yaml
+    key_groups:
+    - age:
+      - *kuviman

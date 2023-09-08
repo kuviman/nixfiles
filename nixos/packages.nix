@@ -54,6 +54,9 @@
     moreutils # sponge
     libguestfs-with-appliance
 
+    age # encryption
+    sops # secrets
+
     # Coding
     bacon # Background rust code checker
     rust-analyzer
