@@ -29,6 +29,7 @@
     zoom-us
     xorg.xeyes
     vlc
+    peek # gifs?
 
     prismlauncher
     minecraft
