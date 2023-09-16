@@ -40,7 +40,7 @@
     git-lfs
     lazygit # Better git?
     gitui # Better lazygit?
-    exa # ls++
+    eza # ls++
     bat # cat++
     alacritty # terminal
     just # just command runner

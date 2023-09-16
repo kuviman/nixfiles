@@ -145,9 +145,9 @@
       enableVteIntegration = true;
       shellAliases = {
         nixos = "sudo nixos-rebuild --flake $HOME/nixfiles";
-        l = "exa --long --icons";
-        ls = "exa --icons";
-        lt = "exa --tree --icons";
+        l = "eza --long --icons";
+        ls = "eza --icons";
+        lt = "eza --tree --icons";
         cargo-patched = "cargo --config $HOME/.cargo/patched.toml";
       };
       initExtra = ''
