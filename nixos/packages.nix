@@ -57,6 +57,7 @@
 
     age # encryption
     sops # secrets
+    yt-dlp # download YouTube
 
     # Coding
     bacon # Background rust code checker
