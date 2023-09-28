@@ -20,6 +20,7 @@
     hyprpicker # Pick color from screen
     wofi-emoji # emoji picker
     steam # GAMES
+    lutris # More GAMES
     wineWowPackages.waylandFull # run windows apps
     ntfs3g # to break windows from linux YEP
     glxinfo # To test which opengl version I have
