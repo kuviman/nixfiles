@@ -804,11 +804,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1695598652,
-        "narHash": "sha256-KLeD6nXWRNPYl2HycPD8zAM1SaGH0X6+kSyDXMWh54g=",
+        "lastModified": 1695994974,
+        "narHash": "sha256-6aYvv1pnzKQ1dZyIi9z10DwsbPZlolWHZSk1icr0UYo=",
         "owner": "kuviman",
         "repo": "ttv",
-        "rev": "8fde8ee6bb7aced7bbc9e0ce6035b3582a5fc4b9",
+        "rev": "6e2b20cd7b5fae55b8fe056cbae9290c3e3d6236",
         "type": "github"
       },
       "original": {
