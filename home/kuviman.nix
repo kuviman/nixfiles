@@ -35,12 +35,21 @@
         WantedBy = [ "default.target" ];
       };
 
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.caddy}/bin/caddy file-server --listen :1788 --root ${inputs.ttv.web}";
-        Restart = "always";
-        RestartSec = "10";
-      };
+      Service =
+        let
+          caddyfile = pkgs.writeText "Caddyfile" ''
+            :1788
+            header Cache-Control no-store
+            root * ${inputs.ttv.web}
+            file_server
+          '';
+        in
+        {
+          Type = "simple";
+          ExecStart = "${pkgs.caddy}/bin/caddy run --config ${caddyfile} --adapter caddyfile";
+          Restart = "always";
+          RestartSec = "10";
+        };
     };
   };
 }
