@@ -1,16 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   nixpkgs.overlays = [
     (final: prev: {
-      obs-studio = prev.obs-studio.overrideAttrs (oldAttrs: {
-        preFixup = ''
-          qtWrapperArgs+=(
-            --prefix LD_LIBRARY_PATH : "${with final; lib.makeLibraryPath [ xorg.libX11 libvlc libGL ]}"
-            ''${gappsWrapperArgs[@]}
-          )
-        '';
-      });
+      obs-studio = config.nur.repos.materus.obs-amf;
     })
   ];
   environment.systemPackages = with pkgs; [

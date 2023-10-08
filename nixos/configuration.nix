@@ -7,6 +7,7 @@
 {
   imports =
     [
+      inputs.nur.nixosModules.nur
       inputs.sops.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager
       ./hardware/${hostname}.nix
