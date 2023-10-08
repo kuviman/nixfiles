@@ -12,9 +12,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    geng.url = "github:geng-engine/geng";
-    geng.inputs.nixpkgs.follows = "nixpkgs";
-
     ttv.url = "github:kuviman/ttv";
 
     # TODO: take a look at this:
