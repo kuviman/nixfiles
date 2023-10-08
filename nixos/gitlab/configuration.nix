@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, hostname, ... }:
 {
   sops.age.keyFile = "/home/kuviman/.config/sops/age/keys.txt";
   sops.secrets.gitlab-runner-registration = {
-    sopsFile = ./secrets.yaml;
+    sopsFile = ./secrets-${hostname}.yaml;
     key = "registration-config";
   };
 

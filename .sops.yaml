@@ -1,8 +1,10 @@
 
 keys:
-  - &kuviman age1u9cua4y8qfw30mp9muxccpp227cs06es0x7q9wfw2jur0h4d7evshd5dru
+  - &kuviman-mainix age1u9cua4y8qfw30mp9muxccpp227cs06es0x7q9wfw2jur0h4d7evshd5dru
+  - &kuviman-swiftix age17dac3dc4ll4e0n0xeftnjm8esygtfgjrnafw58cu23k5gv6ql5tqzeudew
 creation_rules:
-  - path_regex: .*/secrets\.yaml
+  - path_regex: .*/secrets-.*\.yaml
     key_groups:
     - age:
-      - *kuviman
+      - *kuviman-mainix
+      - *kuviman-swiftix
