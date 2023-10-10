@@ -19,8 +19,8 @@
   };
   environment.etc."pipewire/pipewire.conf.d/stutter-fix.conf".text = ''
     context.properties = {
-            default.clock.min-quantum = 512
-                }
+      default.clock.min-quantum = 512
+    }
   '';
 
 }
