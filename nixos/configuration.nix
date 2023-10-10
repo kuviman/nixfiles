@@ -25,6 +25,7 @@
       ./wayfire.nix
       ./docker.nix
       ./gitlab/configuration.nix
+      ./xdg-desktop-portal.nix
     ];
 
   nix = {
