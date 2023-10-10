@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  # programs.hyprland.enable = true; # Don't enable gnome or kde, their desktop portal ruins everything KEKW
-
   services.xserver.desktopManager.gnome.enable = true;
   environment.systemPackages =
     with pkgs;

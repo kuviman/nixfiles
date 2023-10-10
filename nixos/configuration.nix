@@ -21,6 +21,8 @@
       ./audio.nix
       ./packages.nix
       ./gnome.nix
+      ./hyprland.nix
+      ./wayfire.nix
       ./docker.nix
       ./gitlab/configuration.nix
     ];
