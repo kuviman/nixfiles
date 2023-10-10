@@ -15,6 +15,7 @@
     python3 # calculator
     zoom-us
     vlc
+    remmina # RDP
 
     prismlauncher # minecraft
     steam # GAMES
