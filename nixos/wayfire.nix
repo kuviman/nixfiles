@@ -14,11 +14,16 @@ let
       [Desktop Entry]
       Name=Wayfire
       Comment=Wayfire
-      Exec=${finalPackage}/bin/wayfire
+      Exec=env XDG_CURRENT_DESKTOP=Wayfire ${finalPackage}/bin/wayfire
       Type=Application
     '').overrideAttrs {
     passthru.providedSessions = [ "wayfire" ];
   };
+  portalsPackage = (pkgs.writeTextDir "share/xdg-desktop-portal/wayfire-portals.conf"
+    ''
+      [preferred]
+      default=wlr
+    '');
 in
 {
   # TODO should instead be this but doesnt show in gdm
@@ -31,6 +36,7 @@ in
 
   environment.systemPackages = [
     finalPackage
+    portalsPackage
   ];
   services.xserver.displayManager.sessionPackages = [
     sessionPackage
