@@ -43,6 +43,7 @@
     psutils
     ntfs3g # to break windows from linux YEP
     libguestfs-with-appliance # to mount hyper-v vm data
+    file
 
     age # encryption
     sops # secrets
