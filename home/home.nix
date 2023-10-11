@@ -78,6 +78,15 @@
         { allowUnfree = true; }
       '';
 
+      ".config/hypr/hyprpaper.conf".text =
+        let wallpaper = pkgs.nixos-artwork.wallpapers.simple-dark-gray.gnomeFilePath;
+        in ''
+          preload = ${wallpaper}
+          wallpaper = ,${wallpaper}
+          ipc = off
+          splash = false
+        '';
+
       ".config/hypr/hyprland.conf".text =
         let
           monitors =
