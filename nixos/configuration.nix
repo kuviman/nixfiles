@@ -20,11 +20,11 @@
       ./amdgpu.nix
       ./audio.nix
       ./packages.nix
+      ./docker.nix
+      ./gitlab/configuration.nix
       ./gnome.nix
       ./hyprland.nix
       ./wayfire.nix
-      ./docker.nix
-      ./gitlab/configuration.nix
       ./xdg-desktop-portal.nix
     ];
 

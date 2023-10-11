@@ -19,11 +19,11 @@ let
     '').overrideAttrs {
     passthru.providedSessions = [ "wayfire" ];
   };
-  portalsPackage = (pkgs.writeTextDir "share/xdg-desktop-portal/wayfire-portals.conf"
-    ''
-      [preferred]
-      default=wlr
-    '');
+  # portalsPackage = (pkgs.writeTextDir "share/xdg-desktop-portal/wayfire-portals.conf"
+  #   ''
+  #     [preferred]
+  #     default=wlr
+  #   '');
 in
 {
   # TODO should instead be this but doesnt show in gdm
@@ -36,13 +36,28 @@ in
 
   environment.systemPackages = [
     finalPackage
-    portalsPackage
+    # portalsPackage
   ];
+
+  fonts.enableDefaultFonts = lib.mkDefault true;
+  hardware.opengl.enable = lib.mkDefault true;
+  programs = {
+    dconf.enable = lib.mkDefault true;
+    xwayland.enable = lib.mkDefault true;
+  };
   services.xserver.displayManager.sessionPackages = [
     sessionPackage
   ];
+  security.polkit.enable = true;
   xdg.portal = {
     enable = lib.mkDefault true;
     wlr.enable = lib.mkDefault true;
+    extraPortals = with pkgs; [
+      (writeTextDir "/share/xdg-desktop-portal/portals/wayfire-portals.conf"
+        ''
+          [preferred]
+          default=hyprland;gtk
+        '')
+    ];
   };
 }
