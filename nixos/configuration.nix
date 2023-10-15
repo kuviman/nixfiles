@@ -26,6 +26,7 @@
       ./hyprland.nix
       ./wayfire.nix
       ./xdg-desktop-portal.nix
+      ./minecraft.nix
     ];
 
   nix = {
