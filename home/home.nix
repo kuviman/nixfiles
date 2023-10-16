@@ -181,7 +181,10 @@
           };
           size = 16;
         };
-        window.opacity = 0.95;
+        window = {
+          opacity = 0.95;
+          decorations = "none";
+        };
       };
     };
 
