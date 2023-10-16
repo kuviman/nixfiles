@@ -16,9 +16,9 @@
         burn-my-windows
         activate_gnome
         tweaks-in-system-menu
-        paperwm # works bad?
-        material-shell # works bad?
         pop-shell
+        workspace-matrix
+        forge
       ];
     in
     extensions ++ [ gnome.gnome-tweaks ];
