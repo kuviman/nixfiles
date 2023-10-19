@@ -37,12 +37,13 @@
         ${pkgs.nix}/bin/nix-env -i ${pkgs.lib.concatStringsSep " " (with pkgs; [ nix cacert git openssh ])}
         mkdir -p ~/.config/nix
         echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+        export PATH="/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
       '';
       environmentVariables = {
         ENV = "/etc/profile";
         USER = "root";
         NIX_REMOTE = "daemon";
-        PATH = "/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin";
+        # PATH = "/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin";
         NIX_SSL_CERT_FILE = "/nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt";
       };
       tagList = [ "nix" ];
