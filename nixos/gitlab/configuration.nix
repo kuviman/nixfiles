@@ -1,18 +1,27 @@
 { pkgs, hostname, ... }:
 {
   sops.age.keyFile = "/home/kuviman/.config/sops/age/keys.txt";
-  sops.secrets.gitlab-runner-registration = {
+  sops.secrets.gitlab-runner-dock-registration = {
     sopsFile = ./secrets-${hostname}.yaml;
-    key = "registration-config";
+    key = "registration-config-dock";
+  };
+  sops.secrets.gitlab-runner-nix-registration = {
+    sopsFile = ./secrets-${hostname}.yaml;
+    key = "registration-config-nix";
   };
 
   services.gitlab-runner.enable = true;
   services.gitlab-runner.services = {
+    dock = {
+      registrationConfigFile = "/run/secrets/gitlab-runner-dock-registration";
+      dockerImage = "alpine";
+      tagList = [ "docker" ];
+    };
     nix = {
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
-      registrationConfigFile = "/run/secrets/gitlab-runner-registration";
+      registrationConfigFile = "/run/secrets/gitlab-runner-nix-registration";
       dockerImage = "alpine";
 
       dockerVolumes = [
@@ -37,13 +46,12 @@
         ${pkgs.nix}/bin/nix-env -i ${pkgs.lib.concatStringsSep " " (with pkgs; [ nix cacert git openssh ])}
         mkdir -p ~/.config/nix
         echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
-        export PATH="/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin:$PATH"
       '';
       environmentVariables = {
         ENV = "/etc/profile";
         USER = "root";
         NIX_REMOTE = "daemon";
-        # PATH = "/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin";
+        PATH = "/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin";
         NIX_SSL_CERT_FILE = "/nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt";
       };
       tagList = [ "nix" ];
