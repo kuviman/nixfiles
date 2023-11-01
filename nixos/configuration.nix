@@ -23,9 +23,9 @@
       ./docker.nix
       ./gitlab/configuration.nix
       ./gnome.nix
-      ./hyprland.nix
-      ./wayfire.nix
-      ./xdg-desktop-portal.nix
+      # ./hyprland.nix
+      # ./wayfire.nix
+      # ./xdg-desktop-portal.nix
       ./minecraft.nix
     ];
 
