@@ -198,7 +198,7 @@
       gtk.enable = true;
       package = pkgs.catppuccin-cursors.macchiatoPink;
       name = "Catppuccin-Macchiato-Pink-Cursors";
-      size = 128;
+      size = 32;
     };
   };
 }
