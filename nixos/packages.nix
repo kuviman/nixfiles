@@ -68,6 +68,8 @@
 
     kdenlive # video editing
     audacity # for fish sound effects
+
+    daktilo # fake keyboard sounds
   ];
   services.ratbagd.enable = true; # for piper
 
