@@ -1,7 +1,7 @@
 [[language]]
 name = "rust"
 
-[language.config]
+[language-server.rust-analyzer.config]
 cargo.features = "all"
 check = { command = "clippy" }
 
