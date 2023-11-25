@@ -15,7 +15,6 @@
         eye-extended
         burn-my-windows
         activate_gnome
-        tweaks-in-system-menu
         pop-shell
         workspace-matrix
         forge
