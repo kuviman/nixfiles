@@ -14,6 +14,10 @@
         input-overlay
         obs-backgroundremoval
         obs-vkcapture
+        obs-3d-effect
+        obs-shaderfilter
+        obs-pipewire-audio-capture
+        input-overlay
       ];
     })
   ];
