@@ -11,7 +11,6 @@
       inputs.sops.nixosModules.sops
       inputs.home-manager.nixosModules.home-manager
       ./hardware/${hostname}.nix
-      ./hyperv.nix
       ./obs.nix
       ./android.nix
       ./ios.nix
@@ -23,9 +22,6 @@
       ./docker.nix
       ./gitlab/configuration.nix
       ./gnome.nix
-      # ./hyprland.nix
-      # ./wayfire.nix
-      # ./xdg-desktop-portal.nix
       ./minecraft.nix
     ];
 
@@ -105,9 +101,9 @@
   services.xserver.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us,ru";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Swaylock pam

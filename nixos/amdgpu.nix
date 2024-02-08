@@ -4,10 +4,9 @@
   # https://nixos.wiki/wiki/AMD_GPU
   boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
-  # this one is borked
-  # systemd.tmpfiles.rules = [
-  #   "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
-  # ];
+  systemd.tmpfiles.rules = [
+    "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
+  ];
   hardware.opengl = {
     extraPackages = with pkgs; [
       rocm-opencl-icd

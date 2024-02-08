@@ -12,7 +12,7 @@
         # wlrobs
         droidcam-obs
         input-overlay
-        obs-backgroundremoval
+        # obs-backgroundremoval
         obs-vkcapture
         obs-3d-effect
         obs-shaderfilter
