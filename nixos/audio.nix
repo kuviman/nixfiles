@@ -17,10 +17,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
-  environment.etc."pipewire/pipewire.conf.d/stutter-fix.conf".text = ''
+  services.pipewire.extraConfig.pipewire."stutter-fix" = {
     context.properties = {
-      default.clock.min-quantum = 512
-    }
-  '';
-
+      default.clock.min-quantum = 512;
+    };
+  };
 }
