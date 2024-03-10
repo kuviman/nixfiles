@@ -17,6 +17,8 @@
     vlc
     remmina # RDP
 
+    dropbox # for my keystore
+
     prismlauncher # minecraft
     steam # GAMES
     steam-run # windows games
