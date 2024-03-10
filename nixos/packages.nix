@@ -76,7 +76,7 @@
   services.ratbagd.enable = true; # for piper
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Monaspace" ]; })
   ];
 
   services.upower.enable = true; # checking wireless mouse power for example

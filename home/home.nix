@@ -168,15 +168,15 @@
       settings = {
         font = {
           normal = {
-            family = "JetBrainsMono Nerd Font";
+            family = "MonaspiceKr Nerd Font";
             style = "Regular";
           };
           bold = {
-            family = "JetBrainsMono Nerd Font";
+            family = "MonaspiceKr Nerd Font";
             style = "Bold";
           };
           italic = {
-            family = "JetBrainsMono Nerd Font";
+            family = "MonaspiceKr Nerd Font";
             style = "Italic";
           };
           size = 16;
