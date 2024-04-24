@@ -22,6 +22,7 @@
       ./docker.nix
       ./gitlab/configuration.nix
       ./gnome.nix
+      ./kde.nix
       ./minecraft.nix
     ];
 
