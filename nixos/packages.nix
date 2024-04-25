@@ -4,7 +4,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget # LOL ok but how can I make it work?
   environment.systemPackages = with pkgs; [
-    firefox # Browsing the web
     google-chrome # Another way of browsing the web
     tdesktop # Telegram
     hexchat # Irc
@@ -75,6 +74,12 @@
     daktilo # fake keyboard sounds
   ];
   services.ratbagd.enable = true; # for piper
+
+  # Browsing the web
+  programs.firefox = {
+    enable = true;
+    nativeMessagingHosts.tridactyl = true;
+  };
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Monaspace" ]; })
