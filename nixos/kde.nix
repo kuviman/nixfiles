@@ -9,4 +9,7 @@
 
   # https://github.com/NixOS/nixpkgs/issues/75867
   programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
+  environment.systemPackages = with pkgs; [
+    libsForQt5.polonium
+  ];
 }
