@@ -413,6 +413,10 @@ require "nvim-treesitter.configs".setup {
   },
 }
 
+require "treesitter-context".setup {
+  max_lines = 5,
+}
+
 -- auto-reload files when modified externally
 -- https://unix.stackexchange.com/a/383044
 vim.o.autoread = true
