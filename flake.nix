@@ -13,7 +13,16 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.url = "github:hyprwm/Hyprland";
+    # hyprland.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.follows = "Hyprspace/hyprland";
+    Hyprspace = {
+      url = "github:KZDKM/Hyprspace/a44d834af279f233a269d065d2e14fe4101d6f41";
+      # https://github.com/NixOS/nix/issues/5790
+      # inputs.hyprland.inputs.nixpkgs.follows = "nixpkgs";
+
+      # inputs.hyprland.follows = "hyprland";
+    };
 
     ttv.url = "github:kuviman/ttv";
 
