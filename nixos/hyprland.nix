@@ -1,6 +1,11 @@
 { pkgs, inputs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (self: super: {
+      hyprland = inputs.hyprland.packages.${self.system}.hyprland;
+    })
+  ];
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
@@ -10,6 +15,8 @@
     waybar
     hyprpaper
     hyprpicker
+    hyprshot
+    mako # notifications
     wofi
   ];
 }
