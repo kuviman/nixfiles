@@ -13,6 +13,8 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     ttv.url = "github:kuviman/ttv";
 
     # TODO: take a look at this:
