@@ -23,6 +23,7 @@
       ./gitlab/configuration.nix
       ./gnome.nix
       ./kde.nix
+      ./hyprland.nix
       ./minecraft.nix
     ];
 
