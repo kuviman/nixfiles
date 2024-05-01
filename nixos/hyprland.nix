@@ -18,5 +18,6 @@
     hyprshot
     mako # notifications
     wofi
+    pavucontrol
   ];
 }
