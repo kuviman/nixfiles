@@ -128,6 +128,12 @@ vim.keymap.set("n", "<leader>ff",
 vim.keymap.set("n", "<leader>fa",
   "<cmd> Telescope <cr>",
   { desc = "Find anything" })
+vim.keymap.set("n", "<leader>fs",
+  "<cmd> Telescope treesitter <cr>",
+  { desc = "Find treesitter symbols" })
+vim.keymap.set("n", "<leader>ft",
+  "<cmd> Telescope lsp_workspace_symbols <cr>",
+  { desc = "Find workspace symbols" })
 vim.keymap.set("n", "<leader>fw",
   "<cmd> Telescope live_grep <cr>",
   { desc = "Live grep" })
