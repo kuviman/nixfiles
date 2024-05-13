@@ -4,6 +4,9 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    settings = {
+      input.sensitivity = if hostname == "mainix" then -1.0 else 0;
+    };
     extraConfig =
       let
         monitors =
