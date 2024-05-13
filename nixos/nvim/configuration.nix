@@ -40,7 +40,7 @@
           nvim-tree-lua
           telescope-nvim
           which-key-nvim
-          rust-tools-nvim
+          rustaceanvim
           nvim-surround
           nvim-treesitter.withAllGrammars
           nvim-treesitter-context

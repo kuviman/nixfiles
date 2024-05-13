@@ -355,18 +355,21 @@ vim.keymap.set('n', '<space>fm',
   end,
   { desc = "Format file" })
 
-local rust_tools = require("rust-tools")
-rust_tools.setup({
+vim.g.rustaceanvim = {
+  -- Plugin configuration
+  tools = {
+  },
+  -- LSP configuration
   server = {
     on_attach = function(_, bufnr)
       vim.keymap.set("n", "<C-space>",
-        rust_tools.hover_actions.hover_actions,
+        rustaceanvim.hover_actions.hover_actions,
         { desc = "Hover actions", buffer = bufnr })
       vim.keymap.set("n", "<Leader>a",
-        rust_tools.code_action_group.code_action_group,
+        rustaceanvim.code_action_group.code_action_group,
         { desc = "Code action groups", buffer = bufnr })
     end,
-    settings = {
+    default_settings = {
       ['rust-analyzer'] = {
         cargo = {
           features = "all",
@@ -381,7 +384,10 @@ rust_tools.setup({
       },
     },
   },
-})
+  -- DAP configuration
+  dap = {
+  },
+}
 
 require("Comment").setup()
 vim.keymap.set("n", "<leader>/",
