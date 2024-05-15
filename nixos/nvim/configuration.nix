@@ -13,6 +13,7 @@
             name = "my-config";
             src = ./my-config;
           })
+          vim-abolish
           onedark-nvim
           vim-fugitive
           lazygit-nvim
