@@ -56,7 +56,7 @@
   environment.systemPackages = with pkgs; [
     gcc # treesitter requires
     neovide
-    (inputs.self.patchDesktop pkgs neovide "neovide" "^Exec=neovide" "Exec=env WINIT_UNIX_BACKEND=x11 neovide")
+    (inputs.self.patchDesktop pkgs neovide "neovide" "^Exec=neovide" "Exec=${neovide}/bin/neovide --frame none")
     fd
     ripgrep # yep
 
