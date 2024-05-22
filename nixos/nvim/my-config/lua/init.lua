@@ -193,7 +193,7 @@ nvim_tree.setup {
     highlight_opened_files = "none",
 
     indent_markers = {
-      enable = false,
+      enable = true,
     },
 
     icons = {
@@ -443,3 +443,12 @@ vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGai
 require("fidget").setup {
   -- options
 }
+
+-- indent_blankline
+require("ibl").setup({
+  indent = { char = "▏" },
+  whitespace = {
+    remove_blankline_trail = false,
+  },
+  scope = { enabled = true },
+})
