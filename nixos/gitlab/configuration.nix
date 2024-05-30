@@ -14,7 +14,7 @@
   services.gitlab-runner.services = {
     dock = {
       registrationConfigFile = "/run/secrets/gitlab-runner-dock-registration";
-      dockerImage = "alpine";
+      dockerImage = "mirror.gcr.io/alpine";
       tagList = [ "docker" ];
     };
     nix = {
@@ -22,7 +22,7 @@
       # `CI_SERVER_URL`
       # `REGISTRATION_TOKEN`
       registrationConfigFile = "/run/secrets/gitlab-runner-nix-registration";
-      dockerImage = "alpine";
+      dockerImage = "mirror.gcr.io/alpine";
 
       dockerVolumes = [
         "/nix/store:/nix/store:ro"
