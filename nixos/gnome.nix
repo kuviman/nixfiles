@@ -6,17 +6,14 @@
     with pkgs;
     let
       extensions = with gnomeExtensions; [
+        compiz-windows-effect
         tray-icons-reloaded
         unite
         wireless-hid
         wifi-qrcode
         weeks-start-on-monday-again
         vitals
-        eye-extended
         burn-my-windows
-        activate_gnome
-        pop-shell
-        workspace-matrix
         forge
       ];
     in
