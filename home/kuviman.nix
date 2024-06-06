@@ -3,6 +3,24 @@
 
   systemd.user.services =
     pkgs.lib.mkIf (hostname == "mainix") {
+      kuvibot = {
+        Unit = {
+          Description = "twitch bot";
+          After = [ "network.target" ];
+        };
+
+        Install = {
+          WantedBy = [ "default.target" ];
+        };
+
+        Service = {
+          Type = "simple";
+          WorkingDirectory = config.home.homeDirectory + "/.kuvibot";
+          ExecStart = config.home.homeDirectory + "/.kuvibot/run";
+          Restart = "always";
+          RestartSec = "10";
+        };
+      };
       ttv =
         let
           ttv-bin = inputs.ttv.defaultApp.${system};
