@@ -1,7 +1,7 @@
 { ... }:
 {
   services.minecraft-server = {
-    enable = true;
+    # enable = true;
     eula = true;
   };
 }
