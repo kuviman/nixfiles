@@ -15,6 +15,7 @@
         vitals
         burn-my-windows
         forge
+        paperwm
       ];
     in
     extensions ++ [ gnome.gnome-tweaks ];
