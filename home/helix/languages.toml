@@ -1,5 +1,12 @@
 [[language]]
 name = "rust"
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
 
 [language-server.rust-analyzer.config]
 cargo.features = "all"
