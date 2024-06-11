@@ -59,8 +59,6 @@
     (inputs.self.patchDesktop pkgs neovide "neovide" "^Exec=neovide" "Exec=${neovide}/bin/neovide --frame none")
     fd
     ripgrep # yep
-
-    rust-analyzer
     nil # nix language server
   ];
 }
