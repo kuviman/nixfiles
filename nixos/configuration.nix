@@ -119,7 +119,7 @@
   };
 
   # Disable mouse acceleration
-  services.xserver.libinput.mouse.accelProfile = "flat";
+  services.libinput.mouse.accelProfile = "flat";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kuviman = {

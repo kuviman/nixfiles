@@ -80,7 +80,7 @@
   # Browsing the web
   programs.firefox = {
     enable = true;
-    nativeMessagingHosts.tridactyl = true;
+    nativeMessagingHosts.packages = [ pkgs.tridactyl-native ];
   };
 
   fonts.packages = with pkgs; [
