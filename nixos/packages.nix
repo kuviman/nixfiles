@@ -57,6 +57,8 @@
 
     glances # System monitoring
 
+    zellij # like tmux
+
     helix # For when I'm done with neovim
     vscode-fhs
     dua # disk usage analyzer
