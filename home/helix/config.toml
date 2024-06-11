@@ -4,6 +4,12 @@ theme = "onedark"
 line-number = "relative"
 bufferline = "always"
 
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+goto-reference-include-declaration = false
+snippets = false
+
 [editor.cursor-shape]
 insert = "bar"
 
@@ -19,3 +25,14 @@ skip-levels = 1
 C-s = ":w"
 C-y = ":clipboard-yank"
 C-p = ":clipboard-paste-before"
+C-r = ":reload-all"
+
+[[language]]
+name = "rust"
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
