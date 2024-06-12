@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ system, inputs, lib, config, hostname, ... }:
+{ system, inputs, pkgs, lib, config, hostname, ... }:
 
 {
   imports =
@@ -81,6 +81,8 @@
       ];
     };
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = hostname;
 
