@@ -32,6 +32,7 @@
     eza # ls++
     bat # cat++
     alacritty # terminal
+    rio # alacritty with ligatures?
     curl # pretty sure its installed by default but anyway
     wget # Downloading things from command line
     neofetch # BTW

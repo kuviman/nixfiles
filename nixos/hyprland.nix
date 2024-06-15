@@ -19,6 +19,7 @@
       package = inputs.hyprland.packages.${pkgs.system}.hyprland;
       xwayland.enable = true;
     };
+    xdg.portal.wlr.enable = lib.mkForce true; # Or conflict with sway
     environment.systemPackages = with pkgs; [
       waybar
       hyprpaper

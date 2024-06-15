@@ -28,6 +28,10 @@
       ./minecraft.nix
     ];
 
+  kuviman = {
+    hyprland.enable = true;
+  };
+
   # kde.enable = true;
 
   nix = {
