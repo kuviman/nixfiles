@@ -25,6 +25,7 @@
     };
 
     ttv.url = "github:kuviman/ttv";
+    kuvibot.url = "github:kuviman/kuvibot";
 
     # TODO: take a look at this:
     # Shameless plug: looking for a way to nixify your themes and make
