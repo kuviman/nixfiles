@@ -307,6 +307,7 @@ lspconfig.lua_ls.setup {
 }
 
 lspconfig.zls.setup {}
+lspconfig.ocamllsp.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

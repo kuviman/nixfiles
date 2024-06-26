@@ -36,6 +36,7 @@
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
+      pkgs = import nixpkgs { inherit system; };
     in
     {
       # NixOS configuration entrypoint
@@ -87,5 +88,9 @@
           ${coreutils}/bin/mkdir -p $out/share/applications
           ${gnused}/bin/sed 's#${from}#${to}#g' < ${pkg}/share/applications/${appName}.desktop > $out/share/applications/${appName}.desktop
         '');
+
+      devShells.${system}.default = with pkgs; mkShell {
+        packages = [ lua-language-server ];
+      };
     };
 }
