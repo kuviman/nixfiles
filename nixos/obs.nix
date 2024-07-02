@@ -1,11 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
-  nixpkgs.overlays = [
-    (final: prev: {
-      obs-studio = config.nur.repos.materus.obs-amf;
-    })
-  ];
   environment.systemPackages = with pkgs; [
     (wrapOBS {
       plugins = with pkgs.obs-studio-plugins; [

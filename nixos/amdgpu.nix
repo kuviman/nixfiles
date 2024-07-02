@@ -7,7 +7,7 @@
   systemd.tmpfiles.rules = [
     "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
   ];
-  hardware.opengl = {
+  hardware.graphics = {
     extraPackages = with pkgs; [
       rocm-opencl-icd
       rocm-opencl-runtime

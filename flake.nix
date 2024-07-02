@@ -8,7 +8,6 @@
 
     # Secrets
     sops.url = "github:Mic92/sops-nix";
-    nur.url = "github:nix-community/NUR";
     # Home manager
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
