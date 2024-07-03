@@ -1,6 +1,8 @@
 { pkgs, inputs, ... }:
 
 {
+  programs.steam.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget # LOL ok but how can I make it work?
   environment.systemPackages = with pkgs; [
@@ -19,7 +21,6 @@
     dropbox # for my keystore
 
     prismlauncher # minecraft
-    steam # GAMES
     steam-run # windows games
     lutris # More GAMES
     wineWowPackages.waylandFull # run windows apps
