@@ -21,6 +21,7 @@
     dropbox # for my keystore
 
     prismlauncher # minecraft
+    appimage-run
     steam-run # windows games
     lutris # More GAMES
     wineWowPackages.waylandFull # run windows apps
