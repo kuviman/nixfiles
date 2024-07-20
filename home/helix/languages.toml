@@ -1,4 +1,13 @@
 [[language]]
+name = "ocaml"
+auto-format = true
+
+# TODO make this work
+[[language]]
+name = "toml"
+auto-format = true
+
+[[language]]
 name = "rust"
 [language.auto-pairs]
 '(' = ')'
@@ -12,7 +21,3 @@ name = "rust"
 cargo.features = "all"
 check = { command = "clippy" }
 
-# TODO make this work
-[[language]]
-name = "toml"
-auto-format = true
