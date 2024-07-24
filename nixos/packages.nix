@@ -20,6 +20,8 @@
 
     dropbox # for my keystore
 
+    devenv # until devenv can be integrated properly with flakes
+
     prismlauncher # minecraft
     appimage-run
     steam-run # windows games
