@@ -1,4 +1,4 @@
-{ pkgs, hostname, inputs, ... }:
+{ config, pkgs, hostname, inputs, ... }:
 {
   imports = [ inputs.hyprland.homeManagerModules.default ];
   wayland.windowManager.hyprland = {
@@ -6,6 +6,16 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       input.sensitivity = if hostname == "mainix" then -1.0 else 0;
+
+      # https://github.com/nix-community/home-manager/issues/2659
+      envd = with builtins; attrValues
+        (mapAttrs
+          (name: value: "${name}, ${toString value}")
+          config.home.sessionVariables
+        ) ++ [
+        # "EXTRA_VARIABLE, 1"
+      ];
+
     };
     extraConfig =
       let
