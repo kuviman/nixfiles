@@ -47,7 +47,12 @@
               # Pass flake inputs to our config
               specialArgs = { inherit inputs hostname system; };
               # > Our main nixos configuration file <
-              modules = [ ./nixos/configuration.nix ];
+              modules = [
+                ./nixos/configuration.nix
+                {
+                  system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
+                }
+              ];
             };
         in
         {
