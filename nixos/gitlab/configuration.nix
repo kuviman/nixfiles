@@ -15,7 +15,6 @@
     dock = {
       authenticationTokenConfigFile = "/run/secrets/gitlab-runner-dock-auth";
       dockerImage = "mirror.gcr.io/alpine";
-      tagList = [ "docker" ];
     };
     nix = {
       # File should contain at least these two variables:
@@ -54,7 +53,6 @@
         PATH = "/nix/var/nix/profiles/default/bin:/nix/var/nix/profiles/default/sbin:/bin:/sbin:/usr/bin:/usr/sbin";
         NIX_SSL_CERT_FILE = "/nix/var/nix/profiles/default/etc/ssl/certs/ca-bundle.crt";
       };
-      tagList = [ "nix" ];
     };
   };
 }
