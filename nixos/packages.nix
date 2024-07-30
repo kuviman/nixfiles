@@ -66,6 +66,7 @@
 
     helix # For when I'm done with neovim
     vscode-fhs
+    zed-editor
     dua # disk usage analyzer
     any-nix-shell # Keep shell when in nix-shell (nix-shell is outdated tho so I should use smth else?)
 
