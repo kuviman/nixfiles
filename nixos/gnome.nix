@@ -18,7 +18,7 @@
         paperwm
       ];
     in
-    extensions ++ [ gnome.gnome-tweaks ];
+    extensions ++ [ gnome-tweaks ];
   environment.gnome.excludePackages = (with pkgs; [
     gnome-photos
     gnome-tour
