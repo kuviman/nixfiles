@@ -1,27 +1,27 @@
 { pkgs, hostname, ... }:
 {
   sops.age.keyFile = "/home/kuviman/.config/sops/age/keys.txt";
-  sops.secrets.gitlab-runner-dock-registration = {
+  sops.secrets.gitlab-runner-dock-auth = {
     sopsFile = ./secrets-${hostname}.yaml;
-    key = "registration-config-dock";
+    key = "auth-config-dock";
   };
-  sops.secrets.gitlab-runner-nix-registration = {
+  sops.secrets.gitlab-runner-nix-auth = {
     sopsFile = ./secrets-${hostname}.yaml;
-    key = "registration-config-nix";
+    key = "auth-config-nix";
   };
 
   services.gitlab-runner.enable = true;
   services.gitlab-runner.services = {
     dock = {
-      registrationConfigFile = "/run/secrets/gitlab-runner-dock-registration";
+      authenticationTokenConfigFile = "/run/secrets/gitlab-runner-dock-auth";
       dockerImage = "mirror.gcr.io/alpine";
       tagList = [ "docker" ];
     };
     nix = {
       # File should contain at least these two variables:
       # `CI_SERVER_URL`
-      # `REGISTRATION_TOKEN`
-      registrationConfigFile = "/run/secrets/gitlab-runner-nix-registration";
+      # `CI_SERVER_TOKEN`
+      authenticationTokenConfigFile = "/run/secrets/gitlab-runner-nix-auth";
       dockerImage = "mirror.gcr.io/alpine";
 
       dockerVolumes = [
