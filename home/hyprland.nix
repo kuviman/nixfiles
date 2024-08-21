@@ -1,9 +1,7 @@
-{ config, pkgs, hostname, inputs, ... }:
+{ config, pkgs, hostname, ... }:
 {
-  imports = [ inputs.hyprland.homeManagerModules.default ];
   wayland.windowManager.hyprland = {
     enable = true;
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       input.sensitivity = if hostname == "mainix" then -1.0 else 0;
 
@@ -40,7 +38,6 @@
           else "";
       in
       monitors + builtins.readFile ./hyprland.conf;
-    plugins = [ inputs.Hyprspace.packages.${pkgs.system}.Hyprspace ];
   };
   home.file = {
     ".config/hypr/hyprpaper.conf".text =
