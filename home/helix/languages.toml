@@ -25,3 +25,5 @@ name = "rust"
 cargo.features = "all"
 check = { command = "clippy" }
 
+[language-server.haskell-language-server]
+config.haskell.plugin.rename = { config = { crossModule = true }}
