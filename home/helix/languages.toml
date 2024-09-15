@@ -1,4 +1,8 @@
 [[language]]
+name = "haskell"
+auto-format = true
+
+[[language]]
 name = "ocaml"
 auto-format = true
 
