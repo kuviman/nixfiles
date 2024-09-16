@@ -394,7 +394,7 @@ vim.g.rustaceanvim = {
 }
 
 require("Comment").setup()
-vim.keymap.set("n", "<leader>/",
+vim.keymap.set("n", "<C-c>",
   function()
     require("Comment.api").toggle.linewise.current()
   end,
