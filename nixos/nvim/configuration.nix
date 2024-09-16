@@ -45,6 +45,7 @@
           nvim-surround
           nvim-treesitter.withAllGrammars
           nvim-treesitter-context
+          haskell-tools-nvim
         ];
         opt = [
           vim-visual-multi
