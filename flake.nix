@@ -15,6 +15,12 @@
     ttv.url = "github:kuviman/ttv";
     kuvibot.url = "github:kuviman/kuvibot";
 
+    aylur-dotfiles.url = "github:Aylur/dotfiles";
+
+    # Fixes 404 error downloading this dependency
+    astal.url = "github:Aylur/astal";
+    aylur-dotfiles.inputs.astal.follows = "astal";
+
     # TODO: take a look at this:
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
