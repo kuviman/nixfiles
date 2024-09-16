@@ -126,6 +126,9 @@ telescope.setup {
 vim.keymap.set("n", "<leader>f",
   "<cmd> Telescope find_files <cr>",
   { desc = "Find files" })
+vim.keymap.set("n", "<leader>D",
+  "<cmd> Telescope diagnostics <cr>",
+  { desc = "Diagnostics" })
 vim.keymap.set("n", "<leader>ta",
   "<cmd> Telescope <cr>",
   { desc = "Find anything" })
@@ -312,7 +315,7 @@ lspconfig.ocamllsp.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<leader>D",
+vim.keymap.set("n", "<leader>d",
   vim.diagnostic.open_float,
   { desc = "Float diagnostic" })
 vim.keymap.set("n", "<leader>[",
