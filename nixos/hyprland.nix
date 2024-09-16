@@ -15,11 +15,9 @@
     };
     xdg.portal.wlr.enable = lib.mkForce true; # Or conflict with sway
     environment.systemPackages = with pkgs; [
-      waybar
       hyprpaper
       hyprpicker
       hyprshot
-      mako # notifications
       wofi
       pavucontrol
     ];
