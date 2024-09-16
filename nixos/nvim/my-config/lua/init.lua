@@ -122,6 +122,11 @@ telescope.setup {
   defaults = {
     prompt_prefix = "   ",
   },
+  pickers = {
+    find_files = {
+      hidden = true,
+    },
+  },
 }
 vim.keymap.set("n", "<leader>f",
   "<cmd> Telescope find_files <cr>",
