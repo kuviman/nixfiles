@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 require "onedark".load()
 
+vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" });
 vim.keymap.set("n", "<esc>",
   "<cmd> nohlsearch <cr>",
   { desc = "Clear highlights" });
