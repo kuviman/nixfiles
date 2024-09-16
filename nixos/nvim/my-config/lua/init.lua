@@ -122,31 +122,31 @@ telescope.setup {
     prompt_prefix = "   ",
   },
 }
-vim.keymap.set("n", "<leader>ff",
+vim.keymap.set("n", "<leader>f",
   "<cmd> Telescope find_files <cr>",
   { desc = "Find files" })
-vim.keymap.set("n", "<leader>fa",
+vim.keymap.set("n", "<leader>ta",
   "<cmd> Telescope <cr>",
   { desc = "Find anything" })
-vim.keymap.set("n", "<leader>fs",
+vim.keymap.set("n", "<leader>ts",
   "<cmd> Telescope treesitter <cr>",
   { desc = "Find treesitter symbols" })
-vim.keymap.set("n", "<leader>ft",
+vim.keymap.set("n", "<leader>S",
   "<cmd> Telescope lsp_workspace_symbols <cr>",
   { desc = "Find workspace symbols" })
-vim.keymap.set("n", "<leader>fw",
+vim.keymap.set("n", "<leader>/",
   "<cmd> Telescope live_grep <cr>",
   { desc = "Live grep" })
-vim.keymap.set("n", "<leader>fb",
+vim.keymap.set("n", "<leader>tb",
   "<cmd> Telescope buffers <cr>",
   { desc = "Find buffers" })
-vim.keymap.set("n", "<leader>fh",
+vim.keymap.set("n", "<leader>th",
   "<cmd> Telescope help_tags <cr>",
   { desc = "Help page" })
-vim.keymap.set("n", "<leader>fo",
+vim.keymap.set("n", "<leader>to",
   "<cmd> Telescope oldfiles <cr>",
   { desc = "Find oldfiles" })
-vim.keymap.set("n", "<leader>fz",
+vim.keymap.set("n", "<leader>tz",
   "<cmd> Telescope current_buffer_fuzzy_find <cr>",
   { desc = "Find in current buffer" })
 vim.keymap.set("n", "<leader>cm",
@@ -311,7 +311,7 @@ lspconfig.ocamllsp.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set("n", "<leader>fd",
+vim.keymap.set("n", "<leader>D",
   vim.diagnostic.open_float,
   { desc = "Float diagnostic" })
 vim.keymap.set("n", "<leader>[",
@@ -326,7 +326,7 @@ vim.keymap.set("n", "gD",
 vim.keymap.set("n", "gd",
   vim.lsp.buf.definition,
   { desc = "Go to definition" })
-vim.keymap.set("n", "K",
+vim.keymap.set("n", "<leader>k",
   vim.lsp.buf.hover,
   { desc = "LSP hover" })
 vim.keymap.set("n", "gi",
@@ -335,7 +335,7 @@ vim.keymap.set("n", "gi",
 vim.keymap.set({ "n", "i" }, "<c-k>",
   vim.lsp.buf.signature_help,
   { desc = "Signature help" })
-vim.keymap.set("n", "<space>D",
+vim.keymap.set("n", "gy",
   function()
     vim.lsp.buf.type_definition({
       on_list = function()
@@ -347,13 +347,13 @@ vim.keymap.set("n", "<space>D",
 vim.keymap.set("n", "<space>rn",
   vim.lsp.buf.rename,
   { desc = "Rename" })
-vim.keymap.set({ "n", "v" }, "<space>ca",
+vim.keymap.set({ "n", "v" }, "<space>a",
   vim.lsp.buf.code_action,
   { desc = "Code action" })
 vim.keymap.set("n", "gr",
   "<cmd> Telescope lsp_references <cr>",
   { desc = "See references" })
-vim.keymap.set('n', '<space>fm',
+vim.keymap.set('n', '<space>F',
   function()
     vim.lsp.buf.format { async = true }
   end,
@@ -400,7 +400,7 @@ vim.keymap.set("n", "<leader>/",
   end,
   { desc = "Toggle comment" })
 
-vim.keymap.set("v", "<leader>/",
+vim.keymap.set("v", "<C-c>",
   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
   { desc = "Toggle comment" })
 
@@ -421,10 +421,10 @@ require "nvim-treesitter.configs".setup {
   incremental_selection = {
     enable = true,
     keymaps = {
-      init_selection = '<c-space>',
-      node_incremental = '<c-space>',
-      scope_incremental = '<c-s-s>',
-      node_decremental = '<m-space>',
+      init_selection = '<m-o>',
+      node_incremental = '<m-o>',
+      scope_incremental = '<c-s-s>', -- this one should be mapped to smth else
+      node_decremental = '<m-i>',
     },
   },
 }
@@ -464,7 +464,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buffer = args.buf,
       callback = function()
         -- 4 + 5
-        vim.lsp.buf.format {async = false, id = args.data.client_id }
+        vim.lsp.buf.format { async = false, id = args.data.client_id }
       end,
     })
   end
