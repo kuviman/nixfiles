@@ -28,9 +28,8 @@
     geary # email reader
     evince # document viewer
     totem # video player
-  ]) ++ (with pkgs.gnome; [
     gnome-music
-    pkgs.gedit # text editor
+    gedit # text editor
     gnome-characters
     tali # poker game
     iagno # go game
