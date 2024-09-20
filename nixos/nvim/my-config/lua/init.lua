@@ -364,16 +364,16 @@ vim.keymap.set("n", "gy",
     })
   end,
   { desc = "Type definition" })
-vim.keymap.set("n", "<space>r",
+vim.keymap.set("n", "<leader>r",
   vim.lsp.buf.rename,
   { desc = "Rename" })
-vim.keymap.set({ "n", "v" }, "<space>a",
+vim.keymap.set({ "n", "v" }, "<leader>a",
   vim.lsp.buf.code_action,
   { desc = "Code action" })
 vim.keymap.set("n", "gr",
   "<cmd> Telescope lsp_references <cr>",
   { desc = "See references" })
-vim.keymap.set('n', '<space>F',
+vim.keymap.set('n', '<leader>F',
   function()
     vim.lsp.buf.format { async = true }
   end,
