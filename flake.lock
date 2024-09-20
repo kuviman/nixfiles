@@ -569,11 +569,11 @@
         "systems": "systems_4"
       },
       "locked": {
-        "lastModified": 1721652953,
-        "narHash": "sha256-1mWJc/pZ+w8SOoqJIJbF3CB6PLv1RYQAhSaJh90YBv0=",
+        "lastModified": 1726592235,
+        "narHash": "sha256-ow0/OgPN54CaPqlIeLsxZGV/Y2qODDiQzCq99NMstsE=",
         "owner": "kuviman",
         "repo": "kuvibot",
-        "rev": "4a17828e909e1a741221476a0071f59b8183a817",
+        "rev": "fbf5b00689b67cf8c49ac9eaab144a82d1c11548",
         "type": "github"
       },
       "original": {
