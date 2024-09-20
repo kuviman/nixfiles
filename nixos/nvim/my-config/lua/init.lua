@@ -364,7 +364,7 @@ vim.keymap.set("n", "gy",
     })
   end,
   { desc = "Type definition" })
-vim.keymap.set("n", "<space>rn",
+vim.keymap.set("n", "<space>r",
   vim.lsp.buf.rename,
   { desc = "Rename" })
 vim.keymap.set({ "n", "v" }, "<space>a",
