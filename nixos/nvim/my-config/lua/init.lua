@@ -386,12 +386,12 @@ vim.g.rustaceanvim = {
   -- LSP configuration
   server = {
     on_attach = function(_, bufnr)
-      vim.keymap.set("n", "<C-space>",
-        rustaceanvim.hover_actions.hover_actions,
-        { desc = "Hover actions", buffer = bufnr })
       vim.keymap.set("n", "<Leader>a",
-        rustaceanvim.code_action_group.code_action_group,
+        function() vim.cmd.RustLsp('codeAction') end,
         { desc = "Code action groups", buffer = bufnr })
+      vim.keymap.set("v", "<Leader>k",
+        function() vim.cmd.RustLsp { 'hover', 'range' } end,
+        { desc = "Hover range", buffer = bufnr })
     end,
     default_settings = {
       ['rust-analyzer'] = {
