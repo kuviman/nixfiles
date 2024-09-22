@@ -139,6 +139,9 @@ telescope.setup {
     },
   },
 }
+vim.keymap.set("n", "<leader>'",
+  "<cmd> Telescope resume <cr>",
+  { desc = "Open last picker" })
 vim.keymap.set("n", "<leader>f",
   "<cmd> Telescope find_files <cr>",
   { desc = "Find files" })
