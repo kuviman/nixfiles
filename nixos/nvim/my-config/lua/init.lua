@@ -42,7 +42,7 @@ vim.opt.mouse = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
-vim.opt.ruler = false
+vim.opt.ruler = true
 vim.opt.scrolloff = 10 -- Min number of lines around the cursor
 
 -- Disable nvim intro
