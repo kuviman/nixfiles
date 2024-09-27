@@ -30,6 +30,9 @@ vim.opt.fillchars = {
   eob = " ", -- empty lines at the end of a buffers (default is ~)
 }
 
+-- Enable spellchecking
+vim.opt.spell = true
+
 -- Search
 vim.opt.ignorecase = true    -- Ignore case in search patterns
 vim.opt.smartcase = true     -- Don't ignore case if there is uppercase chars
