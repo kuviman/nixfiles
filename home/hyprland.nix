@@ -42,7 +42,8 @@
   };
   home.file = {
     ".config/hypr/hyprpaper.conf".text =
-      let wallpaper = pkgs.nixos-artwork.wallpapers.simple-dark-gray.gnomeFilePath;
+      let wallpaper = ../wallpapers/ludumdare56.png;
+      # let wallpaper = pkgs.nixos-artwork.wallpapers.simple-dark-gray.gnomeFilePath;
       in ''
         preload = ${wallpaper}
         wallpaper = ,${wallpaper}
