@@ -350,7 +350,7 @@ vim.keymap.set("n", "gD",
   vim.lsp.buf.declaration,
   { desc = "Go to declaration" })
 vim.keymap.set("n", "gd",
-  vim.lsp.buf.definition,
+  "<cmd> Telescope lsp_definitions <cr>",
   { desc = "Go to definition" })
 vim.keymap.set("n", "<leader>k",
   vim.lsp.buf.hover,
