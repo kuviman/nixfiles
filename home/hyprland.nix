@@ -1,6 +1,6 @@
 { config, pkgs, hostname, inputs, system, ... }:
 {
-  home.packages = [inputs.aylur-dotfiles.packages.${system}.default];
+  home.packages = [ inputs.aylur-dotfiles.packages.${system}.default ];
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
@@ -42,9 +42,11 @@
   };
   home.file = {
     ".config/hypr/hyprpaper.conf".text =
-      let wallpaper = ../wallpapers/ludumdare56.png;
-      # let wallpaper = pkgs.nixos-artwork.wallpapers.simple-dark-gray.gnomeFilePath;
-      in ''
+      let
+        wallpaper = ../wallpapers/ludumdare56.png;
+        # let wallpaper = pkgs.nixos-artwork.wallpapers.simple-dark-gray.gnomeFilePath;
+      in
+      ''
         preload = ${wallpaper}
         wallpaper = ,${wallpaper}
         ipc = off

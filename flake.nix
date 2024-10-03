@@ -21,16 +21,21 @@
     astal.url = "github:Aylur/astal";
     aylur-dotfiles.inputs.astal.follows = "astal";
 
+    systems.url = "github:nix-systems/default";
+
     # TODO: take a look at this:
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
     # nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, systems, ... }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgsFor = system: import nixpkgs { inherit system; };
+
+      forEachSystem = f: nixpkgs.lib.genAttrs (import systems) (system:
+        let pkgs = pkgsFor system;
+        in f { inherit system pkgs; });
     in
     {
       # NixOS configuration entrypoint
@@ -38,6 +43,7 @@
       nixosConfigurations =
         let
           mkOs = hostname:
+            let system = "x86_64-linux"; in
             nixpkgs.lib.nixosSystem {
               # Pass flake inputs to our config
               specialArgs = { inherit inputs hostname system; };
@@ -60,6 +66,7 @@
       homeConfigurations =
         let
           mkHome = username: hostname:
+            let system = "x86_64-linux"; in
             home-manager.lib.homeManagerConfiguration
               {
                 pkgs = nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
@@ -78,7 +85,7 @@
           "kuviman@swiftix" = mkHome "kuviman" "swiftix";
         };
 
-      formatter.${system} = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+      formatter = forEachSystem ({ pkgs, ... }: nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt);
 
       # https://www.reddit.com/r/NixOS/comments/scf0ui/how_would_i_update_desktop_file/
       patchDesktop = pkgs: pkg: appName: from: to:
@@ -88,8 +95,10 @@
           ${gnused}/bin/sed 's#${from}#${to}#g' < ${pkg}/share/applications/${appName}.desktop > $out/share/applications/${appName}.desktop
         '');
 
-      devShells.${system}.default = with pkgs; mkShell {
-        packages = [ lua-language-server ];
-      };
+      devShells = forEachSystem ({ pkgs, ... }: {
+        default = with pkgs; mkShell {
+          packages = [ lua-language-server ];
+        };
+      });
     };
 }
