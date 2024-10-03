@@ -95,6 +95,10 @@
           ${gnused}/bin/sed 's#${from}#${to}#g' < ${pkg}/share/applications/${appName}.desktop > $out/share/applications/${appName}.desktop
         '');
 
+      packages = forEachSystem ({ pkgs, ... }: {
+        nvim = import ./nvim { inherit pkgs; };
+      });
+
       devShells = forEachSystem ({ pkgs, ... }: {
         default = with pkgs; mkShell {
           packages = [ lua-language-server ];

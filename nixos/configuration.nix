@@ -14,7 +14,7 @@
       ./android.nix
       ./ios.nix
       ./zsh.nix
-      ./nvim/configuration.nix
+      ./nvim.nix
       ./amdgpu.nix
       ./audio.nix
       ./packages.nix
