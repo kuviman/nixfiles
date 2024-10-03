@@ -46,7 +46,7 @@
             let system = "x86_64-linux"; in
             nixpkgs.lib.nixosSystem {
               # Pass flake inputs to our config
-              specialArgs = { inherit inputs hostname system; };
+              specialArgs = { inherit inputs hostname system self; };
               # > Our main nixos configuration file <
               modules = [
                 ./nixos/configuration.nix
