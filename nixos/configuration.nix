@@ -145,6 +145,7 @@
       "ipsec.d/ipsec.nm-l2tp.secrets"
     ];
   };
+  services.v2raya.enable = true;
 
   home-manager.extraSpecialArgs = {
     inherit inputs hostname system;
