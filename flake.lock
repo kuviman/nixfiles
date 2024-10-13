@@ -546,21 +546,6 @@
         "type": "github"
       }
     },
-    "kdenlive-pin-nixpkgs": {
-      "locked": {
-        "lastModified": 1709012981,
-        "narHash": "sha256-/D10ohogluwFIl5NXQxJx6ag6fuwA1KEAO8Ia5GDhhM=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "cfec6d9203a461d9d698d8a60ef003cac6d0da94",
-        "type": "github"
-      },
-      "original": {
-        "id": "nixpkgs",
-        "rev": "cfec6d9203a461d9d698d8a60ef003cac6d0da94",
-        "type": "indirect"
-      }
-    },
     "kuvibot": {
       "inputs": {
         "crane": "crane",
@@ -861,7 +846,6 @@
         "astal": "astal",
         "aylur-dotfiles": "aylur-dotfiles",
         "home-manager": "home-manager_2",
-        "kdenlive-pin-nixpkgs": "kdenlive-pin-nixpkgs",
         "kuvibot": "kuvibot",
         "nixpkgs": "nixpkgs_8",
         "sops": "sops",

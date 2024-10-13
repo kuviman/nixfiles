@@ -75,8 +75,7 @@
     aseprite-unfree
     blender
 
-    # https://github.com/NixOS/nixpkgs/issues/293315
-    (import inputs.kdenlive-pin-nixpkgs { inherit system; }).kdenlive # video editing
+    kdenlive # video editing
     audacity # for fish sound effects
 
     daktilo # fake keyboard sounds
