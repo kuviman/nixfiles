@@ -4,6 +4,7 @@
   inputs = {
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-xray-pr.url = "github:iopq/nixpkgs/patch-1";
 
     # Secrets
     sops.url = "github:Mic92/sops-nix";
