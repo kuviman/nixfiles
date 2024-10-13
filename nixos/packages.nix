@@ -79,6 +79,8 @@
     audacity # for fish sound effects
 
     daktilo # fake keyboard sounds
+
+    traceroute
   ];
   services.ratbagd.enable = true; # for piper
 
