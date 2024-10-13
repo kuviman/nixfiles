@@ -331,7 +331,7 @@ lspconfig.lua_ls.setup {
     },
   },
 }
-
+lspconfig.nixd.setup {}
 lspconfig.zls.setup {}
 lspconfig.ocamllsp.setup {}
 

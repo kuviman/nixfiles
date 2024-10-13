@@ -57,7 +57,7 @@
     yt-dlp # download YouTube
     twitch-dl # download Twitch
 
-    nil # nix language server
+    nixd # nix language server
     nixpkgs-fmt # nix formatter
 
     glances # System monitoring
