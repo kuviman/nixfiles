@@ -7,7 +7,7 @@ let
   mkOs = hostname:
     nixpkgs.lib.nixosSystem {
       # Pass flake inputs to our config
-      specialArgs = { inherit inputs hostname system; };
+      specialArgs = { inherit inputs hostname system self; };
       # > Our main nixos configuration file <
       modules = [
         ./configuration.nix
