@@ -331,7 +331,15 @@ lspconfig.lua_ls.setup {
     },
   },
 }
-lspconfig.nixd.setup {}
+lspconfig.nixd.setup {
+  settings = {
+    nixd = {
+      formatting = {
+        command = { "nixpkgs-fmt" },
+      },
+    },
+  },
+}
 lspconfig.zls.setup {}
 lspconfig.ocamllsp.setup {}
 
