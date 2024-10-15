@@ -10,7 +10,7 @@ let
       specialArgs = { inherit inputs hostname system; };
       # > Our main nixos configuration file <
       modules = [
-        ./nixos/configuration.nix
+        ./configuration.nix
         {
           system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
         }
