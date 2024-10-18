@@ -503,3 +503,38 @@ vim.api.nvim_create_autocmd("LspAttach", {
     })
   end
 })
+
+require("cellular-automaton").register_animation {
+  fps = 20,
+  name = "glitch",
+  update = function(grid)
+    local choices = {}
+    local isspace = function(c)
+      return c == ' '
+    end
+    local adjacent = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } }
+    for i = 1, #grid do
+      for j = 1, #(grid[i]) do
+        if not isspace(grid[i][j].char) then
+          for ai = 1, #adjacent do
+            local ni = i + adjacent[ai][1]
+            local nj = j + adjacent[ai][2]
+            local ac = grid[ni] and grid[ni][nj]
+            if ac and isspace(ac.char) then
+              choices[#choices + 1] = { { i, j }, { ni, nj } }
+            end
+          end
+        end
+      end
+    end
+    if #choices ~= 0 then
+      local choice = choices[math.random(#choices)]
+      local i = choice[1][1]
+      local j = choice[1][2]
+      local ni = choice[2][1]
+      local nj = choice[2][2]
+      grid[i][j], grid[ni][nj] = grid[ni][nj], grid[i][j]
+    end
+    return true
+  end,
+}
