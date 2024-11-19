@@ -15,11 +15,7 @@
     ttv.url = "github:kuviman/ttv";
     kuvibot.url = "github:kuviman/kuvibot";
 
-    aylur-dotfiles.url = "github:Aylur/dotfiles";
-
-    # Fixes 404 error downloading this dependency
-    astal.url = "github:Aylur/astal";
-    aylur-dotfiles.inputs.astal.follows = "astal";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     systems.url = "github:nix-systems/default";
 

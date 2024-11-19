@@ -15,6 +15,7 @@
     };
     xdg.portal.wlr.enable = lib.mkForce true; # Or conflict with sway
     environment.systemPackages = with pkgs; [
+      hyprpanel
       hyprpaper
       hyprpicker
       hyprshot

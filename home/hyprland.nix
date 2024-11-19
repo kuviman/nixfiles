@@ -1,6 +1,5 @@
 { config, pkgs, hostname, inputs, system, ... }:
 {
-  home.packages = [ inputs.aylur-dotfiles.packages.${system}.default ];
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
