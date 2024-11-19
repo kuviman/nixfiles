@@ -57,6 +57,7 @@
     yt-dlp # download YouTube
     twitch-dl # download Twitch
 
+    vscode-langservers-extracted # html language server
     nixd # nix language server
     nixpkgs-fmt # nix formatter
 
