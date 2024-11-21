@@ -9,8 +9,7 @@
   ];
   hardware.graphics = {
     extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
+      rocmPackages.clr
       amdvlk
     ];
     extraPackages32 = with pkgs; [
