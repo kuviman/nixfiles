@@ -13,6 +13,7 @@ vim.keymap.set("t", "<c-n>",
   { desc = "Escape terminal mode" })
 
 vim.opt.guifont = { "MonaspiceKr Nerd Font", ":h16" }
+vim.opt.winblend = 70 -- https://neovide.dev/faq.html#how-to-enable-floating-and-popupmenu-transparency
 
 vim.opt.clipboard = "unnamedplus"
 
