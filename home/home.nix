@@ -81,6 +81,7 @@
       '';
 
       ".config/helix".source = ./helix;
+      ".config/neovide".source = ./neovide;
     };
 
     # You can also manage environment variables but you will have to manually
