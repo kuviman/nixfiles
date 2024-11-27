@@ -19,6 +19,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Highlight the text line of the cursor
 vim.opt.cursorline = true
 
+-- fkc this rust formatter - i want my tabs back
 local tabsize = 4
 vim.opt.expandtab = true -- Expand tabs to spaces
 vim.opt.shiftwidth = tabsize
