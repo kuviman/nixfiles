@@ -19,7 +19,7 @@ vim.opt.clipboard = "unnamedplus"
 -- Highlight the text line of the cursor
 vim.opt.cursorline = true
 
-local tabsize = 2
+local tabsize = 4
 vim.opt.expandtab = true -- Expand tabs to spaces
 vim.opt.shiftwidth = tabsize
 vim.opt.tabstop = tabsize
