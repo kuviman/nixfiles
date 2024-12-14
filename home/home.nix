@@ -164,7 +164,7 @@
 
     home.pointerCursor = {
       x11.enable = true;
-      x11.defaultCursor = "Catppuccin-Macchiato-Pink-Cursors";
+      x11.defaultCursor = config.home.pointerCursor.name;
       gtk.enable = true;
       package = pkgs.catppuccin-cursors.macchiatoPink;
       name = "Catppuccin-Macchiato-Pink-Cursors";
