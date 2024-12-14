@@ -93,7 +93,8 @@
   };
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" "Monaspace" ]; })
+    nerd-fonts.monaspace
+    nerd-fonts.jetbrains-mono
   ];
 
   services.upower.enable = true; # checking wireless mouse power for example
