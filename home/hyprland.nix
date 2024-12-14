@@ -17,9 +17,9 @@
     };
     env = [
       "XCURSOR_THEME,${config.home.pointerCursor.name}"
-      "XCURSOR_SIZE,${config.home.pointerCursor.size}"
+      "XCURSOR_SIZE,${builtins.toString config.home.pointerCursor.size}"
       "HYPRCURSOR_THEME,${config.home.pointerCursor.name}"
-      "HYPRCURSOR_SIZE,${config.home.pointerCursor.size}"
+      "HYPRCURSOR_SIZE,${builtins.toString config.home.pointerCursor.size}"
     ];
     extraConfig =
       let
