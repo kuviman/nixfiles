@@ -164,10 +164,16 @@
 
     home.pointerCursor = {
       x11.enable = true;
+      x11.defaultCursor = "Catppuccin-Macchiato-Pink-Cursors";
       gtk.enable = true;
       package = pkgs.catppuccin-cursors.macchiatoPink;
       name = "Catppuccin-Macchiato-Pink-Cursors";
       size = 32;
+    };
+    gtk = {
+      enable = true;
+      cursorTheme.name = config.home.pointerCursor.name;
+      cursorTheme.size = config.home.pointerCursor.size;
     };
   };
 }
