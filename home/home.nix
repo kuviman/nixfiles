@@ -125,6 +125,7 @@
         ls = "eza --icons";
         lt = "eza --tree --icons";
         cargo-patched = "cargo --config $HOME/.cargo/patched.toml";
+        calculator = "${pkgs.nodejs}/bin/node";
       };
       initExtra = ''
         PS1='%(?.%F{green}.%F{red})$%b%f '
