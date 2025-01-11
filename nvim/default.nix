@@ -10,6 +10,7 @@ pkgs.wrapNeovim pkgs.neovim-unwrapped {
         (pkgs.vimUtils.buildVimPlugin {
           name = "my-config";
           src = ./my-config;
+          doCheck = false;
         })
         vim-abolish
         onedark-nvim
