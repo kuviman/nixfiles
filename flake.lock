@@ -698,11 +698,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1696351379,
-        "narHash": "sha256-LBKRRQYE15t6YEcrvVyjRHxkliWZuvelnh8J1JJbRLc=",
+        "lastModified": 1737208399,
+        "narHash": "sha256-34Q3YH0SZ2dys/9jLwemw48bsCQN2XZr6u6p4e0JuuA=",
         "owner": "kuviman",
         "repo": "ttv",
-        "rev": "37ed9fdca7861a385337a818128a77248e6a3aec",
+        "rev": "d6e02b391b3e6d8208991e2ce52dc84b3542a71e",
         "type": "github"
       },
       "original": {
