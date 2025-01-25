@@ -62,7 +62,7 @@
     nixd # nix language server
     nixpkgs-fmt # nix formatter
 
-    glances # System monitoring
+    bottom # System monitoring
 
     zellij # like tmux
 
