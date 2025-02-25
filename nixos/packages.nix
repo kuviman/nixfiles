@@ -77,7 +77,7 @@
     aseprite-unfree
     blender
 
-    kdenlive # video editing
+    kdePackages.kdenlive # video editing
     audacity # for fish sound effects
 
     daktilo # fake keyboard sounds
