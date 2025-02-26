@@ -3,7 +3,8 @@
 
   inputs = {
     # Nixpkgs
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # TODO use stable
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Secrets
     sops.url = "github:Mic92/sops-nix";

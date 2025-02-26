@@ -316,6 +316,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable": {
+      "locked": {
+        "lastModified": 1740547748,
+        "narHash": "sha256-Ly2fBL1LscV+KyCqPRufUBuiw+zmWrlJzpWOWbahplg=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3a05eebede89661660945da1f151959900903b6a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_10": {
       "locked": {
         "lastModified": 1692638711,
@@ -465,6 +481,7 @@
         "hyprpanel": "hyprpanel",
         "kuvibot": "kuvibot",
         "nixpkgs": "nixpkgs_4",
+        "nixpkgs-unstable": "nixpkgs-unstable",
         "sops": "sops",
         "systems": "systems_3",
         "ttv": "ttv"
