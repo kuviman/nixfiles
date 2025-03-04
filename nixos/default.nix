@@ -5,10 +5,11 @@ let
   nixpkgs = inputs.nixpkgs;
   system = "x86_64-linux";
   pkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
+  pkgs-stable = import inputs.nixpkgs-stable { inherit system; };
   mkOs = hostname:
     nixpkgs.lib.nixosSystem {
       # Pass flake inputs to our config
-      specialArgs = { inherit inputs hostname system self pkgs-unstable; };
+      specialArgs = { inherit inputs hostname system self pkgs-stable pkgs-unstable; };
       # > Our main nixos configuration file <
       modules = [
         ./configuration.nix

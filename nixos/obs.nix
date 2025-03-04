@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs-stable, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs-stable; [
     (wrapOBS {
-      plugins = with pkgs.obs-studio-plugins; [
+      plugins = with obs-studio-plugins; [
         # wlrobs
         # droidcam-obs
         input-overlay
