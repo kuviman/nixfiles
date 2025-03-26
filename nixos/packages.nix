@@ -63,6 +63,7 @@
     nixpkgs-fmt # nix formatter
 
     bottom # System monitoring
+    nnn # tui file manager
 
     zellij # like tmux
 

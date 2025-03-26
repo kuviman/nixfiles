@@ -4,6 +4,7 @@
 {
   imports = [
     ./hyprland.nix
+    ./nnn
   ];
 
   options = {
@@ -131,6 +132,8 @@
         PS1='%(?.%F{green}.%F{red})$%b%f '
       '';
     };
+
+    programs.nnn.quitcd.enable = true;
 
     programs.alacritty = {
       enable = true;
