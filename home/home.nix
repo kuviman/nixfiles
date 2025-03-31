@@ -5,6 +5,7 @@
   imports = [
     ./hyprland.nix
     ./nnn
+    ./cursor.nix
   ];
 
   options = {
@@ -164,20 +165,6 @@
       enable = true;
       nix-direnv.enable = true;
       silent = true;
-    };
-
-    home.pointerCursor = {
-      x11.enable = true;
-      x11.defaultCursor = config.home.pointerCursor.name;
-      gtk.enable = true;
-      package = pkgs.catppuccin-cursors.macchiatoPink;
-      name = "Catppuccin-Macchiato-Pink-Cursors";
-      size = 32;
-    };
-    gtk = {
-      enable = true;
-      cursorTheme.name = config.home.pointerCursor.name;
-      cursorTheme.size = config.home.pointerCursor.size;
     };
   };
 }
