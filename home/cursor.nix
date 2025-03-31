@@ -4,7 +4,6 @@
     dotIcons.enable = true;
     hyprcursor.enable = true;
     x11.enable = true;
-    x11.defaultCursor = config.home.pointerCursor.name;
     gtk.enable = true;
     package = pkgs.phinger-cursors;
     name = "phinger-cursors-dark";
