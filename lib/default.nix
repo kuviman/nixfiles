@@ -12,4 +12,5 @@ rec {
       ${coreutils}/bin/mkdir -p $out/share/applications
       ${gnused}/bin/sed 's#${from}#${to}#g' < ${pkg}/share/applications/${appName}.desktop > $out/share/applications/${appName}.desktop
     '');
+  mkShell = import ../mkShell { inherit inputs; };
 }

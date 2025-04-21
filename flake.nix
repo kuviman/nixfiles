@@ -44,6 +44,17 @@
         nvim = import ./nvim { inherit pkgs; };
       });
 
-      devShells = import ./devShells { inherit inputs; };
+      devShells = self.lib.forEachSystem ({ system, ... }: {
+        default = self.lib.mkShell { inherit system; };
+        full = self.lib.mkShell {
+          inherit system;
+          neovim.enable = true;
+          nix.enable = true;
+          utils.enable = true;
+          zsh.enable = false; # not working properly
+          shellHook = "export SHELL=zsh";
+          # env.SHELL = "zsh";
+        };
+      });
     };
 }
