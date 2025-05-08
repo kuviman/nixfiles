@@ -16,7 +16,7 @@
         Service = {
           Type = "simple";
           WorkingDirectory = config.home.homeDirectory + "/.kuvibot";
-          ExecStart = "${inputs.kuvibot.apps.${system}.default.program}";
+          ExecStart = "${inputs.kuvibot.apps.${system}.kuviman.program}";
           Restart = "always";
           RestartSec = "10";
         };
