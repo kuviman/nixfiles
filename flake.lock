@@ -263,11 +263,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1746702577,
-        "narHash": "sha256-+YBJfhnijlnv2HAvoNMW1BdHa0l6h3RsXSjZvW2bcWQ=",
+        "lastModified": 1746907750,
+        "narHash": "sha256-bGJkbjfUdh1eh7/wZZeU1jHAwYNVjIxO7Oq/9xiHgDg=",
         "owner": "kuviman",
         "repo": "kuvibot",
-        "rev": "768be1274483bebaac350c59e1ac298c2f9d5f6e",
+        "rev": "88a916c544363ef88b8bbe9994fd3301f916c5db",
         "type": "github"
       },
       "original": {
