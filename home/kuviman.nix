@@ -1,6 +1,9 @@
 { config, hostname, pkgs, inputs, system, ... }: {
   email = "kuviman@gmail.com";
 
+  programs.zsh.shellAliases = {
+    streamer-mode = "hyprctl keyword monitor DP-2,addreserved,0,0,0,580";
+  };
   systemd.user.services =
     pkgs.lib.mkIf (hostname == "mainix") {
       kuvibot = {
