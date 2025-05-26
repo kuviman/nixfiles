@@ -25,7 +25,6 @@
       helix
       dua
 
-      lua-language-server
       pyright
       # python313Packages.autopep8
       (python3.withPackages (p: [ p.pyyaml p.autopep8 ]))

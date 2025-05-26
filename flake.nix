@@ -46,6 +46,11 @@
 
       devShells = self.lib.forEachSystem ({ system, ... }: {
         default = self.lib.mkShell { inherit system; };
+        nixfiles = self.lib.mkShell {
+          inherit system;
+          nix.enable = true;
+          lua.enable = true;
+        };
         full = self.lib.mkShell {
           inherit system;
           neovim.enable = true;
