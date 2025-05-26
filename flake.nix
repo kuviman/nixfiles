@@ -9,7 +9,7 @@
     # Secrets
     sops.url = "github:Mic92/sops-nix";
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager.url = "github:nix-community/home-manager/release-25.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     ttv.url = "github:kuviman/ttv";
