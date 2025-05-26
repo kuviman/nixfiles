@@ -1,7 +1,5 @@
-{ pkgs, pkgs-unstable, inputs, self, system, ... }:
+{ pkgs, inputs, self, system, ... }:
 
-let neovide = pkgs-unstable.neovide;
-in
 {
   environment.variables.EDITOR = "nvim";
   environment.systemPackages = with pkgs; [

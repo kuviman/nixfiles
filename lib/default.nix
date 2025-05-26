@@ -1,7 +1,7 @@
 { inputs }:
 rec {
-  pkgsFor = system: import inputs.nixpkgs { inherit system; };
-  forEachSystem = f: inputs.nixpkgs.lib.genAttrs (import inputs.systems) (system:
+  pkgsFor = system: import inputs.nixpkgs-stable { inherit system; };
+  forEachSystem = f: inputs.nixpkgs-stable.lib.genAttrs (import inputs.systems) (system:
     let pkgs = pkgsFor system;
     in f { inherit system pkgs; });
 

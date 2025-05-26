@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
   programs.steam.enable = true;
@@ -79,7 +79,7 @@
     aseprite-unfree
     blender
 
-    pkgs-stable.kdePackages.kdenlive # video editing
+    kdePackages.kdenlive # video editing
     audacity # for fish sound effects
 
     daktilo # fake keyboard sounds

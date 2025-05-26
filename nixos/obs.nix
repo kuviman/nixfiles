@@ -1,7 +1,7 @@
-{ pkgs-stable, ... }:
+{ pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs-stable; [
+  environment.systemPackages = with pkgs; [
     (wrapOBS {
       plugins = with obs-studio-plugins; [
         # wlrobs

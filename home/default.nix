@@ -6,7 +6,7 @@ let
     let system = "x86_64-linux"; in
     inputs.home-manager.lib.homeManagerConfiguration
       {
-        pkgs = inputs.nixpkgs.legacyPackages.${system}; # Home-manager requires 'pkgs' instance
+        pkgs = import inputs.nixpkgs-stable { inherit system; }; # Home-manager requires 'pkgs' instance
         # Pass flake inputs to our config
         extraSpecialArgs = { inherit inputs username hostname; };
         # > Our main home-manager configuration file <

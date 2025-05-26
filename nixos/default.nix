@@ -2,14 +2,13 @@
 
 let
   self = inputs.self;
-  nixpkgs = inputs.nixpkgs;
+  nixpkgs = inputs.nixpkgs-stable;
   system = "x86_64-linux";
   pkgs-unstable = import inputs.nixpkgs-unstable { inherit system; };
-  pkgs-stable = import inputs.nixpkgs-stable { inherit system; };
   mkOs = hostname:
     nixpkgs.lib.nixosSystem {
       # Pass flake inputs to our config
-      specialArgs = { inherit inputs hostname system self pkgs-stable pkgs-unstable; };
+      specialArgs = { inherit inputs hostname system self pkgs-unstable; };
       # > Our main nixos configuration file <
       modules = [
         ./configuration.nix
