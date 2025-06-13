@@ -5,7 +5,7 @@
     (wrapOBS {
       plugins = with obs-studio-plugins; [
         # wlrobs
-        # droidcam-obs
+        droidcam-obs
         input-overlay
         # obs-backgroundremoval
         obs-vkcapture
