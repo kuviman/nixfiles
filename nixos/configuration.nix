@@ -88,6 +88,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_zen;
+  packages = [ pkgs.linuxPackages_zen.perf ];
 
   networking.hostName = hostname;
 
