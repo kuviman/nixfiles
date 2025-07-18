@@ -15,8 +15,6 @@
     ttv.url = "github:kuviman/ttv";
     kuvibot.url = "github:kuviman/kuvibot";
 
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-
     systems.url = "github:nix-systems/default";
 
     # TODO: take a look at this:

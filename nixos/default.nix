@@ -14,7 +14,7 @@ let
         ./configuration.nix
         {
           system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-          nixpkgs.overlays = [ inputs.hyprpanel.overlay ];
+          nixpkgs.overlays = [ ];
         }
       ];
     };
