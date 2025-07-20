@@ -201,11 +201,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1746907750,
-        "narHash": "sha256-bGJkbjfUdh1eh7/wZZeU1jHAwYNVjIxO7Oq/9xiHgDg=",
+        "lastModified": 1753002506,
+        "narHash": "sha256-3y1yIzuantAGqmUKbOgDqFWX/PDNEsq92Q537W7bdv0=",
         "owner": "kuviman",
         "repo": "kuvibot",
-        "rev": "88a916c544363ef88b8bbe9994fd3301f916c5db",
+        "rev": "7c14635d87b659ee36006f382eddd2fad735afe1",
         "type": "github"
       },
       "original": {
