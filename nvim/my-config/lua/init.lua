@@ -348,6 +348,19 @@ lspconfig.zls.setup {}
 lspconfig.ocamllsp.setup {}
 lspconfig.pyright.setup {}
 
+-- Kast
+lspconfig.kast.setup {
+    cmd = { "kast lsp" },
+    filetypes = { "kast" },
+    root_dir = lspconfig.util.root_pattern("workspace.ks"),
+    settings = {}, -- if your LSP needs configs
+}
+vim.filetype.add({
+    extension = {
+        ks = "kast",
+    },
+})
+
 local null_ls = require("null-ls")
 null_ls.setup({
     sources = {
