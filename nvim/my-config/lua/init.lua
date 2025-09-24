@@ -349,12 +349,12 @@ lspconfig.ocamllsp.setup {}
 lspconfig.pyright.setup {}
 
 -- Kast
-lspconfig.kast.setup {
-    cmd = { "kast lsp" },
+vim.lsp.config("kast", {
+    cmd = { "kast", "lsp" },
     filetypes = { "kast" },
-    root_dir = lspconfig.util.root_pattern("workspace.ks"),
-    settings = {}, -- if your LSP needs configs
-}
+    root_markers = { 'workspace.ks' }
+})
+vim.lsp.enable("kast")
 vim.filetype.add({
     extension = {
         ks = "kast",
