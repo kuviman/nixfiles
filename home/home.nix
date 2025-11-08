@@ -132,6 +132,10 @@
       initContent = ''
         PS1='%(?.%F{green}.%F{red})$%b%f '
       '';
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" "sudo" ];
+      };
     };
 
     programs.nnn.quitcd.enable = true;
