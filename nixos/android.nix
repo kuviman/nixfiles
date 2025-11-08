@@ -7,6 +7,5 @@
     android-udev-rules
     scrcpy
     jmtpfs
-    android-studio
   ];
 }
