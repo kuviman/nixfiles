@@ -1,4 +1,5 @@
 { pkgs, hostname, ... }:
+if hostname == "usbix" then { } else
 {
   sops.age.keyFile = "/home/kuviman/.config/sops/age/keys.txt";
   sops.secrets.gitlab-runner-dock-auth = {
