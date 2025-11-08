@@ -22,4 +22,5 @@ in
 {
   mainix = mkOs "mainix";
   swiftix = mkOs "swiftix";
+  usbix = mkOs "usbix";
 }
