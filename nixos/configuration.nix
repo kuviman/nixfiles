@@ -29,10 +29,10 @@
     ];
   options.nixfiles = {
     username = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
     };
     second_username = lib.mkOption {
-      type = lib.types.string;
+      type = lib.types.str;
     };
   };
   config = {
