@@ -20,6 +20,8 @@
       ./audio.nix
       ./packages.nix
       ./docker.nix
+      ./virt.nix
+      ./lxc.nix
       ./gitlab/configuration.nix
       ./gnome.nix
       ./kde.nix
