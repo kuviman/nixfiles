@@ -1,3 +1,5 @@
 {
-  services.gitlab-runner.enable = true;
+  nixfiles = {
+    gitlab-runner.enable = true;
+  };
 }

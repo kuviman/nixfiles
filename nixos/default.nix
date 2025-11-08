@@ -19,13 +19,14 @@ let
           system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
           nixpkgs.overlays = [ ];
         }
+        ./machines/_common.nix
       ];
     };
   machines =
     let machine-files = builtins.readDir ./machines; in
     builtins.map (name: lib.removeSuffix ".nix" name)
       (builtins.filter
-        (name: lib.hasSuffix ".nix" name)
+        (name: lib.hasSuffix ".nix" name && !(lib.hasPrefix "_" name))
         (builtins.attrNames machine-files));
 in
 builtins.listToAttrs

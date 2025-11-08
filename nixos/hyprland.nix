@@ -1,14 +1,14 @@
-{ pkgs, lib, config, inputs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  options = {
-    kuviman.hyprland.enable = lib.mkOption
+  options.nixfiles.hyprland = {
+    enable = lib.mkOption
       {
         type = lib.types.bool;
         default = false;
       };
   };
-  config = lib.mkIf config.kuviman.hyprland.enable {
+  config = lib.mkIf config.nixfiles.hyprland.enable {
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;

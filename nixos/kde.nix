@@ -1,14 +1,14 @@
 { pkgs, lib, config, ... }:
 
 {
-  options = {
-    kde.enable = lib.mkOption
+  options.nixfiles.kde = {
+    enable = lib.mkOption
       {
         type = lib.types.bool;
         default = false;
       };
   };
-  config = lib.mkIf config.kde.enable {
+  config = lib.mkIf config.nixfiles.kde.enable {
     services.xserver.enable = true;
     services.desktopManager.plasma6.enable = true;
     services.xserver.desktopManager.gnome.enable = true;
