@@ -1,6 +1,5 @@
-{ pkgs, hostname, ... }:
-if hostname == "usbix" then { } else
-{
+{ config, lib, pkgs, hostname, ... }:
+lib.mkIf config.services.gitlab-runner.enable {
   sops.age.keyFile = "/home/kuviman/.config/sops/age/keys.txt";
   sops.secrets.gitlab-runner-dock-auth = {
     sopsFile = ./secrets-${hostname}.yaml;
@@ -11,7 +10,6 @@ if hostname == "usbix" then { } else
     key = "auth-config-nix";
   };
 
-  services.gitlab-runner.enable = true;
   services.gitlab-runner.services = {
     dock = {
       authenticationTokenConfigFile = "/run/secrets/gitlab-runner-dock-auth";
