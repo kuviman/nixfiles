@@ -26,6 +26,7 @@
       ./gnome.nix
       ./kde.nix
       ./hyprland.nix
+      ./niri.nix
       ./sway.nix
       ./minecraft.nix
     ];
