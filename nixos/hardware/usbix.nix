@@ -10,21 +10,23 @@
     ];
 
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" "cryptd" ];
   boot.kernelModules = [ "kvm-amd" "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-partuuid/7642c874-d49d-4e88-9842-f5d4bbb0e37c";
+      device = "/dev/disk/by-label/Usbix-Root";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
     {
-      device = "/dev/disk/by-partuuid/c3216b8f-1907-4c50-8dab-f55598a5a0ea";
+      device = "/dev/disk/by-label/USBIX-BOOT";
       fsType = "vfat";
     };
+
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-label/Usbix-Encrypted";
 
   swapDevices = [ ];
 
