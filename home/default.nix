@@ -20,4 +20,5 @@ in
 {
   "kuviman@mainix" = mkHome "kuviman" "mainix";
   "kuviman@swiftix" = mkHome "kuviman" "swiftix";
+  "kuviman@usbix" = mkHome "kuviman" "usbix";
 }
