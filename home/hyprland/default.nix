@@ -21,7 +21,7 @@
     };
     extraConfig =
       let
-        monitors = "exec-once = bash ${./monitors.sh}\n";
+        monitors = "exec = bash ${./monitors.sh}\n";
       in
       monitors + builtins.readFile ./hyprland.conf;
   };
