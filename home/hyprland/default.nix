@@ -25,6 +25,9 @@
       in
       monitors + builtins.readFile ./hyprland.conf;
   };
+  home.packages = with pkgs; [
+    jq
+  ];
   home.file = {
     ".config/hypr/hyprpaper.conf".text =
       let
