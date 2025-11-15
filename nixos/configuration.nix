@@ -29,6 +29,7 @@
       ./niri.nix
       ./sway.nix
       ./minecraft.nix
+      ./network.nix
     ];
   options.nixfiles = {
     username = lib.mkOption {
