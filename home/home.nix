@@ -3,7 +3,7 @@
 
 {
   imports = [
-    ./hyprland.nix
+    ./hyprland
     ./nnn
     ./cursor.nix
   ];
