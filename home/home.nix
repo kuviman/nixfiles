@@ -124,9 +124,9 @@
       enableVteIntegration = true;
       shellAliases = {
         nixos = "sudo nixos-rebuild --flake $HOME/nixfiles";
-        l = "eza --long --icons";
-        ls = "eza --icons";
-        lt = "eza --tree --icons";
+        l = "eza --long --icons=always";
+        ls = "eza --icons=always";
+        lt = "eza --tree --icons=always";
         cargo-patched = "cargo --config $HOME/.cargo/patched.toml";
         calculator = "${pkgs.nodejs}/bin/node";
       };
