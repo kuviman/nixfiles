@@ -16,6 +16,7 @@
       alacritty
       fuzzel
       pavucontrol
+      xwayland-satellite
     ];
   };
 }
