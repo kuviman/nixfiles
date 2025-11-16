@@ -154,11 +154,6 @@
     };
     quickshell.package = pkgs-unstable.quickshell;
 
-    systemd = {
-      enable = true; # Systemd service for auto-start
-      restartIfChanged = true; # Auto-restart dms.service when dankMaterialShell changes
-    };
-
     # Core features
     enableSystemMonitoring = true; # System monitoring widgets (dgop)
     enableClipboard = true; # Clipboard history manager
