@@ -35,7 +35,7 @@
         "Print".action.screenshot-screen = { write-to-disk = true; };
         "Mod+Shift+Alt+S".action.screenshot-window = [ ];
         "Mod+Shift+S".action.screenshot = { show-pointer = false; };
-        "Mod+T".action = spawn "${pkgs-unstable.ghostty}/bin/ghostty";
+        "Mod+T".action = spawn "alacritty";
 
         "Mod+Q".action = close-window;
         "Mod+S".action = switch-preset-column-width;
