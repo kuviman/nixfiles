@@ -19,6 +19,7 @@
           y = 180;
         };
       };
+      layout.struts.right = 590;
     };
   };
   programs.dankMaterialShell = {
