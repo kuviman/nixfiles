@@ -3,12 +3,15 @@
 
 let
   mkHome = username: hostname:
-    let system = "x86_64-linux"; in
+    let
+      system = "x86_64-linux";
+      pkgs-unstable = import inputs.nixpkgs-stable { inherit system; };
+    in
     inputs.home-manager.lib.homeManagerConfiguration
       {
         pkgs = import inputs.nixpkgs-stable { inherit system; }; # Home-manager requires 'pkgs' instance
         # Pass flake inputs to our config
-        extraSpecialArgs = { inherit inputs username hostname; };
+        extraSpecialArgs = { inherit inputs username hostname pkgs-unstable; };
         # > Our main home-manager configuration file <
         modules = [
           (./home + ("/" + username + ".nix"))

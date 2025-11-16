@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ system, inputs, pkgs, lib, config, hostname, ... }:
+{ system, inputs, pkgs, pkgs-unstable, lib, config, hostname, ... }:
 
 {
   imports =
@@ -147,7 +147,7 @@
     };
 
     home-manager.extraSpecialArgs = {
-      inherit inputs hostname system;
+      inherit inputs hostname system pkgs-unstable;
     };
 
     # This value determines the NixOS release from which the default

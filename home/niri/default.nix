@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs-unstable, ... }:
 {
   imports = [
     inputs.niri.homeModules.niri
@@ -6,7 +6,7 @@
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
   ];
   programs.dankMaterialShell = {
-    enable = true;
+    enable = false;
     niri = {
       enableKeybinds = true;
       enableSpawn = true;
@@ -19,5 +19,6 @@
     default.session = {
       # Session state defaults
     };
+    quickshell.package = pkgs-unstable.quickshell;
   };
 }
