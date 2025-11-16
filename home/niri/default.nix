@@ -8,6 +8,7 @@
   programs.niri = {
     package = pkgs-unstable.niri;
     settings = {
+      prefer-no-csd = true;
       input.mouse = {
         accel-speed = -0.2;
         accel-profile = "flat";
