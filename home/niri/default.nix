@@ -6,7 +6,7 @@
     inputs.dankMaterialShell.homeModules.dankMaterialShell.niri
   ];
   programs.dankMaterialShell = {
-    enable = false;
+    enable = true;
     niri = {
       enableKeybinds = true;
       enableSpawn = true;

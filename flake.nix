@@ -9,7 +9,8 @@
     # Secrets
     sops.url = "github:Mic92/sops-nix";
     # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-25.05";
+    # home-manager.url = "github:nix-community/home-manager/release-25.05";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     niri = {
