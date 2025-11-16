@@ -72,6 +72,7 @@
         "Mod+Shift+K".action = move-column-to-workspace-up;
         "Mod+Shift+J".action = move-column-to-workspace-down;
 
+        "Mod+O".action = toggle-overview;
         "Mod+D" = {
           action = dms-ipc "spotlight" "toggle";
           hotkey-overlay.title = "Toggle Application Launcher";
