@@ -33,6 +33,7 @@
           y = 180;
         };
       };
+      layout.struts.right = 590;
       binds = with config.lib.niri.actions; let
         playerctl = spawn "${pkgs-unstable.playerctl}/bin/playerctl";
         dms-ipc = spawn "dms" "ipc";
