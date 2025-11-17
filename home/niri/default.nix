@@ -23,14 +23,16 @@
       };
       cursor.size = config.home.pointerCursor.size;
       outputs = {
-        "DP-2".position = { x = 0; y = 0; };
+        "DP-2" = {
+          position = { x = 0; y = 0; };
+          # TODO figure out how to strut dynamically
+          # layout.struts.right = 590;
+        };
         "HDMI-A-1".position = {
           x = 2560;
           y = 180;
         };
       };
-      # TODO figure out how to strut dynamically
-      layout.struts.right = 590;
       binds = with config.lib.niri.actions; let
         playerctl = spawn "${pkgs-unstable.playerctl}/bin/playerctl";
         dms-ipc = spawn "dms" "ipc";
