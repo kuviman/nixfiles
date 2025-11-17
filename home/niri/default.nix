@@ -20,6 +20,7 @@
           y = 180;
         };
       };
+      # TODO figure out how to strut dynamically
       layout.struts.right = 590;
       binds = with config.lib.niri.actions; let
         playerctl = spawn "${pkgs-unstable.playerctl}/bin/playerctl";
@@ -38,27 +39,34 @@
         "Mod+Shift+S".action.screenshot = { show-pointer = false; };
         "Mod+T".action = spawn "alacritty";
 
-        "Mod+Q".action = close-window;
-        "Mod+S".action = switch-preset-column-width;
+        "Mod+F4".action = close-window;
         "Mod+F".action = maximize-column;
 
-        "Mod+1".action = set-column-width "25%";
-        "Mod+2".action = set-column-width "50%";
-        "Mod+3".action = set-column-width "75%";
-        "Mod+4".action = set-column-width "100%";
+        "Mod+1".action.focus-workspace = 1;
+        "Mod+2".action.focus-workspace = 2;
+        "Mod+3".action.focus-workspace = 3;
+        "Mod+4".action.focus-workspace = 4;
+
+        "Mod+Ctrl+1".action = set-column-width "25%";
+        "Mod+Ctrl+2".action = set-column-width "50%";
+        "Mod+Ctrl+3".action = set-column-width "75%";
+        "Mod+Ctrl+4".action = set-column-width "100%";
         "Mod+Shift+F".action = fullscreen-window;
-        # "Mod+Shift+F".action = expand-column-to-available-width;
+        "Mod+Shift+E".action = expand-column-to-available-width;
         "Mod+V".action = toggle-window-floating;
-        "Mod+W".action = toggle-column-tabbed-display;
 
         "Mod+C".action = center-visible-columns;
-        "Mod+Tab".action = switch-focus-between-floating-and-tiling;
+        "Mod+Shift+Tab".action = switch-focus-between-floating-and-tiling;
 
         "Mod+Minus".action = set-column-width "-10%";
         "Mod+Plus".action = set-column-width "+10%";
         "Mod+Shift+Minus".action = set-window-height "-10%";
         "Mod+Shift+Plus".action = set-window-height "+10%";
 
+        "Mod+A".action = focus-column-left;
+        "Mod+D".action = focus-column-right;
+        "Mod+S".action = focus-window-or-workspace-down;
+        "Mod+W".action = focus-window-or-workspace-up;
         "Mod+H".action = focus-column-left;
         "Mod+L".action = focus-column-right;
         "Mod+J".action = focus-window-or-workspace-down;
@@ -73,8 +81,8 @@
         "Mod+Shift+K".action = move-column-to-workspace-up;
         "Mod+Shift+J".action = move-column-to-workspace-down;
 
-        "Mod+O".action = toggle-overview;
-        "Mod+D" = {
+        "Mod+Tab".action = toggle-overview;
+        "Mod+Space" = {
           action = dms-ipc "spotlight" "toggle";
           hotkey-overlay.title = "Toggle Application Launcher";
         };
@@ -90,7 +98,7 @@
           action = dms-ipc "notepad" "toggle";
           hotkey-overlay.title = "Toggle Notepad";
         };
-        "Super+Alt+L" = {
+        "Super+L" = {
           action = dms-ipc "lock" "lock";
           hotkey-overlay.title = "Toggle Lock Screen";
         };
@@ -113,11 +121,6 @@
         "XF86AudioMicMute" = {
           allow-when-locked = true;
           action = dms-ipc "audio" "micmute";
-        };
-        "Mod+Alt+N" = {
-          allow-when-locked = true;
-          action = dms-ipc "night" "toggle";
-          hotkey-overlay.title = "Toggle Night Mode";
         };
         "Mod+M" = {
           action = dms-ipc "processlist" "toggle";
