@@ -13,6 +13,10 @@
         accel-speed = -0.2;
         accel-profile = "flat";
       };
+      input.keyboard.xkb = {
+        layout = "us,ru";
+        options = "grp:win_space_toggle";
+      };
       input.focus-follows-mouse = {
         enable = true;
         max-scroll-amount = "0%";
@@ -87,7 +91,7 @@
         "Mod+Shift+J".action = move-column-to-workspace-down;
 
         "Mod+Tab".action = toggle-overview;
-        "Mod+Space" = {
+        "Mod+Return" = {
           action = dms-ipc "spotlight" "toggle";
           hotkey-overlay.title = "Toggle Application Launcher";
         };
