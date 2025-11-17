@@ -13,6 +13,7 @@
         accel-speed = -0.2;
         accel-profile = "flat";
       };
+      cursor.size = config.home.pointerCursor.size;
       outputs = {
         "DP-2".position = { x = 0; y = 0; };
         "HDMI-A-1".position = {
