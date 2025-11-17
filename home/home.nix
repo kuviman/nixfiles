@@ -104,9 +104,11 @@
 
     programs.git = {
       enable = true;
-      userName = config.home.username;
-      userEmail = (builtins.elemAt (lib.filter (a: a.primary) (builtins.attrValues config.accounts.email.accounts)) 0).address;
-      extraConfig = {
+      settings = {
+        user = {
+          name = config.home.username;
+          email = (builtins.elemAt (lib.filter (a: a.primary) (builtins.attrValues config.accounts.email.accounts)) 0).address;
+        };
         init.defaultBranch = "main";
       };
       lfs.enable = true;
