@@ -13,6 +13,7 @@
         accel-speed = -0.2;
         accel-profile = "flat";
       };
+      input.focus-follows-mouse.enable = true;
       cursor.size = config.home.pointerCursor.size;
       outputs = {
         "DP-2".position = { x = 0; y = 0; };
