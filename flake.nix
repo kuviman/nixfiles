@@ -52,8 +52,8 @@
 
       formatter = self.lib.forEachSystem ({ pkgs, ... }: pkgs.nixpkgs-fmt);
 
-      packages = self.lib.forEachSystem ({ pkgs, ... }: {
-        nvim = import ./nvim { inherit pkgs; };
+      packages = self.lib.forEachSystem ({ pkgs, pkgs-unstable, ... }: {
+        nvim = import ./nvim { inherit pkgs pkgs-unstable; };
       });
 
       devShells = self.lib.forEachSystem ({ system, ... }: {

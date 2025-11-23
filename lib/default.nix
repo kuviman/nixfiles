@@ -1,9 +1,13 @@
 { inputs }:
 rec {
   pkgsFor = system: import inputs.nixpkgs-stable { inherit system; };
+  pkgsUnstableFor = system: import inputs.nixpkgs-unstable { inherit system; };
   forEachSystem = f: inputs.nixpkgs-stable.lib.genAttrs (import inputs.systems) (system:
-    let pkgs = pkgsFor system;
-    in f { inherit system pkgs; });
+    let
+      pkgs = pkgsFor system;
+      pkgs-unstable = pkgsUnstableFor system;
+    in
+    f { inherit system pkgs pkgs-unstable; });
 
   # https://www.reddit.com/r/NixOS/comments/scf0ui/how_would_i_update_desktop_file/
   patchDesktop = pkgs: pkg: appName: from: to:
