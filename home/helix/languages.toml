@@ -21,9 +21,19 @@ name = "rust"
 '`' = '`'
 '<' = '>'
 
+[[language]]
+name = "kast"
+file-types = ["ks"]
+scope = "source.ks"
+language-servers = ["kast-lsp"]
+
 [language-server.rust-analyzer.config]
 cargo.features = "all"
 check = { command = "clippy" }
 
 [language-server.haskell-language-server]
 config.haskell.plugin.rename = { config = { crossModule = true }}
+
+[language-server.kast-lsp]
+command = "kast"
+args = ["lsp"]
