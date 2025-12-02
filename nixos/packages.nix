@@ -76,7 +76,7 @@
 
     # Drawing
     inkscape
-    aseprite-unfree
+    aseprite
     blender
 
     kdePackages.kdenlive # video editing
