@@ -7,7 +7,7 @@
   # $ nix search wget # LOL ok but how can I make it work?
   environment.systemPackages = with pkgs; [
     google-chrome # Another way of browsing the web
-    tdesktop # Telegram
+    telegram-desktop # Telegram
     hexchat # Irc
     discord # Discord
     wl-clipboard # wl-copy, wl-paste, required for clipboard to work in neovim
