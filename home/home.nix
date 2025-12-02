@@ -4,7 +4,7 @@
 {
   imports = [
     ./hyprland
-    ./niri
+    # ./niri
     ./nnn
     ./cursor.nix
   ];
