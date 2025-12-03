@@ -1,4 +1,4 @@
-{ pkgs-unstable, ... }:
+{ inputs, system, ... }:
 
 {
   # for l2tp vpn - https://github.com/NixOS/nixpkgs/issues/64965#issuecomment-741920446
@@ -10,6 +10,6 @@
   };
   services.v2raya = {
     enable = true;
-    cliPackage = pkgs-unstable.xray;
+    cliPackage = (import inputs.nixpkgs-25-05 { inherit system; }).xray;
   };
 }
