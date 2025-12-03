@@ -94,7 +94,7 @@
     };
 
     boot.kernelPackages = pkgs.linuxPackages_zen;
-    environment.systemPackages = [ pkgs.linuxPackages_zen.perf ];
+    environment.systemPackages = [ pkgs.perf ];
 
     networking.hostName = hostname;
 
