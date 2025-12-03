@@ -1,4 +1,4 @@
-{ system, inputs, pkgs, lib, config, hostname, ... }:
+{ pkgs-unstable, ... }:
 
 {
   # for l2tp vpn - https://github.com/NixOS/nixpkgs/issues/64965#issuecomment-741920446
@@ -8,9 +8,8 @@
       "ipsec.d/ipsec.nm-l2tp.secrets"
     ];
   };
-  programs.amnezia-vpn.enable = true;
   services.v2raya = {
     enable = true;
-    cliPackage = pkgs.xray;
+    cliPackage = pkgs-unstable.xray;
   };
 }
