@@ -8,6 +8,7 @@
       "ipsec.d/ipsec.nm-l2tp.secrets"
     ];
   };
+  programs.amnezia-vpn.enable = true;
   services.v2raya = {
     enable = true;
     cliPackage = pkgs.xray;
