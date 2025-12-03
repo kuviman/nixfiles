@@ -11,7 +11,7 @@
   config = lib.mkIf config.nixfiles.kde.enable {
     services.xserver.enable = true;
     services.desktopManager.plasma6.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    services.desktopManager.gnome.enable = true;
 
     # https://github.com/NixOS/nixpkgs/issues/75867
     programs.ssh.askPassword = pkgs.lib.mkForce "${pkgs.ksshaskpass.out}/bin/ksshaskpass";
