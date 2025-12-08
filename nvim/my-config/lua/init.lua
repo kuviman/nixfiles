@@ -312,12 +312,12 @@ cmp.setup.cmdline(':', {
 })
 
 -- Setup language servers.
-local lspconfig = require "lspconfig"
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
-lspconfig.html.setup {}
-lspconfig.jsonls.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.lua_ls.setup {
+vim.lsp.enable('html')
+vim.lsp.enable('jsonls')
+vim.lsp.enable('ts_ls')
+vim.lsp.enable('lua_ls')
+vim.lsp.config('lua_ls', {
     capabilities = capabilities,
     settings = {
         Lua = {
@@ -334,8 +334,9 @@ lspconfig.lua_ls.setup {
             },
         },
     },
-}
-lspconfig.nixd.setup {
+})
+vim.lsp.enable('nixd')
+vim.lsp.config('nixd', {
     settings = {
         nixd = {
             formatting = {
@@ -343,10 +344,10 @@ lspconfig.nixd.setup {
             },
         },
     },
-}
-lspconfig.zls.setup {}
-lspconfig.ocamllsp.setup {}
-lspconfig.pyright.setup {}
+})
+vim.lsp.enable('zls')
+vim.lsp.enable('ocmamllsp')
+vim.lsp.enable('pyright')
 
 -- Kast
 vim.lsp.config("kast", {
@@ -361,12 +362,7 @@ vim.filetype.add({
     },
 })
 
-local null_ls = require("null-ls")
-null_ls.setup({
-    sources = {
-        null_ls.builtins.formatting.autopep8,
-    },
-})
+-- TODO autopep8
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -374,10 +370,14 @@ vim.keymap.set("n", "<leader>d",
     vim.diagnostic.open_float,
     { desc = "Float diagnostic" })
 vim.keymap.set("n", "<leader>[",
-    vim.diagnostic.goto_prev,
+    function()
+        vim.diagnostic.jump { count = 1, float = true }
+    end,
     { desc = "Prev diagnostic" })
 vim.keymap.set("n", "<leader>]",
-    vim.diagnostic.goto_next,
+    function()
+        vim.diagnostic.jump { count = -1, float = true }
+    end,
     { desc = "Next diagnostic" })
 vim.keymap.set("n", "gD",
     vim.lsp.buf.declaration,
