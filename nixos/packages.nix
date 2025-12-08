@@ -63,7 +63,7 @@
     nixd # nix language server
     nixpkgs-fmt # nix formatter
 
-    bottom # System monitoring
+    btop # System monitoring
     nnn # tui file manager
 
     zellij # like tmux
