@@ -346,7 +346,7 @@ vim.lsp.config('nixd', {
     },
 })
 vim.lsp.enable('zls')
-vim.lsp.enable('ocmamllsp')
+vim.lsp.enable('ocamllsp')
 vim.lsp.enable('pyright')
 
 -- Kast
