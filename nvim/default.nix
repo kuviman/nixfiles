@@ -47,7 +47,6 @@ pkgs.wrapNeovim pkgs.neovim-unwrapped {
         haskell-tools-nvim
         dressing-nvim
         cellular-automaton-nvim
-        null-ls-nvim
       ];
       opt = [
         vim-visual-multi
