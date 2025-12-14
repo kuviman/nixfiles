@@ -20,7 +20,7 @@
           Type = "simple";
           WorkingDirectory = config.home.homeDirectory + "/.kuvibot";
           # ExecStart = "${inputs.kuvibot.apps.${system}.kuviboy.program}";
-          ExecStart = "${inputs.kuvibot.apps.${system}.kuviman.program}";
+          ExecStart = "${inputs.kuvibot.apps.${system}.default.program}";
           Restart = "always";
           RestartSec = "10";
         };
