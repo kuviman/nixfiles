@@ -353,6 +353,9 @@ vim.lsp.enable('pyright')
 vim.lsp.config("kast", {
     cmd = { "kast", "lsp" },
     filetypes = { "kast" },
+    reuse_client = function()
+        return true
+    end,
     root_markers = { 'workspace.ks' }
 })
 vim.lsp.enable("kast")
