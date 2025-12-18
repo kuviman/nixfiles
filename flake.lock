@@ -319,11 +319,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1766052591,
-        "narHash": "sha256-EiwY23TX1eQUjfZv/E+eZyc0hCB+CnggKhB5dpK+XvM=",
+        "lastModified": 1766076638,
+        "narHash": "sha256-XYNzWGL/+PwHab3Z/gYL9pfAkQmNc0OZv3ISN87YwnI=",
         "owner": "kuviman",
         "repo": "kuvibot",
-        "rev": "8cb8be45fe02c29c2d44df180c88ed7635ed3869",
+        "rev": "f6b771e4f456af0335662912ab2aa45b592999a4",
         "type": "github"
       },
       "original": {
