@@ -27,6 +27,10 @@
       inputs.dgop.follows = "dgop";
     };
 
+    fresh = {
+      url = "github:sinelaw/fresh";
+    };
+
     ttv.url = "github:kuviman/ttv";
     kuvibot.url = "github:kuviman/kuvibot";
 
