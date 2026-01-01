@@ -7,6 +7,13 @@
       ./disko.nix
       ./hardware-configuration.nix
     ];
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+      auto-optimise-store = true;
+      trusted-users = [ "root" "@wheel" ];
+    };
+  };
   boot.loader.grub = {
     enable = true;
   };
