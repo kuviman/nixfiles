@@ -72,5 +72,11 @@
     nameservers = [ "8.8.8.8" ];
   };
   system.stateVersion = "25.11";
+  services.caddy = {
+    enable = true;
+    virtualHosts."paris.kuviman.com".extraConfig = ''
+      reverse_proxy http://localhost:2053
+    '';
+  };
 }
 
