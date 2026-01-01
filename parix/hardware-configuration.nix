@@ -16,7 +16,10 @@
 
   # fileSystems configured with disko
 
-  swapDevices = [ ];
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size = 1024; # in MiB
+  }];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
