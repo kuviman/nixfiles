@@ -42,7 +42,7 @@ pkgs.wrapNeovim pkgs.neovim-unwrapped {
         which-key-nvim
         rustaceanvim
         nvim-surround
-        pkgs-unstable.vimPlugins.nvim-treesitter.withAllGrammars
+        nvim-treesitter.withAllGrammars
         nvim-treesitter-context
         haskell-tools-nvim
         dressing-nvim
