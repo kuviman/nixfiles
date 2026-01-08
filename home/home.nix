@@ -143,7 +143,6 @@
         plugins = [ "git" "sudo" ];
       };
     };
-    environment.pathsToLink = [ "/share/zsh" ];
 
     programs.nnn.quitcd.enable = true;
 
