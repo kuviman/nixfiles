@@ -132,10 +132,12 @@
         cargo-patched = "cargo --config $HOME/.cargo/patched.toml";
         calculator = "${pkgs.nodejs}/bin/node";
       };
-      initContent = ''
-        PS1='%(?.%F{green}.%F{red})$%b%f '
-      '';
-      profileExtra = (builtins.readFile ./vscode-direnv-fix.zsh);
+      initContent = lib.mkMerge [
+        ''
+          PS1='%(?.%F{green}.%F{red})$%b%f '
+        ''
+        (lib.mkOrder 2000 (builtins.readFile ./vscode-direnv-fix.zsh))
+      ];
       oh-my-zsh = {
         enable = true;
         plugins = [ "git" "sudo" ];
