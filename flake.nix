@@ -4,14 +4,16 @@
   inputs = {
     # Nixpkgs
     nixpkgs-25-05.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     # Secrets
     sops.url = "github:Mic92/sops-nix";
-    # Home manager
-    home-manager.url = "github:nix-community/home-manager/release-25.11";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs-stable";
+
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
 
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -26,19 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
-    fresh = {
-      url = "github:sinelaw/fresh";
-    };
-
     ttv.url = "github:kuviman/ttv";
     kuvibot.url = "github:kuviman/kuvibot";
 
     systems.url = "github:nix-systems/default";
-
-    # TODO: take a look at this:
-    # Shameless plug: looking for a way to nixify your themes and make
-    # everything match nicely? Try nix-colors!
-    # nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = { self, ... }@inputs:

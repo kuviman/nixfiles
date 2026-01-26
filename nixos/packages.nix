@@ -131,7 +131,6 @@ in
 
     zellij # like tmux
 
-    inputs.fresh.packages.${system}.default
     helix # For when I'm done with neovim
     vscode-fhs
     zed-editor
