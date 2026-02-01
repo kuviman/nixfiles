@@ -142,7 +142,8 @@ in
     aseprite
     blender
 
-    kdePackages.kdenlive # video editing
+    # TODO https://github.com/NixOS/nixpkgs/issues/483540
+    # kdePackages.kdenlive # video editing
     audacity # for fish sound effects
 
     daktilo # fake keyboard sounds
