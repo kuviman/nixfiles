@@ -34,8 +34,10 @@
         wallpaper = pkgs.nixos-artwork.wallpapers.simple-dark-gray.gnomeFilePath;
       in
       ''
-        preload = ${wallpaper}
-        wallpaper = ,${wallpaper}
+        wallpaper {
+            monitor =
+            path = ${wallpaper}
+        }
         ipc = off
         splash = false
       '';
