@@ -15,7 +15,7 @@
       bat
       curl
       wget
-      neofetch
+      fastfetch
       tokei
       ripgrep
       fd

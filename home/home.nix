@@ -5,7 +5,6 @@
   imports = [
     ./hyprland
     # ./niri
-    ./nnn
     ./cursor.nix
   ];
 
@@ -144,7 +143,7 @@
       };
     };
 
-    programs.nnn.quitcd.enable = true;
+    programs.nnn.quitcd = true;
 
     programs.alacritty = {
       enable = true;

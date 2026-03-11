@@ -102,7 +102,7 @@ in
     rio # alacritty with ligatures?
     curl # pretty sure its installed by default but anyway
     wget # Downloading things from command line
-    neofetch # BTW
+    fastfetch # BTW
     tokei # Scan project languages and lines of code
     ripgrep # Grep the rip
     fd # User-friendly find
