@@ -90,7 +90,7 @@ in
     steam-run # windows games
     umu-launcher # proton
     lutris # More GAMES
-    wineWowPackages.waylandFull # run windows apps
+    wineWow64Packages.waylandFull # run windows apps
 
     # Command line
     gh # github
