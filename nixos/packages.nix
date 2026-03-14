@@ -88,6 +88,7 @@ in
     prismlauncher # minecraft
     appimage-run
     steam-run # windows games
+    umu-launcher # proton
     lutris # More GAMES
     wineWowPackages.waylandFull # run windows apps
 
