@@ -317,6 +317,7 @@ vim.lsp.enable('html')
 vim.lsp.enable('jsonls')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('gopls')
 vim.lsp.config('lua_ls', {
     capabilities = capabilities,
     settings = {
