@@ -1,5 +1,5 @@
 [font]
-normal = "MonaspiceKr Nerd Font"
+normal = ["MonaspiceKr Nerd Font"]
 size = 16
 
 [font.features]
