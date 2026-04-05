@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 
 pkgs.wrapNeovim pkgs.neovim-unwrapped {
   configure = {

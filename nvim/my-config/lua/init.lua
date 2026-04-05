@@ -354,7 +354,7 @@ vim.lsp.enable('pyright')
 -- Kast
 vim.lsp.config("kast", {
     cmd = { "kast", "lsp" },
-    filetypes = { "kast" },
+    filetypes = { "kast", "minikast" },
     reuse_client = function()
         return true
     end,
@@ -364,6 +364,7 @@ vim.lsp.enable("kast")
 vim.filetype.add({
     extension = {
         ks = "kast",
+        mks = "minikast",
     },
 })
 
