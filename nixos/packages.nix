@@ -9,8 +9,8 @@ let
       src = fetchFromGitHub {
         owner = "kuviman";
         repo = "tokei";
-        rev = "c19576322a7fdfe7c85d50b4041e7057805da9fc";
-        hash = "sha256-/TSSuqP5+JmDHUHzJ8IHBIMTkKZovMOVgbEmBUnSUd4=";
+        rev = "0e0afb725068ca3eca3478094b4c10b52efcaf28";
+        hash = "sha256-k4kz4zH+1EvQhCmVIjBugIrKqbcmCqPHuOeIjrIva8E=";
       };
 
       # patches = [
