@@ -12,6 +12,7 @@
         obs-3d-effect
         obs-shaderfilter
         obs-pipewire-audio-capture
+        obs-source-record
         input-overlay
         obs-multi-rtmp
       ];
