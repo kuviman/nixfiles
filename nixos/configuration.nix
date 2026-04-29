@@ -76,6 +76,13 @@
         #   });
         # })
 
+        # TODO temp fix for https://github.com/NixOS/nixpkgs/issues/514113
+        (_: prev: {
+          openldap = prev.openldap.overrideAttrs {
+            doCheck = !prev.stdenv.hostPlatform.isi686;
+          };
+        })
+
         # Waybar experimental features
         (self: super: {
           waybar = super.waybar.overrideAttrs (oldAttrs: {
