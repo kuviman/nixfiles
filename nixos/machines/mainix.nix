@@ -1,5 +1,5 @@
 {
   nixfiles = {
-    gitlab-runner.enable = true;
+    # gitlab-runner.enable = true;
   };
 }
