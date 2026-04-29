@@ -24,14 +24,14 @@ let
     };
   machines =
     let machine-files = builtins.readDir ./machines; in
-    builtins.map (name: lib.removeSuffix ".nix" name)
+    map (name: lib.removeSuffix ".nix" name)
       (builtins.filter
         (name: lib.hasSuffix ".nix" name && !(lib.hasPrefix "_" name))
         (builtins.attrNames machine-files));
 in
 builtins.listToAttrs
   (
-    builtins.map
+    map
       (name: {
         inherit name;
         value = mkOs name (import ./machines/${name}.nix);
