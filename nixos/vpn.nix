@@ -10,6 +10,5 @@
   };
   services.v2raya = {
     enable = true;
-    cliPackage = (import inputs.nixpkgs-25-05 { inherit system; }).xray;
   };
 }
