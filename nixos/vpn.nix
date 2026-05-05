@@ -1,4 +1,4 @@
-{ inputs, system, ... }:
+{ pkgs, ... }:
 
 {
   # for l2tp vpn - https://github.com/NixOS/nixpkgs/issues/64965#issuecomment-741920446
@@ -10,5 +10,6 @@
   };
   services.v2raya = {
     enable = true;
+    cliPackage = pkgs.xray;
   };
 }
