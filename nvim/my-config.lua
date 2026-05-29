@@ -1,5 +1,7 @@
+require "my-colorscheme".load()
+-- require "onedark".load()
+
 vim.g.mapleader = " "
-require "onedark".load()
 
 vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" });
 vim.keymap.set("n", "<esc>",

@@ -1,5 +1,24 @@
 { pkgs, ... }:
 
+let
+  singleLuaPlugin = { path, main ? false }:
+    let
+      name = pkgs.lib.removeSuffix ".lua" (baseNameOf path);
+    in
+    pkgs.vimUtils.buildVimPlugin {
+      inherit name;
+      src = pkgs.runCommand (name + "-src") { } (
+        if main then ''
+          mkdir -p $out/lua
+          cp ${path} $out/lua/init.lua
+        '' else ''
+          mkdir -p $out/lua
+          cp ${path} $out/lua/${name}.lua
+        ''
+      );
+      doCheck = false;
+    };
+in
 pkgs.wrapNeovim pkgs.neovim-unwrapped {
   configure = {
     customRC = ''
@@ -7,11 +26,8 @@ pkgs.wrapNeovim pkgs.neovim-unwrapped {
     '';
     packages.myVimPackage = with pkgs.vimPlugins; {
       start = [
-        (pkgs.vimUtils.buildVimPlugin {
-          name = "my-config";
-          src = ./my-config;
-          doCheck = false;
-        })
+        (singleLuaPlugin { path = ./my-colorscheme.lua; })
+        (singleLuaPlugin { path = ./my-config.lua; main = true; })
         vim-abolish
         onedark-nvim
         vim-fugitive
