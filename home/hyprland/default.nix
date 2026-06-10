@@ -2,7 +2,7 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    settings = {
+    settings = pkgs.lib.mkIf false {
       # https://github.com/nix-community/home-manager/issues/2659
       envd = with builtins; attrValues
         (mapAttrs
