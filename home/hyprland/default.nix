@@ -19,11 +19,7 @@
         "HYPRCURSOR_SIZE,${builtins.toString config.home.pointerCursor.size}"
       ];
     };
-    extraConfig =
-      let
-        monitors = "exec = bash ${./monitors.sh}\n";
-      in
-      monitors + builtins.readFile ./hyprland.conf;
+    extraConfig = builtins.readFile ./hyprland.lua;
   };
   home.packages = with pkgs; [
     jq
