@@ -5,20 +5,24 @@ function M.load()
     vim.o.termguicolors = true
     vim.g.colors_name = "my-colorscheme"
 
-    vim.api.nvim_set_hl(0, "Normal", { fg = "#ffffff", bg = "#000000" })
-    vim.api.nvim_set_hl(0, "Comment", { fg = "#7f7f7f", italic = true })
-    vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1f1f1f" })
-    vim.api.nvim_set_hl(0, "LineNr", { fg = "#3f3f3f" })
-    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#5f5f5f", bold = true })
+    function set_color(mode, colors)
+        vim.api.nvim_set_hl(0, mode, colors)
+    end
 
-    vim.api.nvim_set_hl(0, "Keyword", { fg = "#ff00ff", bold = true })
-    vim.api.nvim_set_hl(0, "String", { fg = "#00ff00", bg = "#001f00" })
+    set_color("Normal", { fg = "#ffffff", bg = "#000000" })
+    set_color("Comment", { fg = "#7f7f7f", italic = true })
+    set_color("CursorLine", { bg = "#1f1f1f" })
+    set_color("LineNr", { fg = "#3f3f3f" })
+    set_color("CursorLineNr", { fg = "#5f5f5f", bold = true })
 
-    vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#ff0000" })
-    vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#ff7f00" })
-    vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#007fff" })
+    set_color("Keyword", { fg = "#ff00ff", bold = true })
+    set_color("String", { fg = "#00ff00", bg = "#001f00" })
 
-    vim.api.nvim_set_hl(0, "StatusLine", { fg = "#ffffff", bg = "#000000" })
+    set_color("DiagnosticError", { fg = "#ff0000" })
+    set_color("DiagnosticWarn", { fg = "#ff7f00" })
+    set_color("DiagnosticInfo", { fg = "#007fff" })
+
+    set_color("StatusLine", { fg = "#ffffff", bg = "#000000" })
 end
 
 return M
