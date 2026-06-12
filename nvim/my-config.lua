@@ -1,5 +1,5 @@
-require "my-colorscheme".load()
--- require "onedark".load()
+-- require "my-colorscheme".load()
+require "onedark".load()
 
 vim.g.mapleader = " "
 
