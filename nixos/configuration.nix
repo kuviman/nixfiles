@@ -30,6 +30,7 @@
       ./sway.nix
       ./minecraft.nix
       ./network.nix
+      ./laptop.nix
     ];
   options.nixfiles = {
     username = lib.mkOption {
@@ -168,6 +169,5 @@
     hardware.xone.enable = true;
 
     services.flatpak.enable = true;
-    services.thermald.enable = true;
   };
 }
