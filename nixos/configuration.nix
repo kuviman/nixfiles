@@ -168,5 +168,6 @@
     hardware.xone.enable = true;
 
     services.flatpak.enable = true;
+    services.thermald.enable = true;
   };
 }
