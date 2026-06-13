@@ -2,21 +2,17 @@
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    settings = pkgs.lib.mkIf false {
+    settings = {
       # https://github.com/nix-community/home-manager/issues/2659
-      envd = with builtins; attrValues
+      env = with builtins; attrValues
         (mapAttrs
-          (name: value: "${name}, ${toString value}")
+          (name: value: { _args = [ name (toString value) ]; })
           config.home.sessionVariables
         ) ++ [
-        # "EXTRA_VARIABLE, 1"
-      ];
-
-      env = [
-        "XCURSOR_THEME,${config.home.pointerCursor.name}"
-        "XCURSOR_SIZE,${builtins.toString config.home.pointerCursor.size}"
-        "HYPRCURSOR_THEME,${config.home.pointerCursor.name}"
-        "HYPRCURSOR_SIZE,${builtins.toString config.home.pointerCursor.size}"
+        { _args = [ "XCURSOR_THEME" config.home.pointerCursor.name ]; }
+        { _args = [ "XCURSOR_SIZE" (toString config.home.pointerCursor.size) ]; }
+        { _args = [ "HYPRCURSOR_THEME" config.home.pointerCursor.name ]; }
+        { _args = [ "HYPRCURSOR_SIZE" (toString config.home.pointerCursor.size) ]; }
       ];
     };
     extraConfig = builtins.readFile ./hyprland.lua;
