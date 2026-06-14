@@ -150,6 +150,8 @@ in
     daktilo # fake keyboard sounds
 
     traceroute
+    lm_sensors
+    stress
   ];
   services.ratbagd.enable = true; # for piper
 
