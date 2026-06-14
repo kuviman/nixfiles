@@ -77,14 +77,9 @@ in
     ffmpeg-full # has ffplay
     piper # for Logitech G Pro
     python3 # calculator
-    zoom-us
     vlc
     remmina # RDP
-
     dropbox # for my keystore
-
-    devenv # until devenv can be integrated properly with flakes
-
     prismlauncher # minecraft
     appimage-run
     steam-run # windows games
@@ -136,7 +131,6 @@ in
     vscode-fhs
     zed-editor
     dua # disk usage analyzer
-    any-nix-shell # Keep shell when in nix-shell (nix-shell is outdated tho so I should use smth else?)
 
     # Drawing
     inkscape
@@ -146,8 +140,6 @@ in
     # TODO https://github.com/NixOS/nixpkgs/issues/483540
     # kdePackages.kdenlive # video editing
     audacity # for fish sound effects
-
-    daktilo # fake keyboard sounds
 
     traceroute
     lm_sensors
