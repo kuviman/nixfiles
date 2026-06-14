@@ -100,18 +100,6 @@ hl.config({
             color = "#1a1a1aee"
         }
     },
-    animations = {
-        enabled = true,
-        bezier = { "myBezier", 0.05, 0.9, 0.1, 1.05 },
-        animation = {
-            { type = "windows",     time1 = 1, time2 = 7,  curve = "myBezier" },
-            { type = "windowsOut",  time1 = 1, time2 = 7,  curve = "default", effect = "popin 80%" },
-            { type = "border",      time1 = 1, time2 = 10, curve = "default" },
-            { type = "borderangle", time1 = 1, time2 = 8,  curve = "default" },
-            { type = "fade",        time1 = 1, time2 = 7,  curve = "default" },
-            { type = "workspaces",  time1 = 1, time2 = 6,  curve = "default" }
-        }
-    },
     dwindle = {
         preserve_split = true,
     },
@@ -119,6 +107,15 @@ hl.config({
         new_status = "master",
     },
 })
+
+hl.curve("myBezier", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
+hl.animation({ leaf = "windows", enabled = true, speed = 2, bezier = "myBezier" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2, bezier = "default", style = "popin 80%" })
+hl.animation({ leaf = "border", enabled = true, speed = 2, bezier = "default" })
+hl.animation({ leaf = "borderangle", enabled = true, speed = 2, bezier = "default" })
+hl.animation({ leaf = "fade", enabled = true, speed = 2, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default" })
+
 hl.device({
     name = "epic-mouse-v1",
     sensitivity = -0.5,
