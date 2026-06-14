@@ -19,6 +19,8 @@
       hyprpaper
       hyprpicker
       hyprshot
+      slurp
+      grim
       wofi
       pavucontrol
     ];
