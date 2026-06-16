@@ -117,7 +117,7 @@ hl.animation({ leaf = "fade", enabled = true, speed = 2, bezier = "default" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = 2, bezier = "default" })
 
 hl.device({
-    name = "epic-mouse-v1",
+    name = "logitech-g502-x-ls-1",
     sensitivity = -0.5,
 })
 hl.window_rule({
