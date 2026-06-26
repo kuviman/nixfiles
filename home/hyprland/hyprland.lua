@@ -136,7 +136,7 @@ local mainMod = "SUPER"
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("wofi --show drun"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("wofi-emoji"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("alacritty"))
-hl.bind("ALT + F4", hl.dsp.window.kill())
+hl.bind("ALT + F4", hl.dsp.window.close())
 hl.bind(mainMod .. " + ALT + Escape", hl.dsp.exit()) -- TODO recommended to use hyprshutdown
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker --autocopy"))
