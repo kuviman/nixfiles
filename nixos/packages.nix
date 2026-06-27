@@ -137,8 +137,7 @@ in
     aseprite
     blender
 
-    # TODO https://github.com/NixOS/nixpkgs/issues/483540
-    # kdePackages.kdenlive # video editing
+    kdePackages.kdenlive # video editing
     audacity # for fish sound effects
 
     traceroute
