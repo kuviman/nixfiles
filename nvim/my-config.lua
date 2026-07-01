@@ -42,7 +42,7 @@ vim.opt.smartcase = true     -- Don't ignore case if there is uppercase chars
 vim.opt.shortmess:append "s" -- disable "search hit BOTTOM" & similar
 
 -- Disable mouse
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
 
 -- Numbers
 vim.opt.number = true
