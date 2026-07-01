@@ -3,6 +3,18 @@ require "onedark".load()
 
 vim.g.mapleader = " "
 
+if vim.g.neovide then
+    vim.keymap.set({ "n", "v" }, "<C-=>",
+        ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>",
+        { desc = "Increase font size" })
+    vim.keymap.set({ "n", "v" }, "<C-->",
+        ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>",
+        { desc = "Decrease font size" })
+    vim.keymap.set({ "n", "v" }, "<C-0>",
+        ":lua vim.g.neovide_scale_factor = 1.0<CR>",
+        { desc = "Reset font size" })
+end
+
 vim.keymap.set("n", "U", "<C-r>", { desc = "Redo" });
 vim.keymap.set("n", "<esc>",
     "<cmd> nohlsearch <cr>",
