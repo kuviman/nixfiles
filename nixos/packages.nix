@@ -143,6 +143,7 @@ in
     traceroute
     lm_sensors
     stress
+    cryptsetup
   ];
   services.ratbagd.enable = true; # for piper
 
