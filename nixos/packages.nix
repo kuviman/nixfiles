@@ -144,6 +144,8 @@ in
     lm_sensors
     stress
     cryptsetup
+
+    cachix
   ];
   services.ratbagd.enable = true; # for piper
 
