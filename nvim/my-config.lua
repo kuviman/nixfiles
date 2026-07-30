@@ -576,3 +576,192 @@ require("cellular-automaton").register_animation {
         return true
     end,
 }
+
+function is_filename_char(c)
+    return (
+        (c >= 'a' and c <= 'z')
+        or (c >= 'A' and c <= 'Z')
+        or c == '/'
+        or c == '.'
+        or c == '-'
+        or c == '_')
+end
+
+function find_file_under_cursor()
+    local line = vim.api.nvim_get_current_line()
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    local pos = cursor[2] + 1
+    if not is_filename_char(line:sub(pos, pos)) then
+        return nil
+    end
+    while true do
+        if pos >= 1 and is_filename_char(line:sub(pos, pos)) then
+            pos = pos - 1
+        elseif pos >= 2 and line:sub(pos - 1, pos - 1) == '\\' then
+            pos = pos - 2
+        else
+            break
+        end
+    end
+    local start = pos + 1
+    pos = cursor[2] + 1
+    while true do
+        if pos <= #line and is_filename_char(line:sub(pos, pos)) then
+            pos = pos + 1
+        elseif pos + 1 <= #line and line:sub(pos, pos) == '\\' then
+            pos = pos + 2
+        else
+            break
+        end
+    end
+    local finish = pos - 1
+    local file = ""
+    pos = start
+    while pos <= finish do
+        local c = line:sub(pos, pos)
+        if c == '\\' then
+            file = file .. line:sub(pos + 1, pos + 1)
+            pos = pos + 2
+        else
+            file = file .. c
+            pos = pos + 1
+        end
+    end
+    return { file = file, start = start, finish = finish }
+end
+
+function find_file_under_cursor_with_pos()
+    local file = find_file_under_cursor()
+    if file == nil then
+        return nil
+    end
+    local line = vim.api.nvim_get_current_line()
+    local pos_in_file = nil
+    local span_end = nil
+    local pos = file.finish + 1
+
+    function parse_int()
+        local start = pos
+        local result = 0
+        while pos <= #line do
+            local c = line:sub(pos, pos)
+            if '0' <= c and c <= '9' then
+                result = result * 10 + tonumber(c)
+                pos = pos + 1
+            else
+                break
+            end
+        end
+        if pos == start then
+            return nil
+        else
+            return result
+        end
+    end
+
+    function parse_pos()
+        if pos > #line or line:sub(pos, pos) ~= ':' then
+            return
+        end
+        pos = pos + 1
+        local line_no = parse_int()
+        if line_no == nil then
+            return
+        end
+        pos_in_file = { line = line_no, col = 1 }
+        if pos > #line or (
+                line:sub(pos, pos) ~= '.'
+                and line:sub(pos, pos) ~= ':') then
+            return
+        end
+        pos = pos + 1
+        local col = parse_int()
+        if col == nil then
+            return
+        end
+        pos_in_file.col = col
+        if pos > #line or line:sub(pos, pos) ~= '-' then
+            return
+        end
+        pos = pos + 1
+        line_no = parse_int()
+        if line_no == nil then
+            return
+        end
+        if pos > #line or line:sub(pos, pos) ~= '.' then
+            return
+        end
+        pos = pos + 1
+        col = parse_int()
+        if col == nil then
+            return
+        end
+        span_end = { line = line_no, col = col }
+    end
+
+    parse_pos()
+
+    return {
+        file = file.file,
+        pos_in_file = pos_in_file,
+        span_end = span_end,
+        start = file.start,
+        finish = pos - 1,
+    }
+end
+
+function select_file_under_cursor_with_pos()
+    local result = find_file_under_cursor_with_pos()
+    if result == nil then
+        return
+    end
+    local cursor = vim.api.nvim_win_get_cursor(0)
+    vim.api.nvim_win_set_cursor(0, { cursor[1], result.start - 1 })
+    vim.cmd("normal! v");
+    vim.api.nvim_win_set_cursor(0, { cursor[1], result.finish - 1 })
+end
+
+vim.keymap.set("n", "gf",
+    function()
+        local result = find_file_under_cursor_with_pos()
+        if result == nil then
+            return
+        end
+
+        local Terminal = require("toggleterm.terminal")
+        for _, term in pairs(Terminal.get_all()) do
+            if term:is_open() then
+                term:close()
+            end
+        end
+
+        vim.cmd.edit(result.file)
+        if result.pos_in_file ~= nil then
+            vim.api.nvim_win_set_cursor(0, { result.pos_in_file.line, result.pos_in_file.col - 1 })
+            if result.span_end ~= nil then
+                vim.cmd("normal! v")
+                vim.api.nvim_win_set_cursor(0, { result.span_end.line, result.span_end.col - 1 })
+            end
+        end
+    end,
+    { desc = "Goto file under cursor" })
+
+vim.keymap.set("n", "yif",
+    function()
+        local cursor = vim.api.nvim_win_get_cursor(0)
+        select_file_under_cursor_with_pos()
+        if vim.api.nvim_get_mode().mode == "v" then
+            vim.cmd("normal! y");
+        end
+        vim.api.nvim_win_set_cursor(0, cursor)
+    end,
+    { desc = "Copy file under cursor" })
+
+vim.keymap.set("v", "if",
+    function()
+        vim.cmd("normal! v");
+        select_file_under_cursor_with_pos()
+    end,
+    { desc = "Select file under cursor" })
+
+vim.keymap.set("v", "<C-O>", "<ESC><C-O>", { desc = "Go back" })
