@@ -31,6 +31,7 @@
       ./minecraft.nix
       ./network.nix
       ./laptop.nix
+      ./dev.nix
     ];
   options.nixfiles = {
     username = lib.mkOption {
