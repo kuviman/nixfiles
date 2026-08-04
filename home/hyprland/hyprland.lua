@@ -151,8 +151,8 @@ end
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag())
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())
 
-hl.bind(mainMod .. " + W", hl.dsp.focus({ direction = "l" }))
-hl.bind(mainMod .. " + A", hl.dsp.focus({ direction = "u" }))
+hl.bind(mainMod .. " + W", hl.dsp.focus({ direction = "u" }))
+hl.bind(mainMod .. " + A", hl.dsp.focus({ direction = "l" }))
 hl.bind(mainMod .. " + S", hl.dsp.focus({ direction = "d" }))
 hl.bind(mainMod .. " + D", hl.dsp.focus({ direction = "r" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
