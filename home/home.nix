@@ -84,6 +84,7 @@
 
       ".config/helix".source = ./helix;
       ".config/neovide".source = ./neovide;
+      ".config/lazygit/config.yml".source = ./lazygit/config.yml;
     };
 
     # You can also manage environment variables but you will have to manually
