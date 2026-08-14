@@ -131,6 +131,7 @@
         lt = "eza --tree --icons=always";
         cargo-patched = "cargo --config $HOME/.cargo/patched.toml";
         calculator = "${pkgs.nodejs}/bin/node";
+        github = "${pkgs.gh}/bin/gh";
       };
       initContent = lib.mkMerge [
         ''
