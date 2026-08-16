@@ -2,7 +2,7 @@
 
 let
   wireproxy-awg =
-    pkgs.wireproxy.overrideAttrs (finalAttrs: {
+    pkgs.wireproxy.overrideAttrs (finalAttrs: oldAttrs: {
       version = "1.0.17";
       src = pkgs.fetchFromGitHub {
         owner = "artem-russkikh";
