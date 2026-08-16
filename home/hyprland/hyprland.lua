@@ -140,6 +140,7 @@ hl.bind("ALT + F4", hl.dsp.window.close())
 hl.bind(mainMod .. " + ALT + Escape", hl.dsp.exit()) -- TODO recommended to use hyprshutdown
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker --autocopy"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | wl-copy"))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.window.pin())
 hl.bind(mainMod .. " + C", hl.dsp.window.center())
 
