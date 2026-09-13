@@ -63,6 +63,7 @@ pkgs.wrapNeovim pkgs.neovim-unwrapped {
         haskell-tools-nvim
         dressing-nvim
         cellular-automaton-nvim
+        (pkgs.vimUtils.buildVimPlugin { name = "kast.nvim"; src = pkgs.fetchFromGitea { domain = "codeberg.org"; owner = "reym"; repo = "kast.nvim"; rev = "9ab1660615a6f0f2e34b8e3d475245e626db52d1"; hash = "sha256-0tIP6raUfLSNh2J5qjoa6i0UxOQtTMsNQkR1KM+WvjQ="; }; })
       ];
       opt = [
         vim-visual-multi
