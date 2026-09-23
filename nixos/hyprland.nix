@@ -20,6 +20,7 @@
       hyprpicker
       hyprshot
       slurp
+      wayfreeze
       grim
       wofi
       pavucontrol
