@@ -581,6 +581,7 @@ function is_filename_char(c)
     return (
         (c >= 'a' and c <= 'z')
         or (c >= 'A' and c <= 'Z')
+        or (c >= '0' and c <= '9')
         or c == '/'
         or c == '.'
         or c == '-'
