@@ -24,6 +24,7 @@
       grim
       wofi
       pavucontrol
+      wf-recorder
     ];
   };
 }
