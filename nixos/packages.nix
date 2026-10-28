@@ -111,6 +111,7 @@ in
     ntfs3g # to break windows from linux YEP
     libguestfs-with-appliance # to mount hyper-v vm data
     file
+    hexyl # hex viewer
 
     age # encryption
     sops # secrets
