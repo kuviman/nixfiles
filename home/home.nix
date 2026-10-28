@@ -53,30 +53,25 @@
       };
     };
 
-    # The home.packages option allows you to install Nix packages into your
-    # environment.
-    # BUT I'M NOT USING THAT
     home.packages = [
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
-      # pkgs.hello
+      (pkgs.writeShellApplication {
+        name = "make-gif";
+        text = ''
+          input="$1"
+          width="$2"
+          output="$3"
 
-      # # It is sometimes useful to fine-tune packages, for example, by applying
-      # # overrides. You can do that directly here, just don't forget the
-      # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-      # # fonts?
-      # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-      # # You can also create simple shell scripts directly inside your
-      # # configuration. For example, this adds a command 'my-hello' to your
-      # # environment:
-      # (pkgs.writeShellScriptBin "my-hello" ''
-      #   echo "Hello, ${config.home.username}!"
-      # '')
+          RANGE=()
+          if [ "$#" -ge 4 ]; then
+            RANGE=("-ss" "$4" "-to" "$5")
+          fi
+          
+          ffmpeg "''${RANGE[@]}" -i "$input" -filter_complex  "fps=15,scale=$width:-2,palettegen=stats_mode=full" /tmp/gif_palette.png -y
+          ffmpeg "''${RANGE[@]}" -i "$input" -i /tmp/gif_palette.png -filter_complex "[0]fps=15,scale=$width:-2[scaled];[scaled][1]paletteuse=dither=sierra2_4a" "$output" -y
+        '';
+      })
     ];
 
-    # Home Manager is pretty good at managing dotfiles. The primary way to manage
-    # plain files is through 'home.file'.
     home.file = {
       ".config/nixpkgs/config.nix".text = ''
         { allowUnfree = true; }
@@ -87,16 +82,6 @@
       ".config/lazygit/config.yml".source = ./lazygit/config.yml;
     };
 
-    # You can also manage environment variables but you will have to manually
-    # source
-    #
-    #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-    #
-    # or
-    #
-    #  /etc/profiles/per-user/kuviman/etc/profile.d/hm-session-vars.sh
-    #
-    # if you don't want to manage your shell through Home Manager.
     home.sessionVariables = {
       SHELL = "zsh";
       EDITOR = "nvim";
