@@ -2,6 +2,9 @@
   description = "Kuvi Man nix configs";
 
   inputs = {
+    # for faster nix
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+
     # Nixpkgs
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";

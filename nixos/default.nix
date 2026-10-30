@@ -13,6 +13,7 @@ let
       specialArgs = { inherit inputs hostname system self pkgs-unstable; };
       # > Our main nixos configuration file <
       modules = [
+        inputs.determinate.nixosModules.default
         ./configuration.nix
         config
         {
