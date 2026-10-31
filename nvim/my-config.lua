@@ -422,7 +422,7 @@ vim.keymap.set("n", "gy",
             end
         })
     end,
-    { desc = "Type definition" })
+    { desc = "Go to type definition" })
 vim.keymap.set("n", "<leader>r",
     vim.lsp.buf.rename,
     { desc = "Rename" })
@@ -507,6 +507,17 @@ require "nvim-treesitter".setup {
         },
     },
 }
+
+vim.keymap.set("n", "<M-O>",
+    "van",
+    { desc = "Increment selection" })
+vim.keymap.set("v", "<M-O>",
+    "an",
+    { desc = "Increment selection" })
+vim.keymap.set("v", "<M-I>",
+    "in",
+    { desc = "Decrement selection" })
+
 require "treesitter-context".setup {
     max_lines = 5,
 }
