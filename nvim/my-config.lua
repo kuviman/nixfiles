@@ -1,6 +1,8 @@
 -- require "my-colorscheme".load()
 require "onedark".load()
 
+vim.opt.exrc = true
+
 vim.g.mapleader = " "
 
 if vim.g.neovide then
