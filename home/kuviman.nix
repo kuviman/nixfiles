@@ -27,7 +27,7 @@
       };
       ttv =
         let
-          ttv-bin = inputs.ttv.defaultApp.${system};
+          ttv-bin = inputs.ttv.packages.${system}.default;
           workDir = config.home.homeDirectory + "/.ttv";
         in
         {
@@ -43,7 +43,7 @@
           Service = {
             Type = "simple";
             WorkingDirectory = workDir;
-            ExecStart = "${ttv-bin.program} --server 0.0.0.0:1789";
+            ExecStart = "${ttv-bin}/ttv --server 0.0.0.0:1789";
             Restart = "always";
             RestartSec = "10";
           };
@@ -63,7 +63,7 @@
             caddyfile = pkgs.writeText "Caddyfile" ''
               :1787
               header Cache-Control no-store
-              root * ${inputs.ttv.web}
+              root * ${inputs.ttv.packages.${system}.web}
               file_server
             '';
           in
