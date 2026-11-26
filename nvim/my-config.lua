@@ -781,3 +781,25 @@ vim.keymap.set("v", "if",
     { desc = "Select file under cursor" })
 
 vim.keymap.set("v", "<C-O>", "<ESC><C-O>", { desc = "Go back" })
+
+local show_diagnostics = true
+
+function update_show_diagnostics()
+    vim.diagnostic.config({
+        virtual_text = show_diagnostics,
+        signs = show_diagnostics,
+        underline = show_diagnostics,
+        update_in_insert = show_diagnostics,
+    })
+end
+
+update_show_diagnostics()
+
+function toggle_show_diagnostic()
+    show_diagnostics = not show_diagnostics
+    update_show_diagnostics()
+end
+
+vim.keymap.set("n", "td",
+    toggle_show_diagnostic,
+    { desc = "Toggle show diagnostics" })
