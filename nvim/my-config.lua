@@ -3,6 +3,7 @@ require "onedark".load()
 
 vim.opt.exrc = true
 
+vim.opt.winborder = "rounded"
 vim.g.mapleader = " "
 
 if vim.g.neovide then
